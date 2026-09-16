@@ -14,7 +14,8 @@ Source files: `plan1.md` (commit `4862514`, "ms"), `plan2.md` (commit `d140b58`,
 |---|---|---|
 | **Plan 1** | **70 / 100** | `FILE_ON_X` + `NEED_EVIDENCE` |
 | **Plan 2** | **49 / 100** | `KILL` |
-| Recommended merge (Plan 1 skeleton + Plan 2 grafts, still missing seat generation) | **84 / 100** | `PITCH` as oss skill spec |
+| Plan 1 improved, no PR #8 in-tree | **82 / 100** | Still `NEED_EVIDENCE` on the port |
+| Plan 1 improved + vendored PR #8 | **90 / 100** | Plan-quality ceiling |
 
 Weighted rubric (same 100 points for each plan):
 
