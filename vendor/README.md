@@ -6,7 +6,14 @@ Copy of `kirank55/llmresearch` PR #8 (`pitch-rate`) used as the scoring-rule sou
 
 ## Status
 
-**Not in this repo yet.** `kirank55/llmresearch` is private and not resolvable from the environment that wrote Plan 1 improved. Until the files below exist, `references/rubric.md`, `references/seat-match.md`, and `references/calibration.md` must stay unwritten (`NEED_EVIDENCE`).
+**Populated 2026-09-16.** Copied from `kirank55/llmresearch` PR #8 branch.
+
+- PR: `kirank55/llmresearch#8`
+- Branch: `cursor/pitch-rate-skill-bd8d`
+- Commit SHA: `31fe44df9714f8ee37a370818b59d3ac5cd51486`
+- Date copied: 2026-09-16
+- Source paths: `.pi/skills/pitch-rate/SKILL.md` + `.pi/skills/pitch-rate/references/*.md`
+- Dest: `vendor/pitch-rate/` (flattened copy; no `.pi/` prefix)
 
 ## How to populate (from a machine that can read llmresearch)
 
