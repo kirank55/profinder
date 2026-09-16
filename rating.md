@@ -31,6 +31,8 @@ Weighted rubric (same 100 points for each plan):
 
 Plan 1 loses 26 points for being unbuildable here (no PR #8 patch) and for having no search playbook or seat-generation procedure. Plan 2's 49 is a completeness score dragged down by dual-mode, inlined rubric, and mandatory full-ref load — salvageable pieces are already counted in hunt completeness and implementability.
 
+Plan 1 is not at a ceiling. Same rubric, after the improvements in [Can Plan 1 be improved?](#can-plan-1-be-improved): **70 → 82** without the PR #8 patch in-tree; **70 → 90** if that patch is vendored here. Absorbing Plan 2's verify mode would drop Plan 1 below 55.
+
 ---
 
 ## Verdict
@@ -215,6 +217,57 @@ Totals: **Plan 1 = 70 / 100**, **Plan 2 = 49 / 100**. Point breakdown is in [Sco
 | Self-consistency with PR #7 | Encodes the modes | Commits the modes | Plan 1 |
 | Validation | ntfy + Sparse steelman | ntfy + SymMerge | Plan 2 (narrowly) |
 | Dry-run of **hunt** | Missing | Missing | Neither |
+
+---
+
+## Can Plan 1 be improved?
+
+Yes. The 70 is a gap in the spec, not a property of the architecture. Keep the skeleton (finder-only, procedure-only `SKILL.md`, port-don't-invent, refs on demand). Fill the holes Plan 1 left as one-liners. Do not "improve" it by becoming Plan 2.
+
+### Point recovery (same 100-point rubric)
+
+| Change | Points | Notes |
+|---|---|---|
+| Pin the product: seat hunter, not people-finder | Object hygiene 18 → 20 | Close §3 as a decided assumption; abort if the user meant GitHub/freelancer/professor search. |
+| Vendor the PR #8 patch (Plan 1 claims it was captured) | Implementable 4 → 13 | Biggest single lift. Stop pointing at `C:\Users\kiran\code\p\llmresearch`. Put the patch or a `vendor/pitch-rate/` snapshot in *this* repo. Without that, this row stays at 4. |
+| Write `SKILL.md` steps instead of "invert sections 1–6" | Skill craft 14 → 15 | The inverted flow is already right; write it so a builder does not need PR #8's SKILL.md open. |
+| Graft `search-playbook.md` from Plan 2 | Hunt 6 → 11 | Incumbent extraction: stack nouns, ban slogan queries, ≥5 URL+quote, 404 → `NEED_EVIDENCE`. |
+| Add `seat-generation.md` (neither plan has this) | Hunt 11 → 14 | How vacant seats are *proposed* (protocol gaps, CI scheduler nouns, repo archaeology). Without it, hunt is still a rater with a blank box. |
+| Finder YAML from Plan 2, minus rater `decision` mixing | counted in hunt/craft | Candidate card only. Split `as_company` / `as_oss` / `as_plugin`. No overall `/100`. |
+| Embedded deny **fallback**; ADR 0001 still wins | +0–1 portable | `deny_catalog: embedded_baseline` when ADR 0001 is absent. Do not replace the ADR with a condensed kill list. |
+| Hunt dry-run: generate N seats, expect mostly `FILE_ON_X`/`KILL` | Validation 5 → 9 | Keep ntfy + steelman-ceiling. Fail the plan if hunt emits slogan ideas with no stack noun. |
+| Compose with `pitch-rate`; never ship `verify` | keep PR #7 at 9–10 | Packaging leftover, not a second mode. |
+
+Projected totals:
+
+| Variant | /100 | What changed |
+|---|---|---|
+| Plan 1 as written | 70 | Current. |
+| Plan 1 + playbook + generation + YAML + dry-run + pinned fork, **no** PR #8 in-tree | **82** | Still `NEED_EVIDENCE` on rubric/seat-match port (implementable stays 4/15). |
+| Same + vendored PR #8 / ADR 0001 | **90** | Plan-quality ceiling. Remaining ~10 are empirical (a hunt pass that does not collapse into slogans). |
+| Plan 1 + Plan 2 dual-mode verify | ~52 | Not an improvement. Object hygiene 18→6, PR #7 9→2. Net loss. |
+
+100 is not available from plan edits. Vendoring the patch does not prove the finder works.
+
+### Concrete edits to `plan1.md` (do these; don't rewrite it as Plan 2)
+
+1. **§0 Evidence.** Replace "full patch captured in prior session" with a path in this repo (`vendor/pitch-rate.patch` or copied files). If the patch cannot be added, mark rubric/seat-match/calibration as `NEED_EVIDENCE` and forbid reconstructing them from memory.
+2. **§1 Layout.** Add `references/search-playbook.md` and `references/seat-generation.md`. Do not add a verify mode or extra seat-match labels (`obsolete`, `price_packaging`) until they appear in the vendored patch.
+3. **§2 SKILL.md.** Spell the finder procedure (generate or restate seat → deny check → steelman ceiling → search → seat-match + dual-score → gates → candidate card). Load refs **on demand by step**, not in a mandatory stack. State composition: emit a candidate; if `pitch-rate` is installed, the user rates it there.
+4. **§2 deny-patterns.** Keep collapse modes + ADR 0001 pointer. Add a *short* embedded fallback for closed aisles so the skill is usable in this empty repo. Flag `deny_catalog: incomplete` only when both ADR and fallback are missing — not as the happy path.
+5. **§2 output-template.** Specify the candidate YAML (Plan 2 fields: `candidate_seat`, incumbents with leftover, split verdicts, steelman ceiling, `claim_hygiene`, `file_on`). Do **not** copy Plan 2's rater `decision:` as the hunt object's headline.
+6. **§2 Validate.** Keep ntfy → `FILE_ON_X` and steelman ≤ exact. Add: generate ≥5 seats from `seat-generation.md`, require ≥5 named incumbents each, expect most `FILE_ON_X`/`KILL`. Fail the plan if hunt emits slogan ideas with no stack noun.
+7. **§3 Open decision.** Close it: this skill is a seat hunter. People-finder is a different skill; abort rather than reuse these references.
+
+### What would make Plan 1 worse
+
+- Dual-mode `hunt | verify` (auto-reject 5: add-to-incumbent).
+- Inlining density bands / auto-rejects into `SKILL.md` or into the plan as the working rubric.
+- Mandatory load of every reference, including `search-playbook.md` on a rate request and `calibration.md` before any incumbent exists.
+- Expanding seat-match to six labels without the PR #8 patch.
+- Treating a condensed killed-seats list as ADR 0001.
+
+Those are Plan 2's 21-point deficit. Copying them does not raise 70.
 
 ---
 
