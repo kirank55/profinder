@@ -1,8 +1,35 @@
 # Rating: `plan1.md` vs `plan2.md`
 
-Object rated: two **implementation plans** for a `profinder` Agent Skill, not two company pitches and not Cursor product SKUs. Verdicts use the occupancy language both plans claim to encode (`PITCH | KILL | NEED_EVIDENCE | FILE_ON_X`). No overall `/100`.
+Object rated: two **implementation plans** for a `profinder` Agent Skill, not two company pitches and not Cursor product SKUs.
+
+These `/100` numbers are **plan-quality** (would you execute this spec). They are not occupancy density and must not be copied into the skill as an idea score. Occupancy verdicts stay `PITCH | KILL | NEED_EVIDENCE | FILE_ON_X` with no overall `/100`.
 
 Source files: `plan1.md` (commit `4862514`, "ms"), `plan2.md` (commit `d140b58`, "gf"). This workspace cannot read `kirank55/llmresearch` (GitHub: repository not resolvable), so every claim that depends on PR #8's exact patch is `NEED_EVIDENCE`.
+
+---
+
+## Score /100
+
+| Plan | Score | Occupancy decision |
+|---|---|---|
+| **Plan 1** | **70 / 100** | `FILE_ON_X` + `NEED_EVIDENCE` |
+| **Plan 2** | **49 / 100** | `KILL` |
+| Recommended merge (Plan 1 skeleton + Plan 2 grafts, still missing seat generation) | **84 / 100** | `PITCH` as oss skill spec |
+
+Weighted rubric (same 100 points for each plan):
+
+| Gate | Weight | Plan 1 | Plan 2 |
+|---|---|---|---|
+| One job / object hygiene | 20 | 18 | 6 |
+| Source fidelity (port, don't invent) | 15 | 14 | 7 |
+| Skill craft / progressive disclosure | 15 | 14 | 5 |
+| Implementable in this repo | 15 | 4 | 13 |
+| Hunt-specific completeness | 15 | 6 | 10 |
+| PR #7 self-consistency | 10 | 9 | 2 |
+| Validation / dry-runs | 10 | 5 | 6 |
+| **Total** | **100** | **70** | **49** |
+
+Plan 1 loses 26 points for being unbuildable here (no PR #8 patch) and for having no search playbook or seat-generation procedure. Plan 2's 49 is a completeness score dragged down by dual-mode, inlined rubric, and mandatory full-ref load — salvageable pieces are already counted in hunt completeness and implementability.
 
 ---
 
@@ -10,10 +37,10 @@ Source files: `plan1.md` (commit `4862514`, "ms"), `plan2.md` (commit `d140b58`,
 
 **Execute Plan 1's shape. Do not execute Plan 2 as written.**
 
-| Plan | Decision | Why |
-|---|---|---|
-| **Plan 1** | `FILE_ON_X` + `NEED_EVIDENCE` | Correct complementary job (hunt seats; leave rating to `pitch-rate`). Unbuildable here because the PR #8 patch it wants to port is not in this repo. |
-| **Plan 2** | `KILL` | Dual-mode collapses finder and rater into one object, files verify-mode onto `pitch-rate`, inlines the rubric (score-first), and mandates loading every reference — the failure modes Plan 1 says PR #7 already killed. |
+| Plan | /100 | Decision | Why |
+|---|---|---|---|
+| **Plan 1** | 70 | `FILE_ON_X` + `NEED_EVIDENCE` | Correct complementary job (hunt seats; leave rating to `pitch-rate`). Unbuildable here because the PR #8 patch it wants to port is not in this repo. |
+| **Plan 2** | 49 | `KILL` | Dual-mode collapses finder and rater into one object, files verify-mode onto `pitch-rate`, inlines the rubric (score-first), and mandates loading every reference — the failure modes Plan 1 says PR #7 already killed. |
 
 **v1 to ship:** Plan 1 skeleton (procedure-only `SKILL.md`, finder-only, refs on demand) plus three grafts from Plan 2: `references/search-playbook.md`, an embedded deny-catalog **fallback** (not a replacement for ADR 0001), and the finder fields of Plan 2's YAML card. Drop dual-mode `verify`, drop `decision:` as a rater verdict on hunt output, drop mandatory full-ref load.
 
@@ -172,6 +199,8 @@ Plan 1's own PR #7 list: wrong object, score-first, category collapse, prior-kil
 ---
 
 ## Head-to-head (plan quality, not occupancy)
+
+Totals: **Plan 1 = 70 / 100**, **Plan 2 = 49 / 100**. Point breakdown is in [Score /100](#score-100).
 
 | Gate | Plan 1 | Plan 2 | Winner |
 |---|---|---|---|
