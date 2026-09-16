@@ -1,6 +1,6 @@
 # Output template (finder candidate card)
 
-Headline is a **candidate**, not a rater decision. No overall `/100`. Do not emit a headline rater verdict (that is `pitch-rate`).
+Headline is a **candidate**, not a rater decision. No overall `/100`. Do not emit a headline rater verdict (that belongs to a rater, not the finder).
 
 ```yaml
 candidate_seat: <one-line stack position>
@@ -23,7 +23,7 @@ incumbents:
     seat_match: exact | adjacent_pain | language_scoped | wrong_substrate | obsolete | price_packaging
     leftover: <what is missing if this row is exact>
 
-auto_rejects_fired: []            # ids from vendored rubric.md
+auto_rejects_fired: []            # ids from references/rubric.md
 falsification:
   1_vacant_process: pass | fail
   2_not_a_wrapper: pass | fail
@@ -36,7 +36,7 @@ steelman:
 claim_hygiene: ok | unsourced | implausible
 file_on: <incumbent repo/issue URL, or none>
 deny_catalog: local_adr_0001 | embedded_baseline | incomplete
-pitch_rate: <not_run | compose_next>   # never inlined; reminder only
+rate_next: <not_run | compose_next>   # reminder only: hand a candidate to an idea-rater, never inline a rater verdict
 ```
 
-Seat-match labels match the vendored `seat-match.md` (six labels, per vendor PR #8 -- not four).
+Seat-match labels match `references/seat-match.md` (six labels).

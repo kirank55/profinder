@@ -5,8 +5,8 @@ description: >
   positions, naming incumbents with URL plus quote, and scoring occupancy
   density. Use when asked to find, hunt, or propose product seats. Abort
   if the request is people-search (GitHub profiles, freelancers, professors).
-  Do not use this skill to rate an already-chosen idea when pitch-rate is
-  the requested job.
+  Do not use this skill to rate an already-chosen idea when an idea-rater
+  is the requested job.
 ---
 
 # Profinder
@@ -25,13 +25,13 @@ Propose and document vacant developer-tool / infrastructure seats. Score
 
 ## Procedure
 
-1. **Abort checks.** People-finder (GitHub profiles, freelancers, professors) -> stop; wrong skill, do not reuse these references. Request is "rate this idea / ADR like pitch-rate" -> tell the user to run `pitch-rate`; optionally continue only as restatement of a seat into a candidate card, never as a rater verdict.
+1. **Abort checks.** People-finder (GitHub profiles, freelancers, professors) -> stop; wrong skill, do not reuse these references. Request is "rate this idea / ADR" -> that is a rater job: hand off to an idea-rating skill or workflow; optionally continue only as restatement of a seat into a candidate card, never as a rater verdict.
 
 2. **Choose entry.**
    - User named a seat or pasted an ADR/idea as a seat -> go to step 4 (restate).
    - User asked to find / hunt / propose seats -> load [seat-generation.md](references/seat-generation.md), produce >=5 raw seats, then map steps 3-8 over each.
 
-3. **Deny check.** Load [deny-patterns.md](references/deny-patterns.md). If the target workspace has `docs/adr/0001-no-pitchable-candidate.md`, that file wins (`deny_catalog: local_adr_0001`). Else use the embedded fallback (`deny_catalog: embedded_baseline`). If both missing, `deny_catalog: incomplete` and do not emit an `as_company` keep.
+3. **Deny check.** Load [deny-patterns.md](references/deny-patterns.md). If the target workspace keeps a local deny file, that file wins (`deny_catalog: local_adr_0001`). Else use the embedded fallback (`deny_catalog: embedded_baseline`). If both missing, `deny_catalog: incomplete` and do not emit an `as_company` keep.
 
 4. **Restate.** One-line `candidate_seat`, concrete `v1_as_shipped`, named process or protocol, stack substrate. If this cannot be stated without slogans ("AI developer productivity"), drop the seat.
 
@@ -41,6 +41,6 @@ Propose and document vacant developer-tool / infrastructure seats. Score
 
 7. **Seat-match + dual-score.** Load [seat-match.md](references/seat-match.md) then [rubric.md](references/rubric.md). One label per incumbent; strictest mismatch wins. `problem_density` counts `adjacent_pain`; `exact_mechanics_density` counts `exact` only and must be <= steelman ceiling.
 
-8. **Gates.** Apply auto-rejects and falsification from [rubric.md](references/rubric.md) (the vendored file, not this plan). Load [calibration.md](references/calibration.md) only if needed to break a tie on a boundary case.
+8. **Gates.** Apply auto-rejects and falsification from [rubric.md](references/rubric.md). Load [calibration.md](references/calibration.md) only if needed to break a tie on a boundary case.
 
-9. **Emit** the candidate card from [output-template.md](references/output-template.md). Split `as_company` / `as_oss` / `as_plugin`. Set `file_on` when the honest leftover is a flag, PR, or plugin. Do not emit a headline rater decision (that is `pitch-rate`). Finder disposition is the split verdicts plus `file_on` plus `claim_hygiene`.
+9. **Emit** the candidate card from [output-template.md](references/output-template.md). Split `as_company` / `as_oss` / `as_plugin`. Set `file_on` when the honest leftover is a flag, PR, or plugin. Do not emit a headline rater decision (that belongs to a rater, not the finder). Finder disposition is the split verdicts plus `file_on` plus `claim_hygiene`.

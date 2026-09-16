@@ -17,11 +17,11 @@ If two labels could apply, pick the **strictest mismatch** (prefer `wrong_substr
 
 ## Dual scores
 
-**Problem density** — how many ways already stop the *pain*, including `adjacent_pain`.
+**Problem density** -- how many ways already stop the *pain*, including `adjacent_pain`.
 
-**Exact-mechanics density** — how many products already *are* this daemon / proxy / compiler / CI check / library. Count `exact` only.
+**Exact-mechanics density** -- how many products already *are* this daemon / proxy / compiler / CI check / library. Count `exact` only.
 
-A bundle of three `exact` occupied slices sold as one SKU is **Occupied**, not Sparse. Packaging three occupied tools is not a new seat. That rule killed SymMerge and still holds.
+A bundle of three `exact` occupied slices sold as one SKU is **Occupied**, not Sparse. Packaging three occupied tools is not a new seat.
 
 Architecture alternatives are not `exact`. Durable orchestration that *avoids* choreographed sagas (Temporal, Restate, DBOS) is `adjacent_pain` relative to a Kafka wire-protocol DPOR proxy in CI. It treats the pain. It is not the SKU.
 
@@ -34,7 +34,7 @@ Architecture alternatives are not `exact`. Durable orchestration that *avoids* c
 | Shuttle / Loom (in-process Rust) | Drop-in broker proxy | `language_scoped` |
 | Temporal / Restate / DBOS | CI tester for existing Kafka sagas | `adjacent_pain` |
 | Vitess `MoveTables --tenant-id`, Ghostferry | Vanilla RDS **Postgres** tenant extract | `wrong_substrate` |
-| PG15 `CREATE PUBLICATION … WHERE (tenant_id = …)` | Tenant-filtered logical replication on Postgres | `exact` (for that *slice*) |
+| PG15 `CREATE PUBLICATION ... WHERE (tenant_id = ...)` | Tenant-filtered logical replication on Postgres | `exact` (for that *slice*) |
 | Citus `isolate_tenant_to_new_shard` | Extract a tenant **out of** vanilla RDS | `adjacent_pain` or `wrong_substrate` (Citus cluster, not vanilla RDS) |
 | Azure Split-Merge (classic, ~2015) | 2026 tenant cutover | `obsolete` |
 | Antithesis (expensive hypervisor) | Cheap CI DPOR proxy | `price_packaging` |
