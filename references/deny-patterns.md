@@ -111,6 +111,8 @@ Fuller aisles (same rule -- closed unless a mechanical gap appears): advisory pr
 
 - Hunt 47: Prefix tenant slice extractor to dedicated MinIO bucket (prefix filter plus versioned copy as local CLI); Live per-tenant prefix cutover daemon on MinIO with dual-write plus catchup plus endpoint flip; Per-tenant bucket-policy and versioning parity CI gate across MinIO tenant buckets; Per-tenant ILM retention governor attaching per-tenant lifecycle rules on MinIO tenant buckets; Per-tenant versioned PITR restore daemon restoring single-tenant MinIO prefix from shared versioned bucket; Cross-cluster per-tenant bucket move on MinIO via batch copy plus alias flip
 
+- Hunt 48: Per-service LDAP search-filter firewall proxy (base-DN scope + filter allowlist + attribute allowlist + block) in front of prod LDAP; LDAP StartTLS/LDAPS enforcement gateway (frontend require-TLS + backend verify + cert audit) on prod LDAP; LDAP nested-group memberOf expansion cache proxy (memberof + nestgroup fan-out coalescing) in front of prod LDAP; LDAP search/bind audit-redaction OTel tap (DN + filter + attrs, redact password values) on prod LDAP; LDAP syncrepl/persistent-search fan-out coalescing gateway for prod LDAP consumers; LDAP bind-storm throttle plus password-policy lockout governor proxy (per-client bind rate + failed-bind lockout) on prod LDAP
+
 ## Priors are not a rubric
 
 A previous kill is a deny-list entry, not a scoring template. Do not use closed-aisle leftovers as generation seeds. Re-search **this** seat. Name **this** seat's incumbents. Seat-match those rows.
