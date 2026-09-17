@@ -67,6 +67,8 @@ Fuller aisles (same rule -- closed unless a mechanical gap appears): advisory pr
 
 - Hunt 25: Deno anti-allow-all production interlock refusing `deno run -A` on prod entrypoints; Deno remote-import allowlist enforcer from checked-in policy at `deno run`; Deno `npm:` hermetic gate enforcing JSR-only prod entrypoints via `--no-npm`; Deno `--allow-net` egress host allowlist enforcer per entrypoint with deny carve-outs; Deno `--allow-run` subprocess allowlist interlock per `deno task` forbidding deno and shell spawn; Deno `deno.json` permission-sets scope gate confining prod server to data dir plus named env
 
+- Hunt 26: bun.lock-to-node_modules drift gate as CI required check on Bun (`bun ci` / `--frozen-lockfile`); Bun trustedDependencies postinstall allowlist gate on Bun installs; Bun isolated-linker phantom-dependency enforcement gate on Bun workspaces; bunx ephemeral-run pin interlock refusing unpinned auto-install on Bun prod; bunfig.toml preload plugin allowlist gate on Bun prod entrypoints
+
 ## Priors are not a rubric
 
 A previous kill is a deny-list entry, not a scoring template. Do not use closed-aisle leftovers as generation seeds. Re-search **this** seat. Name **this** seat's incumbents. Seat-match those rows.
