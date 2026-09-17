@@ -77,6 +77,8 @@ Fuller aisles (same rule -- closed unless a mechanical gap appears): advisory pr
 
 - Hunt 30: Tenant-key slice extractor to dedicated ClickHouse table (tenant_id filter + schema clone); Live per-tenant table cutover daemon on ClickHouse (dual-write plus catchup plus EXCHANGE flip); Per-tenant ClickHouse DDL and schema parity CI gate across tenant tables; Per-tenant TTL retention governor attaching per-tenant lifecycle policies on ClickHouse tables; Per-tenant snapshot PITR restore daemon restoring single-tenant ClickHouse tables from shared backup; Cross-cluster per-tenant table move on ClickHouse via filtered copy plus alias flip
 
+- Hunt 31: Per-service key-prefix allowlist firewall proxy in front of prod etcd gRPC; Deterministic etcd gRPC fault-injection proxy for CI (error at revision offsets); etcd watch fan-out coalescing gateway for prod etcd gRPC; etcd lease TTL-ceiling plus keepalive-audit governor proxy on prod etcd; etcd revision-staleness read router (linearizable versus serializable gate) on prod etcd
+
 ## Priors are not a rubric
 
 A previous kill is a deny-list entry, not a scoring template. Do not use closed-aisle leftovers as generation seeds. Re-search **this** seat. Name **this** seat's incumbents. Seat-match those rows.
