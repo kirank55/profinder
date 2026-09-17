@@ -107,6 +107,8 @@ Fuller aisles (same rule -- closed unless a mechanical gap appears): advisory pr
 
 - Hunt 45: Per-service XDP destination allowlist firewall daemon from checked-in policy on Linux; XDP/TC deterministic packet fault-injection harness for CI with per-5-tuple scenario file on Linux; XDP per-source token-bucket rate-limit plus SYN-flood throttle daemon on Linux; TC egress bandwidth-cap plus latency-injection daemon per destination port for dev/CI perf budgets on Linux; XDP redacted flow audit OTel tap exporting 5-tuple plus bytes and verdict without payload on Linux; XDP DNS QNAME denylist filter daemon dropping disallowed domains at driver layer on Linux
 
+- Hunt 46: supervisord exitcode plus autorestart unexpected-policy gate across [program:x] on supervisord box; supervisord graceful-shutdown verifier over stopsignal plus stopwaitsecs plus stopasgroup on supervisord box; supervisord PROCESS_STATE event-listener OTel exporter on supervisord box; supervisord inet plus unix HTTP XML-RPC exposure plus auth audit gate on supervisord box; supervisord conf.d-to-running drift gate over reread plus update on supervisord box; supervisord priority ordered-start plus readiness wait orchestrator across [program:x] on supervisord box
+
 ## Priors are not a rubric
 
 A previous kill is a deny-list entry, not a scoring template. Do not use closed-aisle leftovers as generation seeds. Re-search **this** seat. Name **this** seat's incumbents. Seat-match those rows.
