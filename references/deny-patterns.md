@@ -121,6 +121,8 @@ Fuller aisles (same rule -- closed unless a mechanical gap appears): advisory pr
 
 - Hunt 52: QUIC 0-RTT anti-replay idempotency gate proxy in front of terminated QUIC/HTTP3; QUIC connection-ID migration-sticky edge router proxy on terminated QUIC/HTTP3; HTTP/3 QPACK redacted access-log plus QLOG OTel tap on terminated QUIC/HTTP3; QUIC Retry address-validation storm throttle proxy on terminated QUIC/HTTP3; Deterministic QUIC packet fault-injection proxy for CI on terminated QUIC/HTTP3
 
+- Hunt 53: Tenant-subspace slice extractor to dedicated FoundationDB tenant (prefix filter + versioned copy as local CLI); Live per-tenant subspace cutover daemon on FoundationDB with dual-write plus versionstamp catchup plus tenant switch; Per-tenant Tenant Management plus schema-template parity CI gate across FoundationDB tenants; Per-tenant backup PITR restore daemon restoring single-tenant FoundationDB tenant from shared fdbbackup; Cross-cluster per-tenant tenant move on FoundationDB via fdbbackup plus fdbdr plus tenant flip; Per-tenant Record Layer record-store clone governor (template-pinned tenant clone as local CLI)
+
 ## Priors are not a rubric
 
 A previous kill is a deny-list entry, not a scoring template. Do not use closed-aisle leftovers as generation seeds. Re-search **this** seat. Name **this** seat's incumbents. Seat-match those rows.
