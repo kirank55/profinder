@@ -32,3 +32,6 @@ Fuller aisles (same rule -- closed unless a mechanical gap appears): advisory pr
 ## Priors are not a rubric
 
 A previous kill is a deny-list entry, not a scoring template. Do not use closed-aisle leftovers as generation seeds. Re-search **this** seat. Name **this** seat's incumbents. Seat-match those rows.
+
+Closed Occupied aisles from this hunt loop (see `.docs/killed-seats.md` for one-line seats):
+- Hunt 6: NATS JetStream packaging (overlap lint, DLQ replay, S3 backup, schema gateway, surveyor lag reaper)
