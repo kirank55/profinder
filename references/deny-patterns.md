@@ -39,6 +39,8 @@ Fuller aisles (same rule -- closed unless a mechanical gap appears): advisory pr
 
 - Hunt 11: JVM Maven/Gradle packaging (shade transformers, jdeps internals, config cache, jlink, APT isolation, dependency verification)
 
+- Hunt 12: Envoy HTTP/gRPC filters (fault, proto scrubber, jwt_authn, router retry, rate limit)
+
 ## Priors are not a rubric
 
 A previous kill is a deny-list entry, not a scoring template. Do not use closed-aisle leftovers as generation seeds. Re-search **this** seat. Name **this** seat's incumbents. Seat-match those rows.
