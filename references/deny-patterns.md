@@ -49,6 +49,8 @@ Fuller aisles (same rule -- closed unless a mechanical gap appears): advisory pr
 
 - Hunt 16: MongoDB wire packaging (RBAC firewall, maxTimeMS/killOp, Envoy mongo fault, maxStaleness, audit redaction, requireTLS)
 
+- Hunt 17: flake.lock-to-store drift gate as CI required check on Nix flakes lockfile; flake.lock SBOM/SLSA attestor emitting signed CycloneDX at `nix build`; Nix closure bloat plus duplicate-input CI gate over flake.lock closure; Shared Nix store artifact-cache orchestrator with per-derivation hit ledger on Linux CI; Offline airgap flake input mirror daemon serving locked inputs on isolated nets; Flake input follows and duplicate-nixpkgs pin lint gate in CI
+
 ## Priors are not a rubric
 
 A previous kill is a deny-list entry, not a scoring template. Do not use closed-aisle leftovers as generation seeds. Re-search **this** seat. Name **this** seat's incumbents. Seat-match those rows.
