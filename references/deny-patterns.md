@@ -81,6 +81,8 @@ Fuller aisles (same rule -- closed unless a mechanical gap appears): advisory pr
 
 - Hunt 32: launchd KeepAlive crash-loop circuit breaker daemon (ThrottleInterval backoff + auto-disable + alert) on macOS developer laptops; launchd StandardOutPath log rotation governor (size caps + rotation + reload) for user agents on macOS developer laptops; launchd plist correctness linter plus fixer for deprecated keys on macOS developer laptops; launchd Sockets-activation migration helper (port spec to Sockets dict + launchctl verify) on macOS developer laptops; launchd LimitLoadToSessionType Aqua-versus-Background misplacement guard on macOS developer laptops; launchd per-agent resource-policy enforcer (ProcessType + Nice + LowPriorityIO from checked-in policy) on macOS developer laptops
 
+- Hunt 33: Consul KV CAS check-and-set serializer proxy with bounded retry on prod Consul KV; Consul DNS SRV blocking-query fan-out coalescing gateway on prod Consul; Consul prepared-query name-allowlist plus datacenter-failover firewall proxy on prod Consul; Consul session lock-delay plus TTL-ceiling audit governor proxy on prod Consul; Consul Connect intentions handshake plus match-order audit gateway on prod Consul; Consul blocking-query consistency router with stale-consistent gate on prod Consul
+
 ## Priors are not a rubric
 
 A previous kill is a deny-list entry, not a scoring template. Do not use closed-aisle leftovers as generation seeds. Re-search **this** seat. Name **this** seat's incumbents. Seat-match those rows.
