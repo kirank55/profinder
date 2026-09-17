@@ -113,6 +113,8 @@ Fuller aisles (same rule -- closed unless a mechanical gap appears): advisory pr
 
 - Hunt 48: Per-service LDAP search-filter firewall proxy (base-DN scope + filter allowlist + attribute allowlist + block) in front of prod LDAP; LDAP StartTLS/LDAPS enforcement gateway (frontend require-TLS + backend verify + cert audit) on prod LDAP; LDAP nested-group memberOf expansion cache proxy (memberof + nestgroup fan-out coalescing) in front of prod LDAP; LDAP search/bind audit-redaction OTel tap (DN + filter + attrs, redact password values) on prod LDAP; LDAP syncrepl/persistent-search fan-out coalescing gateway for prod LDAP consumers; LDAP bind-storm throttle plus password-policy lockout governor proxy (per-client bind rate + failed-bind lockout) on prod LDAP
 
+- Hunt 49: cabal.project.freeze-to-store drift gate as CI required check on Haskell Cabal/Stack prod; cabal freeze plus stack lock SBOM attestor emitting signed CycloneDX at build on Haskell Cabal/Stack; GHC closure bloat plus duplicate-package CI gate over freeze closure on Haskell Cabal/Stack; Shared Cabal store plus Stack work artifact-cache orchestrator with per-package hit ledger on Linux CI; Offline airgap Hackage mirror daemon serving locked inputs on isolated nets for Haskell Cabal/Stack; GHC toolchain pin exec interlock refusing wrong ghc on checked-in pin for Haskell Cabal/Stack
+
 ## Priors are not a rubric
 
 A previous kill is a deny-list entry, not a scoring template. Do not use closed-aisle leftovers as generation seeds. Re-search **this** seat. Name **this** seat's incumbents. Seat-match those rows.
