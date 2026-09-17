@@ -47,6 +47,8 @@ Fuller aisles (same rule -- closed unless a mechanical gap appears): advisory pr
 
 - Hunt 15: Elasticsearch tenancy packaging (aliases, CCR, ILM, templates, snapshots, reindex)
 
+- Hunt 16: MongoDB wire packaging (RBAC firewall, maxTimeMS/killOp, Envoy mongo fault, maxStaleness, audit redaction, requireTLS)
+
 ## Priors are not a rubric
 
 A previous kill is a deny-list entry, not a scoring template. Do not use closed-aisle leftovers as generation seeds. Re-search **this** seat. Name **this** seat's incumbents. Seat-match those rows.
