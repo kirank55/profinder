@@ -87,6 +87,8 @@ Fuller aisles (same rule -- closed unless a mechanical gap appears): advisory pr
 
 - Hunt 35: mix.lock-to-deps drift gate as CI required check on Elixir mix+Hex; mix.lock SBOM/SLSA attestor emitting signed CycloneDX at mix compile on Elixir mix+Hex; Hex closure bloat plus duplicate-package CI gate over mix.lock on Elixir mix+Hex; Shared Mix/Hex build artifact-cache orchestrator with per-package hit ledger on Linux CI; Offline airgap Hex mirror daemon serving registry plus tarballs on isolated nets; Elixir plus Erlang toolchain pin exec interlock refusing wrong runtime on .tool-versions plus mix
 
+- Hunt 36: Celery canvas chord stall detector (chord_unlock lag plus header-failure attribution) on Celery plus RabbitMQ; Celery beat double-fire guard (distributed lock plus due-task dedup) on Celery beat plus Redis; RQ DeferredJobRegistry dependency-orphan auditor (stuck-deferred TTL plus requeue) on RQ plus Redis; SQS visibility-heartbeat extender for Celery-SQS long tasks (ChangeMessageVisibility daemon thread) on Celery plus SQS; Celery worker prefetch head-of-line inspector (prefetch multiplier plus acks-late audit) on Celery plus RabbitMQ; RQ pause-drain cutover gate (rq suspend with duration plus burst drain plus resume) on RQ plus Redis
+
 ## Priors are not a rubric
 
 A previous kill is a deny-list entry, not a scoring template. Do not use closed-aisle leftovers as generation seeds. Re-search **this** seat. Name **this** seat's incumbents. Seat-match those rows.
