@@ -55,6 +55,8 @@ Fuller aisles (same rule -- closed unless a mechanical gap appears): advisory pr
 
 - Hunt 19: Pulsar bundle-ownership rebalance planner (split + unload dry-run) on prod Pulsar; Pulsar geo-replication backlog and replicated-subscription drift governor on prod Pulsar; Pulsar tiered-storage offload plus ledger-orphan auditor on prod Pulsar; Pulsar broker-deduplication gap plus transaction pending-ack reaper on prod Pulsar; Pulsar Key_Shared hash-range skew balancer on prod Pulsar; Pulsar namespace backlog-quota plus retention policy-as-code gate on prod Pulsar
 
+- Hunt 20: Partition-key tenant slice extractor to dedicated keyspace on prod Cassandra CQL; Live per-tenant keyspace cutover daemon on prod Cassandra CQL with dual-write plus CDC catchup; Per-tenant keyspace schema parity CI gate across Cassandra keyspaces; Per-tenant tombstone plus gc_grace retention governor on prod Cassandra; Per-tenant snapshot PITR restore daemon on prod Cassandra keyspaces
+
 ## Priors are not a rubric
 
 A previous kill is a deny-list entry, not a scoring template. Do not use closed-aisle leftovers as generation seeds. Re-search **this** seat. Name **this** seat's incumbents. Seat-match those rows.
