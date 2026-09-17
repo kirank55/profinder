@@ -43,6 +43,8 @@ Fuller aisles (same rule -- closed unless a mechanical gap appears): advisory pr
 
 - Hunt 13: SQLite tenancy packaging (Atlas per-tenant, sqldiff, Litestream PITR, sqlite-utils extract/merge)
 
+- Hunt 14: MQTT broker packaging (mosquitto ACL/retained, HiveMQ bridge, EMQX rate-limit/LWT/inflight)
+
 ## Priors are not a rubric
 
 A previous kill is a deny-list entry, not a scoring template. Do not use closed-aisle leftovers as generation seeds. Re-search **this** seat. Name **this** seat's incumbents. Seat-match those rows.
