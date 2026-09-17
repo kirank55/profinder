@@ -33,6 +33,8 @@ Fuller aisles (same rule -- closed unless a mechanical gap appears): advisory pr
 
 - Hunt 8: MySQL protocol packaging (ProxySQL firewall, GTID causal router, stmt pool, MaxScale TLS, Percona audit tap, runaway throttle)
 
+- Hunt 9: Go toolchain packaging (Athens airgap, setup-go cache, cyclonedx-gomod, toolchain pin, gosec unsafe, go-size-analyzer bloat). as_oss Sparse on gobloat is not a company keep.
+
 ## Priors are not a rubric
 
 A previous kill is a deny-list entry, not a scoring template. Do not use closed-aisle leftovers as generation seeds. Re-search **this** seat. Name **this** seat's incumbents. Seat-match those rows.
