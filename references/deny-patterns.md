@@ -99,6 +99,8 @@ Fuller aisles (same rule -- closed unless a mechanical gap appears): advisory pr
 
 - Hunt 41: OpenResty lua_code_cache prod interlock refusing lua_code_cache off in prod; OpenResty lua_package_path plus lua_package_cpath allowlist gate from checked-in policy; LuaRocks plus OPM lock-to-installed drift gate as CI required check on OpenResty; OpenResty privileged-phase allowlist gate over init_by_lua plus set_by_lua from checked-in policy; LuaJIT FFI cdef plus ffi.load allowlist gate per OpenResty service from sha-pinned policy; OpenResty plus LuaJIT version pin exec interlock refusing wrong openresty -V on checked-in pin
 
+- Hunt 42: buf.lock-to-generated drift gate as CI required check on buf/Protobuf; buf breaking plus lint enforcement gate as CI required check on buf/Protobuf; Protobuf descriptor closure bloat plus duplicate-package CI gate over buf.lock closure on buf/Protobuf; Shared buf generate artifact-cache orchestrator with per-module hit ledger on Linux CI; Offline airgap buf registry mirror daemon serving locked modules on isolated nets
+
 ## Priors are not a rubric
 
 A previous kill is a deny-list entry, not a scoring template. Do not use closed-aisle leftovers as generation seeds. Re-search **this** seat. Name **this** seat's incumbents. Seat-match those rows.
