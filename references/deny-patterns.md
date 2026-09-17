@@ -97,6 +97,8 @@ Fuller aisles (same rule -- closed unless a mechanical gap appears): advisory pr
 
 - Hunt 40: Per-service envelope-sender allowlist firewall proxy in front of prod SMTP MTA; Deterministic SMTP fault-injection proxy for CI on prod SMTP MTA protocol; Envelope redacted audit OTel tap on prod SMTP MTA; Deferred-queue lag exporter plus stuck-queue reaper daemon on prod SMTP MTA; STARTTLS plus upstream-TLS enforcement gate on prod SMTP MTA; Per-domain outbound rate-limit throttle proxy on prod SMTP MTA
 
+- Hunt 41: OpenResty lua_code_cache prod interlock refusing lua_code_cache off in prod; OpenResty lua_package_path plus lua_package_cpath allowlist gate from checked-in policy; LuaRocks plus OPM lock-to-installed drift gate as CI required check on OpenResty; OpenResty privileged-phase allowlist gate over init_by_lua plus set_by_lua from checked-in policy; LuaJIT FFI cdef plus ffi.load allowlist gate per OpenResty service from sha-pinned policy; OpenResty plus LuaJIT version pin exec interlock refusing wrong openresty -V on checked-in pin
+
 ## Priors are not a rubric
 
 A previous kill is a deny-list entry, not a scoring template. Do not use closed-aisle leftovers as generation seeds. Re-search **this** seat. Name **this** seat's incumbents. Seat-match those rows.
