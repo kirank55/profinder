@@ -91,6 +91,8 @@ Fuller aisles (same rule -- closed unless a mechanical gap appears): advisory pr
 
 - Hunt 37: Per-service CONNECT destination allowlist firewall (dstdomain plus port allowlist plus user scope plus block) on Squid forward proxy; CONNECT-aware deterministic fault-injection proxy for CI (407 plus 502 plus tunnel-delay at CONNECT offsets) on Squid egress; CONNECT-tunnel redacted audit OTel tap (CONNECT host plus port plus bytes, no payload) on Squid; Parent-proxy latency-aware egress router (peer RTT plus dead-peer plus selection) on Squid cache_peer mesh; CONNECT plus upstream-TLS enforcement gate (frontend require plus backend verify plus cert audit) on Squid
 
+- Hunt 38: MODULE.bazel.lock-to-fetch drift gate as CI required check on Bazel Bzlmod; MODULE.bazel.lock SBOM/SLSA attestor emitting signed CycloneDX at bazel build; Shared Bazel action-cache orchestrator with per-target hit ledger on Linux CI; Offline airgap Bazel registry mirror daemon serving locked Bzlmod modules on isolated nets; Bazel toolchain pin exec interlock refusing wrong bazel version on .bazelversion plus MODULE.bazel.lock; Bazel module closure bloat plus duplicate-module CI gate over MODULE.bazel.lock
+
 ## Priors are not a rubric
 
 A previous kill is a deny-list entry, not a scoring template. Do not use closed-aisle leftovers as generation seeds. Re-search **this** seat. Name **this** seat's incumbents. Seat-match those rows.
