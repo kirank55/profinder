@@ -2,7 +2,7 @@
 
 Read this before the first 0-10 score in a session. Each case is: claim -> correct labels -> disposition -> mistake to avoid.
 
-Do not copy these dispositions onto a **new** seat. Copy the **labeling discipline**. If the restated v1 *is* a keep-gate worked false keep (tenant-slice orchestrator SKU; Landlock loopback-only test gate), apply that case's disposition; do not re-keep it as Sparse because leftover prose is strong.
+Do not copy these dispositions onto a **new** seat. Copy the **labeling discipline**. If the restated v1 *is* a keep-gate worked false keep (tenant-slice orchestrator SKU; Landlock loopback-only test gate; Kafkatrap coordinator-injection proxy; PgLSN Gateway), apply that case's disposition; do not re-keep it as Sparse because leftover prose is strong.
 
 ## Occupied bundle sold as one SKU
 
@@ -45,6 +45,26 @@ Do not copy these dispositions onto a **new** seat. Copy the **labeling discipli
 **Disposition:** `file_on` landrun or bubblewrap. `as_company` Occupied. Do not keep Sparse by labeling landrun `adjacent_pain` for missing error-message UX.
 
 **Mistake to avoid:** Treating `unshare -n` as "loopback is impossible." Omitting bubblewrap/firejail from the table. Using Landlock as the network isolation story without fetching the ABI page.
+
+### Kafkatrap (coordinator-frame injection proxy in CI)
+
+**Claim:** Sparse 2.5. Deterministic Kafka wire-protocol proxy that injects `JoinGroup` / `SyncGroup` / `Heartbeat` / `OffsetCommit` frames at record offsets in CI. Toxiproxy is frame-blind; Testcontainers is container lifecycle; Antithesis is a hypervisor.
+
+**Correct:** Occupied leftover. Kroxylicious is `exact` for a Kafka protocol proxy (calibration already says this). Filter interfaces exist per API key (`JoinGroupRequestFilter`, `HeartbeatRequestFilter`). `shortCircuitResponse` / `errorResponse(ApiException)` returns a protocol-valid coordinator error without forwarding. Kroxylicious also rewrites advertised broker addresses in `Metadata` / `FindCoordinator`. kfake `ControlKey` injects API-key-specific responses in-process for CI. grepplabs/kafka-proxy rewrites Metadata / FindCoordinator. The only named leftover (offset-triggered rules + local HTTP control API) is test-runner UX: auto-reject 5. `1_vacant_process` may not pass while an `exact` Kroxylicious row sits on the card. `as_plugin` Occupied plus `file_on: none` is a card fail (G3/G8).
+
+**Disposition:** `file_on` Kroxylicious Filter API (or kfake `ControlKey`). `as_company` Occupied. `as_oss` may still be Sparse for a bounded filter/harness.
+
+**Mistake to avoid:** Keeping Sparse because Kroxylicious is "an enterprise gateway, not a lightweight CI daemon." That is packaging, not a vacant process. Citing the GitHub README while omitting the Filter API. Stitching quotes. Scoring `as_oss` Greenfield (illegal band 1.5) *below* `as_company` Sparse.
+
+### PgLSN Gateway (session LSN read-your-writes PgWire SaaS)
+
+**Claim:** Sparse 2.5. Managed PgWire proxy that captures `pg_current_wal_lsn()` on commit and routes later reads to replicas whose `pg_last_wal_replay_lsn()` is caught up, else primary, on AWS RDS / Aurora Postgres. RDS Proxy does not split reads/writes; Pgpool only has `delay_threshold`.
+
+**Correct:** Occupied **bundle**. Slices: PgWire pooler (PgCat, Pgpool-II, PgDog, ProxySQL PostgreSQL, RDS Proxy) · session stickiness after a write (Pgpool-II `disable_load_balance_on_write` = `always` / `transaction` **on the load-balancing page the hunt already cites**) · host-native read-your-writes on Aurora (`apg_write_forward.consistency_mode=SESSION`) · commercial no-stale-read R/W-split SaaS (Heimdall table timestamps + replica lag) · cluster LSN lag (PgDog `ban_replica_lag`). The per-session LSN cookie leftover is go-pgrouter `pg_min_lsn` (`language_scoped`) and auto-reject 5 / `file_on` the pooler. ProxySQL is not MySQL-only. `as_plugin` Occupied plus `file_on: none` is a card fail.
+
+**Disposition:** `file_on` / `drop` as a company. `as_oss` may still be Sparse for an LSN cookie on an existing pooler.
+
+**Mistake to avoid:** Keeping the bundle Sparse because no single logo sells "LSN cookie + managed SaaS." Citing Pgpool load-balancing docs without `disable_load_balance_on_write`. Naming Aurora in a comment and omitting `SESSION` write-forwarding as a row. Invented quotes on RDS Proxy / PgCat / Prisma.
 
 ## Claim-kill, seat not auto-Occupied
 
