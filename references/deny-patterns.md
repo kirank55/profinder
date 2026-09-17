@@ -37,6 +37,8 @@ Fuller aisles (same rule -- closed unless a mechanical gap appears): advisory pr
 
 - Hunt 10: CPython/pip/uv packaging (auditwheel, uv sync lock drift, free-threading docs, cibuildwheel repro, pipdeptree bloat)
 
+- Hunt 11: JVM Maven/Gradle packaging (shade transformers, jdeps internals, config cache, jlink, APT isolation, dependency verification)
+
 ## Priors are not a rubric
 
 A previous kill is a deny-list entry, not a scoring template. Do not use closed-aisle leftovers as generation seeds. Re-search **this** seat. Name **this** seat's incumbents. Seat-match those rows.
