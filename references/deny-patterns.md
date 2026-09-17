@@ -123,6 +123,8 @@ Fuller aisles (same rule -- closed unless a mechanical gap appears): advisory pr
 
 - Hunt 53: Tenant-subspace slice extractor to dedicated FoundationDB tenant (prefix filter + versioned copy as local CLI); Live per-tenant subspace cutover daemon on FoundationDB with dual-write plus versionstamp catchup plus tenant switch; Per-tenant Tenant Management plus schema-template parity CI gate across FoundationDB tenants; Per-tenant backup PITR restore daemon restoring single-tenant FoundationDB tenant from shared fdbbackup; Cross-cluster per-tenant tenant move on FoundationDB via fdbbackup plus fdbdr plus tenant flip; Per-tenant Record Layer record-store clone governor (template-pinned tenant clone as local CLI)
 
+- Hunt 54: dune.lock-to-switch drift gate as CI required check on OCaml Dune; dune.lock plus opam SBOM attestor emitting signed CycloneDX at dune build; Dune closure bloat plus duplicate-package CI gate over dune.lock; Shared Dune build artifact-cache orchestrator with per-package hit ledger on Linux CI; Offline airgap opam plus Dune lock mirror daemon serving locked inputs on isolated nets; OCaml toolchain pin exec interlock refusing wrong compiler on checked-in Dune pin
+
 ## Priors are not a rubric
 
 A previous kill is a deny-list entry, not a scoring template. Do not use closed-aisle leftovers as generation seeds. Re-search **this** seat. Name **this** seat's incumbents. Seat-match those rows.
