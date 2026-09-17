@@ -83,6 +83,8 @@ Fuller aisles (same rule -- closed unless a mechanical gap appears): advisory pr
 
 - Hunt 33: Consul KV CAS check-and-set serializer proxy with bounded retry on prod Consul KV; Consul DNS SRV blocking-query fan-out coalescing gateway on prod Consul; Consul prepared-query name-allowlist plus datacenter-failover firewall proxy on prod Consul; Consul session lock-delay plus TTL-ceiling audit governor proxy on prod Consul; Consul Connect intentions handshake plus match-order audit gateway on prod Consul; Consul blocking-query consistency router with stale-consistent gate on prod Consul
 
+- Hunt 34: JVM version pin exec interlock refusing wrong `java` on checked-in `.java-version` / `.sdkmanrc` / toolchain file; JAVA_TOOL_OPTIONS / JDK_JAVA_OPTIONS flag allowlist gate stripping debug/agent smuggling at `java` launch; -javaagent allowlist interlock per `java` launch from sha256-pinned policy; JPMS --add-opens / --add-exports encapsulation-break allowlist gate at `java` launch; JNI native-library path allowlist gate on `java.library.path` plus loadLibrary targets
+
 ## Priors are not a rubric
 
 A previous kill is a deny-list entry, not a scoring template. Do not use closed-aisle leftovers as generation seeds. Re-search **this** seat. Name **this** seat's incumbents. Seat-match those rows.
