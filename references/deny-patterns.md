@@ -85,6 +85,8 @@ Fuller aisles (same rule -- closed unless a mechanical gap appears): advisory pr
 
 - Hunt 34: JVM version pin exec interlock refusing wrong `java` on checked-in `.java-version` / `.sdkmanrc` / toolchain file; JAVA_TOOL_OPTIONS / JDK_JAVA_OPTIONS flag allowlist gate stripping debug/agent smuggling at `java` launch; -javaagent allowlist interlock per `java` launch from sha256-pinned policy; JPMS --add-opens / --add-exports encapsulation-break allowlist gate at `java` launch; JNI native-library path allowlist gate on `java.library.path` plus loadLibrary targets
 
+- Hunt 35: mix.lock-to-deps drift gate as CI required check on Elixir mix+Hex; mix.lock SBOM/SLSA attestor emitting signed CycloneDX at mix compile on Elixir mix+Hex; Hex closure bloat plus duplicate-package CI gate over mix.lock on Elixir mix+Hex; Shared Mix/Hex build artifact-cache orchestrator with per-package hit ledger on Linux CI; Offline airgap Hex mirror daemon serving registry plus tarballs on isolated nets; Elixir plus Erlang toolchain pin exec interlock refusing wrong runtime on .tool-versions plus mix
+
 ## Priors are not a rubric
 
 A previous kill is a deny-list entry, not a scoring template. Do not use closed-aisle leftovers as generation seeds. Re-search **this** seat. Name **this** seat's incumbents. Seat-match those rows.
