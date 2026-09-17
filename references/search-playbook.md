@@ -33,8 +33,6 @@ DMS) without class 1-2 is a keep-gate G2 fail.
    "tenant extract", "loopback", "diagnostics" on the CLI from class 2. A filed
    issue **is** occupancy for auto-reject 5.
 
-Per-substrate starters (add seat-specific nouns; do not treat as exhaustive):
-
 | Substrate | Class 1-2 starters (always query) |
 | --- | --- |
 | Schema / tenancy cutover | `CREATE PUBLICATION WHERE`, DMS source filters, `pgcopydb`, `pg_easy_replicate`, pglogical, logical replication switchover |
@@ -43,6 +41,7 @@ Per-substrate starters (add seat-specific nouns; do not treat as exhaustive):
 | Process supervisor / daemon | silo, systemd, ntfy, supervisord |
 | Compiler / lockfile | host native lockfile (`*.lock.hcl`, lock.json) before any sidecar |
 | CI / merge queue | GitHub Actions `cancel-in-progress`, `merge_group` event, systemd `CPUQuota`/`MemoryMax`, `npm ci` lock mismatch, Trunk parallel queues / flaky quarantine, harden-runner egress, merge queue SKU, syntax-aware merge, TIA, conflict bot as **separate** slices. These class 1–2 hits are Occupied hosts, not Sparse leftovers. |
+| Wire proxy / protocol gate | Redis ACL (`+@all -@dangerous`), Envoy Redis proxy (`downstream_auth_password`, Delay/Error faults, `ReadPolicy`, prefix routes), Redis `MIGRATE` / RedisShake, Redis `WAIT` / `min-replicas-to-write`, `MONITOR` / Redis Software audit. These class 1–2 hits are Occupied hosts, not Sparse leftovers. Kafka class 1–2 remains Kroxylicious Filter API / kfake, not a new CI daemon. |
 
 ## Extraction rules
 

@@ -46,6 +46,16 @@ Do not copy these dispositions onto a **new** seat. Copy the **labeling discipli
 
 **Mistake to avoid:** Staying in host-runtime enforcement because "Volta isn't listed next to Kroxylicious in SKILL.md." Citing GitHub blob READMEs with paraphrased isolation sentences. Socket.dev 403/`NEED_EVIDENCE` rows on a keep.
 
+### Redis RESP sidecar packaging (ACL, faults, prefix migrate, audit, lag router)
+
+**Claim:** Company SKUs in front of vanilla Redis: ACL-bridging command firewall for legacy AUTH; per-command DELAY/ERROR fault proxy for CI; key-prefix dual-write live migration; command+key audit tap with value redaction + OTel; replica-lag-aware read router.
+
+**Correct:** Occupied hosts. Redis ACL (`+@all -@dangerous`) is `exact` for command firewall. Envoy Redis filter Delay/Error faults (including per-command `GET`) are `exact` for RESP-aware chaos. `MIGRATE` + RedisShake occupy prefix live sync; Envoy prefix routes occupy the proxy slice. `MONITOR` and Redis Software audit occupy command+key logging; value redaction already ships. Envoy `ReadPolicy` + Redis `WAIT` / `min-replicas-to-write` occupy lag-aware routing. Conjunction v1 is the same Occupied-bundle mistake as tenant-slice cutover.
+
+**Disposition:** `file_on` Redis ACL, Envoy redis_proxy, or RedisShake. `as_company` Occupied.
+
+**Mistake to avoid:** Treating "legacy-client mapping" or "OTel export" as vacancy on an `exact` primitive. Scoring `Occupied 6.5` as if half-points were a keep-shaped leftover.
+
 ### Tenant-slice cutover orchestrator (filter + FK walk + switchover as one SaaS)
 
 **Claim:** Sparse 3.0. Vanilla RDS/Aurora tenant extract: row-filtered `pgoutput` slots, foreign-key traversal, WAL catchup, sub-second pool drain.
