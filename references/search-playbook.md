@@ -36,7 +36,7 @@ DMS) without class 1-2 is a keep-gate G2 fail.
 | Substrate | Class 1-2 starters (always query) |
 | --- | --- |
 | Schema / tenancy cutover | `CREATE PUBLICATION WHERE`, DMS source filters, `pgcopydb`, `pg_easy_replicate`, pglogical, logical replication switchover |
-| Kernel / eBPF / LSM | landrun, bubblewrap, firejail, nsjail, Landlock ABI port vs IP, `unshare --net` |
+| Kernel / eBPF / LSM | landrun, bubblewrap, firejail, nsjail, Landlock ABI port vs IP, `unshare --net`. Non-netns class 1–2: cgroup v2 freezer/`cpu.max`/`io.max` + systemd-run/`CPUQuota`, fanotify `FAN_OPEN_EXEC_PERM` + fapolicyd, AppArmor/BPF LSM, `SystemCallFilter=` / seccomp `io_uring`, sched_ext `scx_layered`, Tetragon/Tracee/Falco. These are Occupied hosts, not Sparse leftovers. |
 | Host runtime enforcement | same as LSM row, plus systemd `PrivateNetwork`, PATH shims the host consults, npm `ignore-scripts` / `prefix`, lavamoat `allow-scripts` (+ `--experimental-bins`), Volta/fnm `engines.node` shims, Node `NODE_OPTIONS` precedence. These class 1–2 hits are Occupied hosts, not Sparse leftovers. |
 | Process supervisor / daemon | silo, systemd, ntfy, supervisord |
 | Compiler / lockfile | host native lockfile (`*.lock.hcl`, lock.json, `Cargo.lock`) before any sidecar. rustc+cargo class 1–2: sccache / rust-cache, cargo-auditable / cargo-cyclonedx / `-Z sbom`, cargo-deny bans, cargo-bloat, cargo-geiger, `cargo vendor` / source replacement. These are Occupied hosts, not Sparse leftovers. |

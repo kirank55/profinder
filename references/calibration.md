@@ -66,6 +66,16 @@ Do not copy these dispositions onto a **new** seat. Copy the **labeling discipli
 
 **Mistake to avoid:** Staying in rustc+cargo because those CLIs are not in the merge-queue parenthetical.
 
+### Kernel/eBPF packaging (cgroup budget, fapolicyd, io_uring, scx, Tetragon)
+
+**Claim:** Company SKUs on Linux kernel + cgroup v2 (not netns isolation): freeze-on-PSI budget gate; fanotify exec-allowlist keyed on lockfile hashes; BPF-LSM repo-scoped exec interlock; io_uring allow-deny profile fragments; sched_ext interactive-vs-build latency daemon; eBPF exec provenance with OTel.
+
+**Correct:** Occupied hosts. systemd-run + `CPUQuota`/`MemoryMax` + cgroup freezer/`cgroup.freeze` occupy the budget/freeze slice (hunt 1 already Occupied systemd quotas). fanotify `FAN_OPEN_EXEC_PERM` + fapolicyd trust/whitelist occupy exec allowlisting; lockfile join is auto-reject 5. AppArmor + BPF LSM + fapolicyd occupy MAC/exec interlock. seccomp-BPF, `SystemCallFilter=`, `io_uring_disabled`, Docker default profile occupy io_uring deny. sched_ext + `scx_layered` occupy cgroup-aware scheduling. Tetragon, Tracee, Falco occupy eBPF exec/file events; OTel export is auto-reject 5.
+
+**Disposition:** `file_on` systemd, fapolicyd, `SystemCallFilter`, scx_layered, or Tetragon. `as_company` Occupied.
+
+**Mistake to avoid:** Treating lockfile-hash policy source or OTel export as vacancy on an `exact` primitive. Regenerating hunt-1 systemd quotas under a "dev laptop not merge queue" host rename.
+
 ### Tenant-slice cutover orchestrator (filter + FK walk + switchover as one SaaS)
 
 **Claim:** Sparse 3.0. Vanilla RDS/Aurora tenant extract: row-filtered `pgoutput` slots, foreign-key traversal, WAL catchup, sub-second pool drain.
