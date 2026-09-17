@@ -19,6 +19,9 @@ Pass if any one is true:
    that restates as `candidate_seat` + `v1_as_shipped` + named
    process/protocol + substrate without slogans. If only host or v1 is
    missing, ask those two, then pass. Do not run the hunt questionnaire.
+   A slogan ("AI developer productivity", "SaaS for developers") is not
+   a named seat -- use the hunt questionnaire. Do not drop it at
+   restatement to skip grilling.
 2. **Filled niche.** Hunt request plus a niche card where
    `substrate_or_stack` and `immutable_host` are **named stack nouns**
    (not "SaaS", "dev tools", "startup", "developer productivity").
@@ -60,11 +63,13 @@ minimum, stop.
 Ask only blanks. Do not ask pain, TAM, why it matters, or "what problem
 are you solving?"
 
-1. **Stack / substrate.** Named host or protocol you will ship against
-   (RDS Postgres, GitHub merge queue, Kafka, k8s, npm). Not "SaaS" or
-   "dev tools."
-2. **Immutable host.** What you cannot replace (managed Postgres, GitHub,
-   the broker already in prod). Vacancy is relative to this host.
+1. **Stack / substrate.** Named stack family or protocol you will ship
+   against (Postgres, Kafka, k8s, npm, GitHub merge queue). Not "SaaS"
+   or "dev tools." This is not the immutable host.
+2. **Immutable host.** What you cannot replace (RDS, MSK, github.com,
+   the broker already in prod). Vacancy is relative to this host. "Kafka"
+   alone does not fill this field; "MSK" or "the cluster we already run"
+   does.
 3. **Ship form.** Company, OSS, or plugin/flag. If they will not say,
    `unset`.
 4. **Unique data or distribution.** Logs, schemas, install base,

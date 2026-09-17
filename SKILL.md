@@ -33,13 +33,14 @@ Propose and document vacant developer-tool / infrastructure seats. Score
 
 2. **Choose entry / scope gate.** A slogan is not a seat. Do not generate or search until the object is a named stack position.
    - User named a seat or pasted an ADR/idea that already restates without slogans -> go to step 4 (restate). Do not load intake.
-   - User named a seat but `v1_as_shipped` or host is missing -> load [intake.md](references/intake.md) (named-seat branch), ask only those blanks, then step 4. Do not search until restatable.
+   - User named a seat that cannot be restated without slogans ("AI developer productivity") -> treat as an incomplete hunt. Load [intake.md](references/intake.md). Do not drop at restatement to skip grilling.
+   - User named a restatable seat but `v1_as_shipped` or host is missing -> load [intake.md](references/intake.md) (named-seat branch), ask only those blanks, then step 4. Do not search until restatable.
    - User asked to find / hunt / propose seats -> load [intake.md](references/intake.md). If the niche card is incomplete and the user did not opt out, emit the intake card and **stop**. Do not load seat-generation or search-playbook. Do not invent a niche.
    - Hunt with a filled niche, or explicit "pick a stack" opt-out -> load [seat-generation.md](references/seat-generation.md), produce >=5 raw seats **inside that niche**, then map steps 3-8 over each.
 
 3. **Deny check.** Load [deny-patterns.md](references/deny-patterns.md). If the target workspace keeps a local deny file, that file wins (`deny_catalog: local_adr_0001`). Else use the embedded fallback (`deny_catalog: embedded_baseline`). If both missing, `deny_catalog: incomplete` and do not emit an `as_company` keep.
 
-4. **Restate.** One-line `candidate_seat`, concrete `v1_as_shipped`, named process or protocol, stack substrate. Copy `niche` from intake (named-seat path may derive it from the restatement; `source: user`). If this cannot be stated without slogans ("AI developer productivity"), drop the seat.
+4. **Restate.** One-line `candidate_seat`, concrete `v1_as_shipped`, named process or protocol, stack substrate. Copy `niche` from intake (named-seat path may derive it from the restatement; `source: user`). If **this candidate** cannot be stated without slogans ("AI developer productivity"), drop the seat. If the *user request* is still a slogan, return to step 2; do not end the hunt by dropping.
 
 5. **Steelman ceiling.** Strongest case a skeptical founder would still build this. Occupancy ceiling 0-10 **before** search. Published `exact_mechanics_density` must not exceed this ceiling unless new named incumbent rows appear.
 
