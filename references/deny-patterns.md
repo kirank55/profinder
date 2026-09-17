@@ -65,6 +65,8 @@ Fuller aisles (same rule -- closed unless a mechanical gap appears): advisory pr
 
 - Hunt 24: composer.lock-to-vendor drift gate as CI required check on PHP Composer; composer.lock SBOM/SLSA attestor emitting signed CycloneDX at composer install on PHP Composer; PHP ext-platform closure bloat plus duplicate-package CI gate over composer.lock; Shared Composer dist artifact-cache orchestrator with per-package hit ledger on Linux CI; Offline airgap Packagist mirror daemon serving composer metadata plus dist zips on isolated nets; Composer platform php-version plus ext enforcement interlock refusing wrong interpreter on PHP Composer
 
+- Hunt 25: Deno anti-allow-all production interlock refusing `deno run -A` on prod entrypoints; Deno remote-import allowlist enforcer from checked-in policy at `deno run`; Deno `npm:` hermetic gate enforcing JSR-only prod entrypoints via `--no-npm`; Deno `--allow-net` egress host allowlist enforcer per entrypoint with deny carve-outs; Deno `--allow-run` subprocess allowlist interlock per `deno task` forbidding deno and shell spawn; Deno `deno.json` permission-sets scope gate confining prod server to data dir plus named env
+
 ## Priors are not a rubric
 
 A previous kill is a deny-list entry, not a scoring template. Do not use closed-aisle leftovers as generation seeds. Re-search **this** seat. Name **this** seat's incumbents. Seat-match those rows.
