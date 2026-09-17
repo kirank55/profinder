@@ -53,6 +53,8 @@ Fuller aisles (same rule -- closed unless a mechanical gap appears): advisory pr
 
 - Hunt 18: Wasmtime WASI preopen dir allowlist enforcer from checked-in policy (wasmtime --dir gate); Wasmtime wasi-http outgoing-host egress allowlist gate for wasmtime run-serve components; Wasmtime fuel plus epoch execution-budget enforcer per command from checked-in budgets; Wasmtime component WIT import capability CI gate denying wasi-sockets-http-env per policy; Wasmtime component OCI digest pin interlock refusing mutable tags without wkg-lock digest; Wasmtime WASI env inheritance allowlist gate blocking inherit-env secret passthrough
 
+- Hunt 19: Pulsar bundle-ownership rebalance planner (split + unload dry-run) on prod Pulsar; Pulsar geo-replication backlog and replicated-subscription drift governor on prod Pulsar; Pulsar tiered-storage offload plus ledger-orphan auditor on prod Pulsar; Pulsar broker-deduplication gap plus transaction pending-ack reaper on prod Pulsar; Pulsar Key_Shared hash-range skew balancer on prod Pulsar; Pulsar namespace backlog-quota plus retention policy-as-code gate on prod Pulsar
+
 ## Priors are not a rubric
 
 A previous kill is a deny-list entry, not a scoring template. Do not use closed-aisle leftovers as generation seeds. Re-search **this** seat. Name **this** seat's incumbents. Seat-match those rows.
