@@ -42,6 +42,7 @@ DMS) without class 1-2 is a keep-gate G2 fail.
 | Compiler / lockfile | host native lockfile (`*.lock.hcl`, lock.json, `Cargo.lock`) before any sidecar. rustc+cargo class 1–2: sccache / rust-cache, cargo-auditable / cargo-cyclonedx / `-Z sbom`, cargo-deny bans, cargo-bloat, cargo-geiger, `cargo vendor` / source replacement. These are Occupied hosts, not Sparse leftovers. |
 | CI / merge queue | GitHub Actions `cancel-in-progress`, `merge_group` event, systemd `CPUQuota`/`MemoryMax`, `npm ci` lock mismatch, Trunk parallel queues / flaky quarantine, harden-runner egress, merge queue SKU, syntax-aware merge, TIA, conflict bot as **separate** slices. These class 1–2 hits are Occupied hosts, not Sparse leftovers. |
 | Wire proxy / protocol gate | Redis ACL (`+@all -@dangerous`), Envoy Redis proxy (`downstream_auth_password`, Delay/Error faults, `ReadPolicy`, prefix routes), Redis `MIGRATE` / RedisShake, Redis `WAIT` / `min-replicas-to-write`, `MONITOR` / Redis Software audit. These class 1–2 hits are Occupied hosts, not Sparse leftovers. Kafka class 1–2 remains Kroxylicious Filter API / kfake, not a new CI daemon. |
+| Broker / queue protocol | NATS JetStream overlap/`10065`, republish cycle/`10052`, `nats stream backup`, nats-surveyor/`jsz`, `$SCHEMA.VALIDATE` gatekeepers. These are Occupied hosts, not Sparse leftovers. |
 
 ## Extraction rules
 
