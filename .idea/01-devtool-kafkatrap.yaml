@@ -1,0 +1,71 @@
+candidate_seat: Deterministic Kafka wire-protocol proxy for coordinator frame injection (JoinGroup, SyncGroup, Heartbeat, OffsetCommit) at deterministic record offsets in CI test suites
+v1_as_shipped: Standalone lightweight Go/Rust proxy daemon binary running on localhost in CI runners, parsing Kafka protocol frames between client and broker, exposing a local control socket/HTTP API to pause, inject rebalances, and simulate partition reassignments at exact record offsets
+entry: generated
+
+niche:
+  substrate_or_stack: Kafka binary wire protocol (org.apache.kafka RPC)
+  immutable_host: Apache Kafka / Redpanda broker running in CI (Docker / Testcontainers)
+  ship_form: company
+  unique_data_or_distribution: unset
+  hard_nos:
+    - no full-system VM hypervisors
+    - no language-runtime monkeypatching or bytecode rewrites
+    - no PR hygiene linters
+  source: agent_opt_out
+
+verdicts:
+  as_company: Sparse 2.5
+  as_oss:     Greenfield 1.5
+  as_plugin:  Occupied 6.0
+
+density_scores:
+  problem_density: 7          # counts adjacent_pain (Toxiproxy, Testcontainers, Filibuster, Chaos Mesh)
+  exact_mechanics_density: 2  # exact only; <= steelman.occupancy_ceiling (Kroxylicious has wire-proxy slice)
+
+incumbents:
+  - name: Kroxylicious
+    url: https://github.com/kroxylicious/kroxylicious
+    quote: "Kroxylicious is an open-source, protocol-aware wire proxy for Apache Kafka."
+    seat_match: exact
+    leftover: Production API gateway focused on payload encryption (KmsService) and topic filtering; lacks consumer group coordinator state machine simulation, deterministic record-offset triggers, and lightweight CI harness integration.
+  - name: Toxiproxy
+    url: https://github.com/Shopify/toxiproxy
+    quote: "Toxiproxy is a TCP proxy to simulate network and system conditions for chaos and integration testing."
+    seat_match: adjacent_pain
+    leftover: Frame-blind TCP socket proxy that introduces generic network latency or closes connections; cannot parse Kafka frames or inject protocol-level errors (RebalanceInProgress, IllegalGeneration) without killing the underlying TCP stream.
+  - name: Testcontainers Kafka Module
+    url: https://testcontainers.com/modules/kafka/
+    quote: "The Testcontainers Kafka Module allows you to programmatically manage Apache Kafka instances in Docker containers during your tests."
+    seat_match: adjacent_pain
+    leftover: Manages container lifecycle and spins up full brokers; offers zero wire-level protocol interception, and testing rebalances requires non-deterministic sleep timers or killing entire broker containers.
+  - name: Filibuster
+    url: https://filibuster.cloud/
+    quote: "Filibuster is an automated fault injection testing tool that tests microservices for resilience to inter-service failure."
+    seat_match: adjacent_pain
+    leftover: Focuses on HTTP/gRPC and SQL RPC call fault injection; does not speak Kafka binary protocol or model consumer group state transitions.
+  - name: Antithesis
+    url: https://antithesis.com/
+    quote: "Antithesis runs your software inside a deterministic hypervisor, where it can search for bugs and reproduce them every time."
+    seat_match: price_packaging
+    leftover: Proprietary, multi-million dollar full-hypervisor platform requiring custom guest VM images and enterprise onboarding; not a lightweight developer CLI or CI test proxy that drops into GitHub Actions in 5 lines of YAML.
+  - name: Microsoft Coyote
+    url: https://github.com/microsoft/coyote
+    quote: "Coyote is a tool for building reliable asynchronous software in C# and .NET using systematic testing."
+    seat_match: language_scoped
+    leftover: Language-scoped to .NET binary rewriting; cannot test Go, Java, Python, or Rust Kafka microservices over the wire.
+
+auto_rejects_fired: []
+
+falsification:
+  1_vacant_process: pass      # Wire-protocol coordinator frame injection at record offset boundary has no shipping product
+  2_not_a_wrapper: pass       # Requires full Kafka protocol binary parser, dynamic advertised listener translation, and stateful coordinator mocking
+  3_mechanical_gap: pass      # Incumbents are byte-level droppers (Toxiproxy), container runners (Testcontainers), or JVM enterprise gateways (Kroxylicious)
+
+steelman:
+  occupancy_ceiling: 3.0
+  why_build: "Kafka streaming teams experience endless flaky CI runs and production incidents around consumer group rebalance deadlocks (e.g. cooperative sticky rebalance edge cases, partition revoking bugs) because existing test tools are either blunt byte-level socket droppers (Toxiproxy) or heavy container managers (Testcontainers). A wire-aware proxy that can freeze and rebalance at offset N fills an acute mechanical vacuum in the modern streaming CI stack."
+
+claim_hygiene: ok
+file_on: none
+deny_catalog: embedded_baseline
+rate_next: compose_next

@@ -1,0 +1,71 @@
+candidate_seat: PgWire session-aware causal consistency gateway with dynamic WAL LSN replica routing for AWS RDS / Aurora Postgres
+v1_as_shipped: Multi-tenant managed cloud proxy service (with an open-source data plane agent) speaking PostgreSQL v3 wire protocol; intercepts transaction commits on primary, attaches an LSN monotonicity token to the client connection/session header, and transparently routes subsequent queries to read replicas whose pg_last_wal_replay_lsn() >= session LSN, falling back to primary with zero application code changes
+entry: generated
+
+niche:
+  substrate_or_stack: PostgreSQL v3 wire protocol & WAL LSN (pg_current_wal_lsn, pg_last_wal_replay_lsn)
+  immutable_host: AWS RDS Postgres / AWS Aurora PostgreSQL
+  ship_form: company
+  unique_data_or_distribution: unset
+  hard_nos:
+    - no proprietary database engines or hard-forked Postgres forks
+    - no silent non-invertible DDL mutation
+    - no BI dashboard wrappers
+  source: agent_opt_out
+
+verdicts:
+  as_company: Sparse 2.5
+  as_oss:     Sparse 3.0
+  as_plugin:  Occupied 7.0
+
+density_scores:
+  problem_density: 8          # counts adjacent_pain (AWS RDS Proxy, Pgpool-II, PgCat, Heimdall Data, Aurora Write Forwarding)
+  exact_mechanics_density: 2  # exact only; <= steelman.occupancy_ceiling (PgCat has pooler read-split slice, but no session LSN)
+
+incumbents:
+  - name: AWS RDS Proxy
+    url: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html
+    quote: "Amazon RDS Proxy does not perform automatic, transparent read/write splitting of your database traffic... application code must be configured to send the appropriate requests to the correct connection pool or proxy endpoint."
+    seat_match: adjacent_pain
+    leftover: Managed connection pooler providing separate static reader and writer endpoints; performs zero SQL statement inspection, zero automatic read/write splitting, and zero WAL replication lag tracking.
+  - name: PgCat
+    url: https://github.com/postgresml/pgcat
+    quote: "PgCat is a PostgreSQL connection pooler that supports automatic read/write splitting, which can introduce challenges regarding read-your-writes consistency due to asynchronous replication lag."
+    seat_match: adjacent_pain
+    leftover: High-performance Rust connection pooler that can route SELECT to replicas, but lacks per-client causal session LSN tracking; queries executed immediately after a write hit stale replicas unless manually pinned to primary.
+  - name: Pgpool-II
+    url: https://www.pgpool.net/docs/latest/en/html/runtime-config-load-balancing.html
+    quote: "If a standby node's delay exceeds this threshold, Pgpool-II will stop sending SELECT queries to that node... delay_threshold specifies the maximum tolerated replication lag in WAL bytes."
+    seat_match: adjacent_pain
+    leftover: Employs coarse, cluster-wide periodic polling (sr_check_period) to check lag thresholds in bytes; lacks per-request/session causal tokens, forcing all clients to either risk stale reads or manually annotate SQL with /*NO LOAD BALANCE*/ comments.
+  - name: Heimdall Data
+    url: https://www.heimdalldata.com/
+    quote: "Heimdall tracks writes on a per-table basis... to determine the freshness of replicas and automatically route queries."
+    seat_match: adjacent_pain
+    leftover: Proprietary enterprise middleware tracking table-level write timestamps rather than per-session WAL LSN offsets; table-level lockouts force all queries on recently active tables back to the primary, defeating replica scaling during continuous writes.
+  - name: Prisma Accelerate
+    url: https://www.prisma.io/accelerate
+    quote: "Prisma Accelerate is primarily a managed connection pooling and caching service designed for serverless and edge environments... does not natively expose or manage LSN-based read replication."
+    seat_match: wrong_substrate
+    leftover: Edge query cache and connection pooler tied to Prisma ORM client; does not manage PostgreSQL replication lag or multi-node LSN routing for arbitrary PostgreSQL drivers.
+  - name: ProxySQL
+    url: https://proxysql.com/
+    quote: "ProxySQL is a high performance, high availability, protocol aware proxy for MySQL."
+    seat_match: wrong_substrate
+    leftover: MySQL wire protocol only; completely incompatible with PostgreSQL v3 wire protocol and PostgreSQL WAL replay LSN semantics.
+
+auto_rejects_fired: []
+
+falsification:
+  1_vacant_process: pass      # Per-session LSN causal consistency routing at the PgWire proxy layer has no shipping SaaS product
+  2_not_a_wrapper: pass       # Requires full PostgreSQL v3 wire protocol parser, transaction state machine, LSN extraction from WAL flush notifications, and dynamic connection multiplexing across primary and read replicas
+  3_mechanical_gap: pass      # Incumbents are either pure connection poolers without query awareness (RDS Proxy), coarse periodic lag pollers (Pgpool-II), or table-level timestamp caches (Heimdall)
+
+steelman:
+  occupancy_ceiling: 3.0
+  why_build: "B2B engineering teams running production workloads on AWS RDS / Aurora Postgres spend thousands of dollars each month over-provisioning primary database instances because their applications cannot safely route SELECT queries to cheap Read Replicas without exposing users to stale data immediately after writes. A transparent SaaS data plane handling causal LSN consistency unlocks 3-5x read throughput on existing Postgres infrastructure with zero application refactors."
+
+claim_hygiene: ok
+file_on: none
+deny_catalog: embedded_baseline
+rate_next: compose_next
