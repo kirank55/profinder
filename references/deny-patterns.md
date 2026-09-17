@@ -73,6 +73,8 @@ Fuller aisles (same rule -- closed unless a mechanical gap appears): advisory pr
 
 - Hunt 28: packages.lock.json-to-restore drift gate as CI required check on .NET NuGet; NuGet lock SBOM attestor emitting signed CycloneDX at dotnet publish; NativeAOT ILLink trim plus single-file bundle bloat and duplicate-package CI gate on .NET; Shared NuGet global-packages plus Roslyn build artifact-cache orchestrator with hit ledger on Linux CI; Offline airgap NuGet feed mirror daemon serving nupkgs on isolated nets; global.json SDK pin exec interlock refusing wrong dotnet on rollForward disable
 
+- Hunt 29: Package.resolved-to-checkout drift gate as CI required check on SwiftPM (`--only-use-versions-from-resolved-file`); Package.resolved SBOM/SLSA attestor emitting signed CycloneDX at swift build on SwiftPM; SwiftPM closure bloat plus duplicate-package CI gate over Package.resolved; Shared SwiftPM build-cache orchestrator with per-package hit ledger on Linux CI; Offline airgap SwiftPM mirror daemon serving locked deps on isolated nets; Swift tools-version pin exec interlock refusing wrong swift toolchain on SwiftPM
+
 ## Priors are not a rubric
 
 A previous kill is a deny-list entry, not a scoring template. Do not use closed-aisle leftovers as generation seeds. Re-search **this** seat. Name **this** seat's incumbents. Seat-match those rows.
