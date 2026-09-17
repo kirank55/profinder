@@ -6,7 +6,7 @@ Short catalog of collapse modes. Not a substitute for a full killed-seats table.
 
 If the target workspace keeps its own killed-seats file (for example `docs/adr/0001-no-pitchable-candidate.md`), its tables are authoritative (`deny_catalog: local_adr_0001`). Confirm the candidate's one-line seat against those rows before scoring; a match stops the run with a pointer to that row.
 
-If no such file exists, use the embedded baseline below (`deny_catalog: embedded_baseline`).
+If no such file exists, use the embedded baseline below (`deny_catalog: embedded_baseline`). A hunt-local killed-seats write-up under `.docs/` or `docs/` that tables one-line seats counts as a local deny file.
 
 `deny_catalog: incomplete` only if neither a local deny file nor this fallback is available. That is not the happy path.
 
