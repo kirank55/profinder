@@ -119,6 +119,8 @@ Fuller aisles (same rule -- closed unless a mechanical gap appears): advisory pr
 
 - Hunt 51: CURVE/ZAP certificate enrollment plus domain allowlist gate daemon on ZeroMQ fleet; REQ/REP strict-FSM deadlock plus Lazy-Pirate retry tracer sidecar on ZeroMQ; ROUTER mandatory plus identity allowlist envelope firewall proxy on ZeroMQ; XPUB/XSUB topic-prefix parity plus subscription-storm audit gate on ZeroMQ; Socket-monitor HWM-drop plus heartbeat OTel exporter with stuck-peer reaper on ZeroMQ; ZMTP deterministic fault-injection proxy for CI on ZeroMQ
 
+- Hunt 52: QUIC 0-RTT anti-replay idempotency gate proxy in front of terminated QUIC/HTTP3; QUIC connection-ID migration-sticky edge router proxy on terminated QUIC/HTTP3; HTTP/3 QPACK redacted access-log plus QLOG OTel tap on terminated QUIC/HTTP3; QUIC Retry address-validation storm throttle proxy on terminated QUIC/HTTP3; Deterministic QUIC packet fault-injection proxy for CI on terminated QUIC/HTTP3
+
 ## Priors are not a rubric
 
 A previous kill is a deny-list entry, not a scoring template. Do not use closed-aisle leftovers as generation seeds. Re-search **this** seat. Name **this** seat's incumbents. Seat-match those rows.
