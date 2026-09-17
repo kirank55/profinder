@@ -89,6 +89,8 @@ Fuller aisles (same rule -- closed unless a mechanical gap appears): advisory pr
 
 - Hunt 36: Celery canvas chord stall detector (chord_unlock lag plus header-failure attribution) on Celery plus RabbitMQ; Celery beat double-fire guard (distributed lock plus due-task dedup) on Celery beat plus Redis; RQ DeferredJobRegistry dependency-orphan auditor (stuck-deferred TTL plus requeue) on RQ plus Redis; SQS visibility-heartbeat extender for Celery-SQS long tasks (ChangeMessageVisibility daemon thread) on Celery plus SQS; Celery worker prefetch head-of-line inspector (prefetch multiplier plus acks-late audit) on Celery plus RabbitMQ; RQ pause-drain cutover gate (rq suspend with duration plus burst drain plus resume) on RQ plus Redis
 
+- Hunt 37: Per-service CONNECT destination allowlist firewall (dstdomain plus port allowlist plus user scope plus block) on Squid forward proxy; CONNECT-aware deterministic fault-injection proxy for CI (407 plus 502 plus tunnel-delay at CONNECT offsets) on Squid egress; CONNECT-tunnel redacted audit OTel tap (CONNECT host plus port plus bytes, no payload) on Squid; Parent-proxy latency-aware egress router (peer RTT plus dead-peer plus selection) on Squid cache_peer mesh; CONNECT plus upstream-TLS enforcement gate (frontend require plus backend verify plus cert audit) on Squid
+
 ## Priors are not a rubric
 
 A previous kill is a deny-list entry, not a scoring template. Do not use closed-aisle leftovers as generation seeds. Re-search **this** seat. Name **this** seat's incumbents. Seat-match those rows.
