@@ -17,6 +17,14 @@ niche:
   hard_nos: []
   source: user | agent_opt_out
 
+slices: [<mechanism>, ...]        # split v1 on "and"; required when v1 is a conjunction
+
+search_classes:                   # four classes from search-playbook.md; queries run this hunt
+  host_primitive: <query>
+  dropin_cli: <query>
+  orchestrator: <query>
+  tracker_leftover: <query>
+
 verdicts:
   as_company: <Greenfield|Sparse|Occupied|Saturated> <0-10>
   as_oss:     <Greenfield|Sparse|Occupied|Saturated> <0-10>
@@ -29,7 +37,7 @@ density_scores:
 incumbents:
   - name: <tool>
     url: <verified URL>
-    quote: "<docs/README quote>"
+    quote: "<contiguous substring of that page, fetched this run>"
     seat_match: exact | adjacent_pain | language_scoped | wrong_substrate | obsolete | price_packaging
     leftover: <what is missing if this row is exact>
 
@@ -45,8 +53,10 @@ steelman:
 
 claim_hygiene: ok | unsourced | implausible
 file_on: <incumbent repo/issue URL, or none>
+keep_gate: pass | fail            # pass required for as_company Sparse/Greenfield; see keep-gate.md
 deny_catalog: local_adr_0001 | embedded_baseline | incomplete
 rate_next: <not_run | compose_next>   # reminder only: hand a candidate to an idea-rater, never inline a rater verdict
 ```
 
 Seat-match labels match `references/seat-match.md` (six labels).
+`keep_gate: fail` forbids `as_company` Sparse/Greenfield. Default company verdict is Occupied or `file_on`.

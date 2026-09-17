@@ -1,19 +1,62 @@
 # Search playbook
 
-Incumbent extraction for a seat already restated. Do not load this file before a seat exists. Do not load this file if the scope gate failed or the niche is `intake_blocked`. Queries are stack nouns from the niche plus the restated seat, never "SaaS idea" or value-prop language.
+Incumbent extraction for a seat already restated. Do not load this file before a
+seat exists. Do not load this file if the scope gate failed or the niche is
+`intake_blocked`. Queries are stack nouns from the niche plus the restated
+seat, never "SaaS idea" or value-prop language.
 
 ## Query construction
 
-- Spine is niche `substrate_or_stack` + `immutable_host` + the restated process or protocol.
-- Use stack nouns + protocols: `wire protocol proxy`, `eBPF tc filter`, `AST collision queue`, `DPOR interleaving test`, `merge queue scheduler`, `lockfile host enforcement`.
-- Do not use value-prop queries: `"best AI testing tool"`, `"developer productivity automation"`, `"SaaS idea"`.
+- Spine is niche `substrate_or_stack` + `immutable_host` + the restated process
+  or protocol.
+- Use stack nouns + protocols: `wire protocol proxy`, `eBPF tc filter`,
+  `AST collision queue`, `DPOR interleaving test`, `merge queue scheduler`,
+  `lockfile host enforcement`.
+- Do not use value-prop queries: `"best AI testing tool"`,
+  `"developer productivity automation"`, `"SaaS idea"`.
+
+## Mandatory query classes
+
+Five logos is not a search. Before scoring, run **all four** classes against
+this seat's process/protocol. Record the queries on the card under
+`search_classes`. Stopping after adjacent pain tools (Bazel, MSW, full-instance
+DMS) without class 1-2 is a keep-gate G2 fail.
+
+1. **Host primitive.** The flag, SQL, LSM ABI, cgroup, or systemd property that
+   already implements the mechanism (`CREATE PUBLICATION ... WHERE`, Landlock
+   net ABI, `bwrap --unshare-net`, `.terraform.lock.hcl`).
+2. **Drop-in CLI wrapping that primitive.** Unprivileged wrapper people already
+   run (`landrun`, `pgcopydb`, `pg_easy_replicate`, firejail, nsjail).
+3. **Commercial / orchestrator in the aisle.** Control plane or vendor SKU
+   (DMS source filters, Trunk, Nile, harden-runner).
+4. **Issue / feature request on class 2.** Tracker hits such as "row filter",
+   "tenant extract", "loopback", "diagnostics" on the CLI from class 2. A filed
+   issue **is** occupancy for auto-reject 5.
+
+Per-substrate starters (add seat-specific nouns; do not treat as exhaustive):
+
+| Substrate | Class 1-2 starters (always query) |
+| --- | --- |
+| Schema / tenancy cutover | `CREATE PUBLICATION WHERE`, DMS source filters, `pgcopydb`, `pg_easy_replicate`, pglogical, logical replication switchover |
+| Kernel / eBPF / LSM | landrun, bubblewrap, firejail, nsjail, Landlock ABI port vs IP, `unshare --net` |
+| Host runtime enforcement | same as LSM row, plus systemd `PrivateNetwork`, PATH shims the host consults |
+| Process supervisor / daemon | silo, systemd, ntfy, supervisord |
+| Compiler / lockfile | host native lockfile (`*.lock.hcl`, lock.json) before any sidecar |
+| CI / merge queue | merge queue SKU, syntax-aware merge, TIA, conflict bot as **separate** slices |
 
 ## Extraction rules
 
-- >=5 named incumbents per candidate.
-- Each row: name, verified URL, exact quote from docs/README, one seat-match label, leftover if this row were exact.
+- >=5 named incumbents per candidate **and** classes 1-4 attempted.
+- Each row: name, URL fetched this run, quote that is a **contiguous substring**
+  of that page, one seat-match label, leftover if this row were exact.
 - Unverified or 404 -> `NEED_EVIDENCE` on that row. No hallucinated products.
+- Paraphrase is not a quote. Do not stitch a sentence the page does not contain.
 
 ## Stop condition
 
-Five verified rows or three independent 404/`NEED_EVIDENCE` rows, whichever comes first. If evidence is thin, the candidate's `claim_hygiene` is `unsourced` and `as_company` must not be Sparse/Greenfield-keep.
+Do **not** stop at the fifth adjacent logo.
+
+Stop when: classes 1-4 have been queried **and** either >=5 verified rows exist
+or three independent 404/`NEED_EVIDENCE` rows exist for class 1-2 (host
+primitive and CLI wrapper). Thin class 1-2 evidence => `claim_hygiene:
+unsourced` and `as_company` must not be Sparse/Greenfield-keep.

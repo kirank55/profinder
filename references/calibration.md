@@ -2,7 +2,7 @@
 
 Read this before the first 0-10 score in a session. Each case is: claim -> correct labels -> disposition -> mistake to avoid.
 
-Do not copy these dispositions onto a new seat. Copy the **labeling discipline**.
+Do not copy these dispositions onto a **new** seat. Copy the **labeling discipline**. If the restated v1 *is* a keep-gate worked false keep (tenant-slice orchestrator SKU; Landlock loopback-only test gate), apply that case's disposition; do not re-keep it as Sparse because leftover prose is strong.
 
 ## Occupied bundle sold as one SKU
 
@@ -25,6 +25,26 @@ Do not copy these dispositions onto a new seat. Copy the **labeling discipline**
 **Disposition:** `file_on`.
 
 **Mistake to avoid:** Combination novelty (daemon + phone + wait) as a new category.
+
+### Tenant-slice cutover orchestrator (filter + FK walk + switchover as one SaaS)
+
+**Claim:** Sparse 3.0. Vanilla RDS/Aurora tenant extract: row-filtered `pgoutput` slots, foreign-key traversal, WAL catchup, sub-second pool drain.
+
+**Correct:** Occupied **bundle**. PG15 `CREATE PUBLICATION ... WHERE` is `exact` for the filter slice. AWS DMS **source filters** already take column predicates (including tenant id). Logical-replication switchover CLIs (`pg_easy_replicate`, sbshift) occupy lag-watch + read-only cutover + sequence refresh. Leftover "infer tenant closure and emit WHERE" is auto-reject 5 / `file_on` pgcopydb (see issue 161). `1_vacant_process` may not pass while an `exact` slice sits on the card. `as_plugin` is not Greenfield.
+
+**Disposition:** `file_on` / `drop` as a company. `as_oss` may still be Sparse for the closure-inference leftover.
+
+**Mistake to avoid:** Keeping the bundle Sparse because no single logo sells filter + FK walk + cutover. Calling DMS "full-instance only" without fetching the source-filter page. Passing vacant-process by renaming the seat to "the orchestrator."
+
+### Landlock "loopback-only" test gate
+
+**Claim:** Sparse 2.5. Unprivileged `hermetic-test <cmd>` using Landlock v3/v4 + seccomp-bpf to allow `127.0.0.1` and block egress, with CI diagnostics.
+
+**Correct:** Occupied, plus a claim-hygiene kill on the mechanism. Landlock ABI v4 matches TCP **ports**, not IP addresses. The loopback-up / no-egress primitive is a new netns with `lo` up (`bwrap --unshare-net`, firejail `--net=none`, systemd `PrivateNetwork`). landrun already wraps Landlock (filesystem + `--connect-tcp` / `--bind-tcp`). Leftover diagnostics is auto-reject 5.
+
+**Disposition:** `file_on` landrun or bubblewrap. `as_company` Occupied. Do not keep Sparse by labeling landrun `adjacent_pain` for missing error-message UX.
+
+**Mistake to avoid:** Treating `unshare -n` as "loopback is impossible." Omitting bubblewrap/firejail from the table. Using Landlock as the network isolation story without fetching the ABI page.
 
 ## Claim-kill, seat not auto-Occupied
 
