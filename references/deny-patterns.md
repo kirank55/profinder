@@ -63,6 +63,8 @@ Fuller aisles (same rule -- closed unless a mechanical gap appears): advisory pr
 
 - Hunt 23: Gemfile.lock-to-installed-gems drift gate as CI required check on Bundler+RubyGems; Gemfile.lock SBOM/SLSA attestor emitting signed CycloneDX at bundle install on Bundler+RubyGems; Native-extension closure bloat plus duplicate-gem CI gate over Gemfile.lock closure on Bundler+RubyGems; Shared Bundler gem artifact-cache orchestrator with per-gem hit ledger on Linux CI; Offline airgap RubyGems mirror daemon serving compact index plus gem files on isolated nets
 
+- Hunt 24: composer.lock-to-vendor drift gate as CI required check on PHP Composer; composer.lock SBOM/SLSA attestor emitting signed CycloneDX at composer install on PHP Composer; PHP ext-platform closure bloat plus duplicate-package CI gate over composer.lock; Shared Composer dist artifact-cache orchestrator with per-package hit ledger on Linux CI; Offline airgap Packagist mirror daemon serving composer metadata plus dist zips on isolated nets; Composer platform php-version plus ext enforcement interlock refusing wrong interpreter on PHP Composer
+
 ## Priors are not a rubric
 
 A previous kill is a deny-list entry, not a scoring template. Do not use closed-aisle leftovers as generation seeds. Re-search **this** seat. Name **this** seat's incumbents. Seat-match those rows.
