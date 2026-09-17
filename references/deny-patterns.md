@@ -95,6 +95,8 @@ Fuller aisles (same rule -- closed unless a mechanical gap appears): advisory pr
 
 - Hunt 39: Per-service DNS QNAME allowlist firewall proxy in front of prod CoreDNS/unbound; Deterministic DNS fault-injection proxy for CI on prod CoreDNS/unbound protocol; DNS query redacted audit OTel tap on prod CoreDNS/unbound; Upstream RTT-aware forwarder router on prod CoreDNS/unbound mesh; Response TTL-ceiling plus stale-serve governor proxy on prod DNS; DNSSEC sign-plus-validate enforcement gate on prod CoreDNS/unbound
 
+- Hunt 40: Per-service envelope-sender allowlist firewall proxy in front of prod SMTP MTA; Deterministic SMTP fault-injection proxy for CI on prod SMTP MTA protocol; Envelope redacted audit OTel tap on prod SMTP MTA; Deferred-queue lag exporter plus stuck-queue reaper daemon on prod SMTP MTA; STARTTLS plus upstream-TLS enforcement gate on prod SMTP MTA; Per-domain outbound rate-limit throttle proxy on prod SMTP MTA
+
 ## Priors are not a rubric
 
 A previous kill is a deny-list entry, not a scoring template. Do not use closed-aisle leftovers as generation seeds. Re-search **this** seat. Name **this** seat's incumbents. Seat-match those rows.
