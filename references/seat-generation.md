@@ -65,6 +65,6 @@ Drop the seat if it ignores `immutable_host` or a `hard_nos` entry.
 
 ## Hunt discipline
 
-Generate >=5 raw seats per hunt request **inside the niche**. Then run the `SKILL.md` pipeline on each. Expect most to become `file_on` or drop. A hunt that emits five slogan keeps has failed. A hunt that emits seats outside the niche has failed. A hunt that emits Sparse company keeps without `keep_gate: pass` has failed. If `v1_as_shipped` is a conjunction, list slices on the raw seat before search.
+Generate >=5 raw seats per hunt request **inside the niche**. Then run the `SKILL.md` pipeline on each. Expect most to become `file_on` or drop. A hunt that emits five slogan keeps has failed. A hunt that emits seats outside the niche has failed. A hunt that emits Sparse company keeps without `keep_gate: pass` has failed. A hunt that emits five Occupied merge-queue packaging leftovers (`cancel-in-progress`, Trunk lanes, harden-runner, `npm ci`, systemd quotas, Trunk flakes) has finished that aisle: switch substrate; do not found the packaging. If `v1_as_shipped` is a conjunction, list slices on the raw seat before search.
 
 Do not use closed-aisle leftovers as generation seeds (ntfy flags, ngrok companions, "add X to Veln"). That is prior-kill-as-rubric.

@@ -26,6 +26,16 @@ Do not copy these dispositions onto a **new** seat. Copy the **labeling discipli
 
 **Mistake to avoid:** Combination novelty (daemon + phone + wait) as a new category.
 
+### GitHub merge-queue packaging (cancel, quotas, lock drift, lanes, egress, flakes)
+
+**Claim:** A company SKU on `github.com` merge queue + systemd Linux runners: cancel superseded `merge_group` jobs; per-job `CPUQuota`/`MemoryMax` with check annotations; lockfile-to-image drift required check; impacted-target parallel lanes; job-ID egress ledger; history-based flaky quarantine.
+
+**Correct:** Occupied hosts, scored as Occupied even when leftover prose is eloquent. Actions `cancel-in-progress: true` is `exact` for redundant-run cancel. systemd `CPUQuota`/`MemoryMax` are `exact` primitives; annotations are auto-reject 5. `npm ci` already fails lock mismatch; image-label join is a 50-line Action (auto-rejects 2+5). Trunk parallel queues are `exact` for impacted-target lanes. harden-runner already maps egress to step/job/workflow and ships domain allowlists. Trunk flaky-tests quarantine plus in-queue anti-flake occupy the flake gate. Calibration's merge-stack bundle already covers syntax-aware merge + queue scheduling + conflict bots.
+
+**Disposition:** `file_on` the named host. `as_company` Occupied. Do not spend an `agent_opt_out` hunt emitting six Occupied cards in this aisle.
+
+**Mistake to avoid:** Treating merge_group wiring, check-annotation UX, or "Trunk is a paid SKU not a GitHub-native daemon" as vacancy. Reusing a `merge_group` webhook-dispatch quote as evidence of a different leftover.
+
 ### Tenant-slice cutover orchestrator (filter + FK walk + switchover as one SaaS)
 
 **Claim:** Sparse 3.0. Vanilla RDS/Aurora tenant extract: row-filtered `pgoutput` slots, foreign-key traversal, WAL catchup, sub-second pool drain.

@@ -42,7 +42,7 @@ Per-substrate starters (add seat-specific nouns; do not treat as exhaustive):
 | Host runtime enforcement | same as LSM row, plus systemd `PrivateNetwork`, PATH shims the host consults |
 | Process supervisor / daemon | silo, systemd, ntfy, supervisord |
 | Compiler / lockfile | host native lockfile (`*.lock.hcl`, lock.json) before any sidecar |
-| CI / merge queue | merge queue SKU, syntax-aware merge, TIA, conflict bot as **separate** slices |
+| CI / merge queue | GitHub Actions `cancel-in-progress`, `merge_group` event, systemd `CPUQuota`/`MemoryMax`, `npm ci` lock mismatch, Trunk parallel queues / flaky quarantine, harden-runner egress, merge queue SKU, syntax-aware merge, TIA, conflict bot as **separate** slices. These class 1–2 hits are Occupied hosts, not Sparse leftovers. |
 
 ## Extraction rules
 

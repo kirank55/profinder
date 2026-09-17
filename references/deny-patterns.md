@@ -27,7 +27,7 @@ Treat as closed unless a **mechanical** gap appears that the write-up missed:
 - Worktree loopback isolation (silo)
 - Sidecar locks without host enforcement
 
-Fuller aisles (same rule -- closed unless a mechanical gap appears): advisory prompt-cache inspectors, vendor API contract drift seats, universal offline SQL mutation upcast (non-invertible; reject), PTY secret reverse-map (confused deputy; reject), agent sandbox / FS / secrets / MCP wraps the host already ships, package-manager-shaped lock/integrity seats the platform absorbed.
+Fuller aisles (same rule -- closed unless a mechanical gap appears): advisory prompt-cache inspectors, vendor API contract drift seats, universal offline SQL mutation upcast (non-invertible; reject), PTY secret reverse-map (confused deputy; reject), agent sandbox / FS / secrets / MCP wraps the host already ships, package-manager-shaped lock/integrity seats the platform absorbed, GitHub merge-queue packaging (`cancel-in-progress`, systemd job quotas, `npm ci` lock-vs-image drift Action, Trunk impacted-target parallel lanes, harden-runner job-ID egress ledger, Trunk flaky-test quarantine).
 
 ## Priors are not a rubric
 
