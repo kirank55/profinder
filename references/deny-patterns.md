@@ -125,6 +125,8 @@ Fuller aisles (same rule -- closed unless a mechanical gap appears): advisory pr
 
 - Hunt 54: dune.lock-to-switch drift gate as CI required check on OCaml Dune; dune.lock plus opam SBOM attestor emitting signed CycloneDX at dune build; Dune closure bloat plus duplicate-package CI gate over dune.lock; Shared Dune build artifact-cache orchestrator with per-package hit ledger on Linux CI; Offline airgap opam plus Dune lock mirror daemon serving locked inputs on isolated nets; OCaml toolchain pin exec interlock refusing wrong compiler on checked-in Dune pin
 
+- Hunt 55: OpenRC supervise-daemon crash-loop circuit breaker (respawn backoff + auto-disable + alert) on OpenRC box; OpenRC runscript need/use/after dependency correctness linter plus CI gate on OpenRC box; s6-rc compiled service DB drift gate (source defs vs live compiled) on s6 box; s6 supervision ordered-start readiness orchestrator (s6-svwait -U) on s6 box; OpenRC supervise-daemon stdout/stderr log rotation governor on OpenRC box; s6 readiness-notification coverage linter (notification-fd plus s6-svstat ready audit) on s6 box
+
 ## Priors are not a rubric
 
 A previous kill is a deny-list entry, not a scoring template. Do not use closed-aisle leftovers as generation seeds. Re-search **this** seat. Name **this** seat's incumbents. Seat-match those rows.
