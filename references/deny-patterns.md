@@ -105,6 +105,8 @@ Fuller aisles (same rule -- closed unless a mechanical gap appears): advisory pr
 
 - Hunt 44: Per-service TURN allocation allowlist firewall proxy (realm plus peer-IP plus quota) on WebRTC TURN; Deterministic RTP/RTCP fault-injection proxy for CI (PLI/NACK drop plus SSRC-tagged delay at offsets) on WebRTC; SDP offer-answer codec plus m-line scrub gateway per ingress on WebRTC; DataChannel SCTP PPID plus message-size firewall proxy on WebRTC data path; WHIP-WHEP bearer-token ingress gate plus upstream-TLS enforcement proxy on WebRTC ingest; ICE STUN binding storm throttle plus consent-audit proxy on WebRTC edge
 
+- Hunt 45: Per-service XDP destination allowlist firewall daemon from checked-in policy on Linux; XDP/TC deterministic packet fault-injection harness for CI with per-5-tuple scenario file on Linux; XDP per-source token-bucket rate-limit plus SYN-flood throttle daemon on Linux; TC egress bandwidth-cap plus latency-injection daemon per destination port for dev/CI perf budgets on Linux; XDP redacted flow audit OTel tap exporting 5-tuple plus bytes and verdict without payload on Linux; XDP DNS QNAME denylist filter daemon dropping disallowed domains at driver layer on Linux
+
 ## Priors are not a rubric
 
 A previous kill is a deny-list entry, not a scoring template. Do not use closed-aisle leftovers as generation seeds. Re-search **this** seat. Name **this** seat's incumbents. Seat-match those rows.
