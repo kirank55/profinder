@@ -115,6 +115,8 @@ Fuller aisles (same rule -- closed unless a mechanical gap appears): advisory pr
 
 - Hunt 49: cabal.project.freeze-to-store drift gate as CI required check on Haskell Cabal/Stack prod; cabal freeze plus stack lock SBOM attestor emitting signed CycloneDX at build on Haskell Cabal/Stack; GHC closure bloat plus duplicate-package CI gate over freeze closure on Haskell Cabal/Stack; Shared Cabal store plus Stack work artifact-cache orchestrator with per-package hit ledger on Linux CI; Offline airgap Hackage mirror daemon serving locked inputs on isolated nets for Haskell Cabal/Stack; GHC toolchain pin exec interlock refusing wrong ghc on checked-in pin for Haskell Cabal/Stack
 
+- Hunt 50: site-packages `.pth` executable-line allowlist gate on CPython venv; PYTHONPATH plus PYTHONHOME env-inheritance allowlist gate at `python` launch on venv; Python interpreter-version pin exec interlock on `.python-version` plus venv pyvenv.cfg; sitecustomize plus usercustomize startup-hook allowlist interlock on CPython venv; CPython isolated plus safe-path enforcement gate for prod venv entrypoints
+
 ## Priors are not a rubric
 
 A previous kill is a deny-list entry, not a scoring template. Do not use closed-aisle leftovers as generation seeds. Re-search **this** seat. Name **this** seat's incumbents. Seat-match those rows.
