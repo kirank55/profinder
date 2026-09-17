@@ -103,6 +103,8 @@ Fuller aisles (same rule -- closed unless a mechanical gap appears): advisory pr
 
 - Hunt 43: Tenant-label slice extractor to dedicated Neo4j database on prod Bolt DBMS; Live per-tenant Neo4j cutover daemon with dual-write Bolt plus CDC catchup plus driver DB switch; Per-tenant Neo4j constraint and schema parity CI gate across tenant DBs; Per-tenant Neo4j point-in-time restore daemon from shared full plus differential backup chain; Cross-cluster per-tenant Neo4j move via filtered copy plus seed URI plus alias flip; Per-tenant Neo4j composite-alias router for Bolt cutover with zero driver change
 
+- Hunt 44: Per-service TURN allocation allowlist firewall proxy (realm plus peer-IP plus quota) on WebRTC TURN; Deterministic RTP/RTCP fault-injection proxy for CI (PLI/NACK drop plus SSRC-tagged delay at offsets) on WebRTC; SDP offer-answer codec plus m-line scrub gateway per ingress on WebRTC; DataChannel SCTP PPID plus message-size firewall proxy on WebRTC data path; WHIP-WHEP bearer-token ingress gate plus upstream-TLS enforcement proxy on WebRTC ingest; ICE STUN binding storm throttle plus consent-audit proxy on WebRTC edge
+
 ## Priors are not a rubric
 
 A previous kill is a deny-list entry, not a scoring template. Do not use closed-aisle leftovers as generation seeds. Re-search **this** seat. Name **this** seat's incumbents. Seat-match those rows.
