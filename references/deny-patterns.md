@@ -59,6 +59,8 @@ Fuller aisles (same rule -- closed unless a mechanical gap appears): advisory pr
 
 - Hunt 21: Laptop-suspend-aware systemd timer catch-up coalescer (Persistent backlog merge); Per-timer journald retention cap governor for user timers; Procfile dev-task to systemd user timer unit generator with calendar lint; Ephemeral dev-loop fleet manager over systemd-run transient timers; Laptop AC-power and failure-gated timer guard (ConditionACPower plus OnFailure plus Restart backoff); OnCalendar thundering-herd spread linter (RandomizedDelaySec plus AccuracySec)
 
+- Hunt 22: Memcached ASCII/binary translation plus multiget fan-out proxy for legacy clients on prod Memcached; Memcached large-value chunk plus manifest split proxy over 1MB item limit on prod Memcached; Memcached hot-key singleflight plus meta herd-guard proxy with W-Z lease semantics on prod Memcached; Memcached TTL-cap plus never-expire slab-evict auditor proxy on prod Memcached; Memcached gets-cas read-modify-write serializer proxy with bounded retry on prod Memcached
+
 ## Priors are not a rubric
 
 A previous kill is a deny-list entry, not a scoring template. Do not use closed-aisle leftovers as generation seeds. Re-search **this** seat. Name **this** seat's incumbents. Seat-match those rows.
