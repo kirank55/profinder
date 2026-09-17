@@ -109,6 +109,8 @@ Fuller aisles (same rule -- closed unless a mechanical gap appears): advisory pr
 
 - Hunt 46: supervisord exitcode plus autorestart unexpected-policy gate across [program:x] on supervisord box; supervisord graceful-shutdown verifier over stopsignal plus stopwaitsecs plus stopasgroup on supervisord box; supervisord PROCESS_STATE event-listener OTel exporter on supervisord box; supervisord inet plus unix HTTP XML-RPC exposure plus auth audit gate on supervisord box; supervisord conf.d-to-running drift gate over reread plus update on supervisord box; supervisord priority ordered-start plus readiness wait orchestrator across [program:x] on supervisord box
 
+- Hunt 47: Prefix tenant slice extractor to dedicated MinIO bucket (prefix filter plus versioned copy as local CLI); Live per-tenant prefix cutover daemon on MinIO with dual-write plus catchup plus endpoint flip; Per-tenant bucket-policy and versioning parity CI gate across MinIO tenant buckets; Per-tenant ILM retention governor attaching per-tenant lifecycle rules on MinIO tenant buckets; Per-tenant versioned PITR restore daemon restoring single-tenant MinIO prefix from shared versioned bucket; Cross-cluster per-tenant bucket move on MinIO via batch copy plus alias flip
+
 ## Priors are not a rubric
 
 A previous kill is a deny-list entry, not a scoring template. Do not use closed-aisle leftovers as generation seeds. Re-search **this** seat. Name **this** seat's incumbents. Seat-match those rows.
