@@ -79,6 +79,8 @@ Fuller aisles (same rule -- closed unless a mechanical gap appears): advisory pr
 
 - Hunt 31: Per-service key-prefix allowlist firewall proxy in front of prod etcd gRPC; Deterministic etcd gRPC fault-injection proxy for CI (error at revision offsets); etcd watch fan-out coalescing gateway for prod etcd gRPC; etcd lease TTL-ceiling plus keepalive-audit governor proxy on prod etcd; etcd revision-staleness read router (linearizable versus serializable gate) on prod etcd
 
+- Hunt 32: launchd KeepAlive crash-loop circuit breaker daemon (ThrottleInterval backoff + auto-disable + alert) on macOS developer laptops; launchd StandardOutPath log rotation governor (size caps + rotation + reload) for user agents on macOS developer laptops; launchd plist correctness linter plus fixer for deprecated keys on macOS developer laptops; launchd Sockets-activation migration helper (port spec to Sockets dict + launchctl verify) on macOS developer laptops; launchd LimitLoadToSessionType Aqua-versus-Background misplacement guard on macOS developer laptops; launchd per-agent resource-policy enforcer (ProcessType + Nice + LowPriorityIO from checked-in policy) on macOS developer laptops
+
 ## Priors are not a rubric
 
 A previous kill is a deny-list entry, not a scoring template. Do not use closed-aisle leftovers as generation seeds. Re-search **this** seat. Name **this** seat's incumbents. Seat-match those rows.
