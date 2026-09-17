@@ -93,6 +93,8 @@ Fuller aisles (same rule -- closed unless a mechanical gap appears): advisory pr
 
 - Hunt 38: MODULE.bazel.lock-to-fetch drift gate as CI required check on Bazel Bzlmod; MODULE.bazel.lock SBOM/SLSA attestor emitting signed CycloneDX at bazel build; Shared Bazel action-cache orchestrator with per-target hit ledger on Linux CI; Offline airgap Bazel registry mirror daemon serving locked Bzlmod modules on isolated nets; Bazel toolchain pin exec interlock refusing wrong bazel version on .bazelversion plus MODULE.bazel.lock; Bazel module closure bloat plus duplicate-module CI gate over MODULE.bazel.lock
 
+- Hunt 39: Per-service DNS QNAME allowlist firewall proxy in front of prod CoreDNS/unbound; Deterministic DNS fault-injection proxy for CI on prod CoreDNS/unbound protocol; DNS query redacted audit OTel tap on prod CoreDNS/unbound; Upstream RTT-aware forwarder router on prod CoreDNS/unbound mesh; Response TTL-ceiling plus stale-serve governor proxy on prod DNS; DNSSEC sign-plus-validate enforcement gate on prod CoreDNS/unbound
+
 ## Priors are not a rubric
 
 A previous kill is a deny-list entry, not a scoring template. Do not use closed-aisle leftovers as generation seeds. Re-search **this** seat. Name **this** seat's incumbents. Seat-match those rows.
