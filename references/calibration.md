@@ -36,6 +36,16 @@ Do not copy these dispositions onto a **new** seat. Copy the **labeling discipli
 
 **Mistake to avoid:** Treating merge_group wiring, check-annotation UX, or "Trunk is a paid SKU not a GitHub-native daemon" as vacancy. Reusing a `merge_group` webhook-dispatch quote as evidence of a different leftover.
 
+### npm/Node PATH enforcement packaging (sandbox, engines, bins, prefix, NODE_OPTIONS)
+
+**Claim:** Company SKUs on the developer laptop: per-package npm lifecycle net sandbox (`bwrap --unshare-net` + write allowlist); engines/Volta pin exec interlock; lockfile-pinned `.bin` PATH gate; per-project `npm i -g` prefix redirector; `NODE_OPTIONS` flag allowlist wrapper.
+
+**Correct:** Occupied hosts. `bwrap --unshare-net` is already the loopback-up / no-egress primitive in the Landlock case. lavamoat `allow-scripts` is `exact` for lifecycle allowlists; `--experimental-bins` is `exact` for bin-confusion. Volta shims + fnm `engines.node` occupy interpreter pinning. npm `prefix` / folders docs occupy global-install layout. Node CLI `NODE_OPTIONS` precedence occupies the flag surface; an allowlist is a 50-line wrapper (auto-rejects 2+5). Hitting `bwrap` / lavamoat / Volta as class 1–2 on the first two seats **is** a substrate-switch trigger even if those names are not in the merge-queue parenthetical.
+
+**Disposition:** `file_on` lavamoat, Volta, npm folders, or Node CLI docs. `as_company` Occupied.
+
+**Mistake to avoid:** Staying in host-runtime enforcement because "Volta isn't listed next to Kroxylicious in SKILL.md." Citing GitHub blob READMEs with paraphrased isolation sentences. Socket.dev 403/`NEED_EVIDENCE` rows on a keep.
+
 ### Tenant-slice cutover orchestrator (filter + FK walk + switchover as one SaaS)
 
 **Claim:** Sparse 3.0. Vanilla RDS/Aurora tenant extract: row-filtered `pgoutput` slots, foreign-key traversal, WAL catchup, sub-second pool drain.
