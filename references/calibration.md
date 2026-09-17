@@ -56,6 +56,16 @@ Do not copy these dispositions onto a **new** seat. Copy the **labeling discipli
 
 **Mistake to avoid:** Treating "legacy-client mapping" or "OTel export" as vacancy on an `exact` primitive. Scoring `Occupied 6.5` as if half-points were a keep-shaped leftover.
 
+### rustc/cargo packaging (sccache, SBOM, bloat, geiger, vendor)
+
+**Claim:** Company SKUs on rustc+cargo: shared rustc cache with per-crate hit ledger; signed CycloneDX at `cargo build`; linker bloat + duplicate-crate CI gate; unsafe-surface allowlist gate; offline airgap registry mirror.
+
+**Correct:** Occupied hosts. sccache (S3/GHA/multilevel) and `Swatinem/rust-cache` are `exact` for shared compile cache; a ledger is auto-reject 5. cargo-auditable, cargo-cyclonedx, native `-Z sbom`, auditable2cdx occupy SBOM emit; signing is auto-reject 5. `cargo tree -d`, cargo-deny bans, cargo-bloat occupy duplicate/bloat; a CI Action is auto-rejects 2+5. cargo-geiger counts `unsafe`; `--check`+whitelist is a filed leftover (auto-reject 5). `cargo vendor`, source replacement, JFrog Cargo remote, frostmirror occupy airgap mirrors.
+
+**Disposition:** `file_on` sccache, cargo-auditable, cargo-deny, cargo-geiger, or `cargo vendor`. `as_company` Occupied. Hitting sccache/cargo-auditable on the first two seats **is** a substrate-switch trigger.
+
+**Mistake to avoid:** Staying in rustc+cargo because those CLIs are not in the merge-queue parenthetical.
+
 ### Tenant-slice cutover orchestrator (filter + FK walk + switchover as one SaaS)
 
 **Claim:** Sparse 3.0. Vanilla RDS/Aurora tenant extract: row-filtered `pgoutput` slots, foreign-key traversal, WAL catchup, sub-second pool drain.
