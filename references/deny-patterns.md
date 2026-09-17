@@ -35,6 +35,8 @@ Fuller aisles (same rule -- closed unless a mechanical gap appears): advisory pr
 
 - Hunt 9: Go toolchain packaging (Athens airgap, setup-go cache, cyclonedx-gomod, toolchain pin, gosec unsafe, go-size-analyzer bloat). as_oss Sparse on gobloat is not a company keep.
 
+- Hunt 10: CPython/pip/uv packaging (auditwheel, uv sync lock drift, free-threading docs, cibuildwheel repro, pipdeptree bloat)
+
 ## Priors are not a rubric
 
 A previous kill is a deny-list entry, not a scoring template. Do not use closed-aisle leftovers as generation seeds. Re-search **this** seat. Name **this** seat's incumbents. Seat-match those rows.
