@@ -69,6 +69,8 @@ Fuller aisles (same rule -- closed unless a mechanical gap appears): advisory pr
 
 - Hunt 26: bun.lock-to-node_modules drift gate as CI required check on Bun (`bun ci` / `--frozen-lockfile`); Bun trustedDependencies postinstall allowlist gate on Bun installs; Bun isolated-linker phantom-dependency enforcement gate on Bun workspaces; bunx ephemeral-run pin interlock refusing unpinned auto-install on Bun prod; bunfig.toml preload plugin allowlist gate on Bun prod entrypoints
 
+- Hunt 27: build.zig.zon-to-cache drift gate as CI required check on Zig + build.zig; build.zig.zon SBOM/SLSA attestor emitting signed CycloneDX at `zig build`; Shared Zig global-cache orchestrator with per-package hit ledger on Linux CI; Offline airgap zon fetch mirror daemon serving tarballs plus hashes on isolated nets; Zig toolchain pin exec interlock refusing wrong `zig version` on minimum_zig_version plus zon; translate-c plus @cImport header-upgrade drift gate on Zig C interop
+
 ## Priors are not a rubric
 
 A previous kill is a deny-list entry, not a scoring template. Do not use closed-aisle leftovers as generation seeds. Re-search **this** seat. Name **this** seat's incumbents. Seat-match those rows.
