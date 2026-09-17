@@ -101,6 +101,8 @@ Fuller aisles (same rule -- closed unless a mechanical gap appears): advisory pr
 
 - Hunt 42: buf.lock-to-generated drift gate as CI required check on buf/Protobuf; buf breaking plus lint enforcement gate as CI required check on buf/Protobuf; Protobuf descriptor closure bloat plus duplicate-package CI gate over buf.lock closure on buf/Protobuf; Shared buf generate artifact-cache orchestrator with per-module hit ledger on Linux CI; Offline airgap buf registry mirror daemon serving locked modules on isolated nets
 
+- Hunt 43: Tenant-label slice extractor to dedicated Neo4j database on prod Bolt DBMS; Live per-tenant Neo4j cutover daemon with dual-write Bolt plus CDC catchup plus driver DB switch; Per-tenant Neo4j constraint and schema parity CI gate across tenant DBs; Per-tenant Neo4j point-in-time restore daemon from shared full plus differential backup chain; Cross-cluster per-tenant Neo4j move via filtered copy plus seed URI plus alias flip; Per-tenant Neo4j composite-alias router for Bolt cutover with zero driver change
+
 ## Priors are not a rubric
 
 A previous kill is a deny-list entry, not a scoring template. Do not use closed-aisle leftovers as generation seeds. Re-search **this** seat. Name **this** seat's incumbents. Seat-match those rows.
