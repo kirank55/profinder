@@ -10,6 +10,8 @@ If no such file exists, use the embedded baseline below (`deny_catalog: embedded
 
 `deny_catalog: incomplete` only if neither a local deny file nor this fallback is available. That is not the happy path.
 
+Intake `hard_nos` are generation filters. They are not deny-catalog rows and do not Occupied-score a seat by themselves.
+
 ## Collapse modes
 
 1. **File it on the incumbent.** Named product already *is* the headline UX (silo for loopback isolation; ntfy `--wait-cmd` for silent local jobs).

@@ -2,10 +2,20 @@
 
 Headline is a **candidate**, not a rater decision. No overall `/100`. Do not emit a headline rater verdict (that belongs to a rater, not the finder).
 
+Do not emit this card when the scope gate failed. That path emits the niche card in [intake.md](intake.md) only. `niche` here is copied from a passed gate (or derived on a named-seat restatement). Unique data is copied verbatim; it does not move density scores.
+
 ```yaml
 candidate_seat: <one-line stack position>
 v1_as_shipped: <concrete v1 and stack placement>
 entry: generated | restated
+
+niche:
+  substrate_or_stack: <named stack noun>
+  immutable_host: <named host they cannot replace>
+  ship_form: company | oss | plugin | unset
+  unique_data_or_distribution: <string or unset>
+  hard_nos: []
+  source: user | agent_opt_out
 
 verdicts:
   as_company: <Greenfield|Sparse|Occupied|Saturated> <0-10>

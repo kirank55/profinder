@@ -1,12 +1,15 @@
 ---
 name: profinder
 description: >
-  Find sparse developer-tool and infrastructure seats by generating stack
-  positions, naming incumbents with URL plus quote, and scoring occupancy
-  density. Use when asked to find, hunt, or propose product seats. Abort
-  if the request is people-search (GitHub profiles, freelancers, professors).
-  Do not use this skill to rate an already-chosen idea when an idea-rater
-  is the requested job.
+  Find sparse developer-tool and infrastructure seats by niching the stack
+  first, then generating positions, naming incumbents with URL plus quote,
+  and scoring occupancy density. Use when asked to find, hunt, or propose
+  product seats, including broad "SaaS idea" or "something to build"
+  prompts -- those must be grilled into a named stack and host before
+  generation or search; do not invent a niche. Abort if the request is
+  people-search (GitHub profiles, freelancers, professors). Do not use
+  this skill to rate an already-chosen idea when an idea-rater is the
+  requested job.
 ---
 
 # Profinder
@@ -20,20 +23,23 @@ Propose and document vacant developer-tool / infrastructure seats. Score
 - Do not score from memory. Load the cited reference file or emit `NEED_EVIDENCE`.
 - No overall `/100`.
 - Never inline rubric tables into `SKILL.md`.
-- Load references **on demand by step**, not as a mandatory full stack. Do not load [search-playbook.md](references/search-playbook.md) before a seat exists. Do not load [calibration.md](references/calibration.md) unless a label is on a boundary (bundle vs slice, claim-kill vs seat-kill, false exact).
+- Load references **on demand by step**, not as a mandatory full stack. Do not load [intake.md](references/intake.md) unless step 2 needs the scope gate. Do not load [seat-generation.md](references/seat-generation.md) or [search-playbook.md](references/search-playbook.md) before that gate passes. Do not load [search-playbook.md](references/search-playbook.md) before a seat exists. Do not load [calibration.md](references/calibration.md) unless a label is on a boundary (bundle vs slice, claim-kill vs seat-kill, false exact).
 - Object is a **stack seat**, never PR hygiene. If the user pastes a PR process question, abort that object.
+- User-supplied niche, unique data, and "nobody does this" scope generation. They are not occupancy evidence and do not replace incumbent URLs.
 
 ## Procedure
 
 1. **Abort checks.** People-finder (GitHub profiles, freelancers, professors) -> stop; wrong skill, do not reuse these references. Request is "rate this idea / ADR" -> that is a rater job: hand off to an idea-rating skill or workflow; optionally continue only as restatement of a seat into a candidate card, never as a rater verdict.
 
-2. **Choose entry.**
-   - User named a seat or pasted an ADR/idea as a seat -> go to step 4 (restate).
-   - User asked to find / hunt / propose seats -> load [seat-generation.md](references/seat-generation.md), produce >=5 raw seats, then map steps 3-8 over each.
+2. **Choose entry / scope gate.** A slogan is not a seat. Do not generate or search until the object is a named stack position.
+   - User named a seat or pasted an ADR/idea that already restates without slogans -> go to step 4 (restate). Do not load intake.
+   - User named a seat but `v1_as_shipped` or host is missing -> load [intake.md](references/intake.md) (named-seat branch), ask only those blanks, then step 4. Do not search until restatable.
+   - User asked to find / hunt / propose seats -> load [intake.md](references/intake.md). If the niche card is incomplete and the user did not opt out, emit the intake card and **stop**. Do not load seat-generation or search-playbook. Do not invent a niche.
+   - Hunt with a filled niche, or explicit "pick a stack" opt-out -> load [seat-generation.md](references/seat-generation.md), produce >=5 raw seats **inside that niche**, then map steps 3-8 over each.
 
 3. **Deny check.** Load [deny-patterns.md](references/deny-patterns.md). If the target workspace keeps a local deny file, that file wins (`deny_catalog: local_adr_0001`). Else use the embedded fallback (`deny_catalog: embedded_baseline`). If both missing, `deny_catalog: incomplete` and do not emit an `as_company` keep.
 
-4. **Restate.** One-line `candidate_seat`, concrete `v1_as_shipped`, named process or protocol, stack substrate. If this cannot be stated without slogans ("AI developer productivity"), drop the seat.
+4. **Restate.** One-line `candidate_seat`, concrete `v1_as_shipped`, named process or protocol, stack substrate. Copy `niche` from intake (named-seat path may derive it from the restatement; `source: user`). If this cannot be stated without slogans ("AI developer productivity"), drop the seat.
 
 5. **Steelman ceiling.** Strongest case a skeptical founder would still build this. Occupancy ceiling 0-10 **before** search. Published `exact_mechanics_density` must not exceed this ceiling unless new named incumbent rows appear.
 
@@ -43,4 +49,4 @@ Propose and document vacant developer-tool / infrastructure seats. Score
 
 8. **Gates.** Apply auto-rejects and falsification from [rubric.md](references/rubric.md). Load [calibration.md](references/calibration.md) only if needed to break a tie on a boundary case.
 
-9. **Emit** the candidate card from [output-template.md](references/output-template.md). Split `as_company` / `as_oss` / `as_plugin`. Set `file_on` when the honest leftover is a flag, PR, or plugin. Do not emit a headline rater decision (that belongs to a rater, not the finder). Finder disposition is the split verdicts plus `file_on` plus `claim_hygiene`.
+9. **Emit** the candidate card from [output-template.md](references/output-template.md), including the `niche` block. Split `as_company` / `as_oss` / `as_plugin`. Set `file_on` when the honest leftover is a flag, PR, or plugin. Do not emit a headline rater decision (that belongs to a rater, not the finder). Finder disposition is the split verdicts plus `file_on` plus `claim_hygiene`. Do not emit this card when step 2 stopped on `intake_blocked`.

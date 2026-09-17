@@ -4,6 +4,21 @@ This file answers "how do I propose seat S?" -- not "how do I search incumbents 
 
 **Start from substrates, never from pain slogans.** Pain is abundant; empty seats are not.
 
+## Niche first
+
+Do not open this file on a slogan hunt. If the scope gate has not passed,
+return to [intake.md](intake.md).
+
+Generate **inside the niche**. `substrate_or_stack` and `immutable_host`
+constrain the inventory: drop substrates that are not that stack family
+unless `niche.source` is `agent_opt_out`.
+
+`hard_nos` are generation filters, not occupancy scores. Drop a raw seat
+that matches a hard no **before** deny.
+
+When `source: agent_opt_out`, use the full substrate inventory and set
+`niche.source: agent_opt_out` on every raw seat.
+
 ## Substrate inventory
 
 Generate from these nouns:
@@ -36,12 +51,20 @@ v1_as_shipped: <concrete deliverable and where it sits>
 substrate: <one item from the inventory>
 process_or_protocol: <named process; not a vibe>
 why_not_a_slogan: <the mechanic, in one sentence>
+niche:
+  substrate_or_stack: <from intake>
+  immutable_host: <from intake>
+  ship_form: company | oss | plugin | unset
+  unique_data_or_distribution: <from intake or unset>
+  hard_nos: []
+  source: user | agent_opt_out
 ```
 
 Drop the seat if `process_or_protocol` or `why_not_a_slogan` cannot be filled.
+Drop the seat if it ignores `immutable_host` or a `hard_nos` entry.
 
 ## Hunt discipline
 
-Generate >=5 raw seats per hunt request. Then run the `SKILL.md` pipeline on each. Expect most to become `file_on` or drop. A hunt that emits five slogan keeps has failed.
+Generate >=5 raw seats per hunt request **inside the niche**. Then run the `SKILL.md` pipeline on each. Expect most to become `file_on` or drop. A hunt that emits five slogan keeps has failed. A hunt that emits seats outside the niche has failed.
 
 Do not use closed-aisle leftovers as generation seeds (ntfy flags, ngrok companions, "add X to Veln"). That is prior-kill-as-rubric.
