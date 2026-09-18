@@ -1,0 +1,46 @@
+candidate_seat: ServiceTitan cloud technician license-expiry dispatch guard
+v1_as_shipped: Write-time guard that suppresses dispatch Skill assignment when
+  EPA608 / state license is expired or expiring, using custom-field expiry dates
+  plus scheduled-report sync; manual Skill removal becomes enforced block.
+entry: generated
+niche:
+  icp: hvac shops
+  system_of_record: ServiceTitan cloud
+  workflow_step: dispatch / technician assignment
+  ship_form: unset
+  unique_data_or_distribution: unset
+  hard_nos: []
+  source: user
+slices:
+  - license-expiry dispatch block
+verdicts:
+  as_company: Sparse 2.5
+  as_oss: Sparse 3
+  as_plugin: Occupied 5
+density_scores:
+  problem_density: 5
+  exact_mechanics_density: 0
+incumbents:
+  - name: ServiceTitan permits and regulations help
+    url: https://help.servicetitan.com/docs/stay-compliant-with-permits-regulations-1
+    quote: "ServiceTitan does not have a native certification tracking module"
+    seat_match: adjacent_pain
+    leftover: custom-field + scheduled report only, no write-time block
+  - name: ServiceTitan technician skill removal thread
+    url: https://help.servicetitan.com/docs/stay-compliant-with-permits-regulations-1
+    quote: "If a technician's certification expires, removing their corresponding Skill is a manual step"
+    seat_match: adjacent_pain
+    leftover: manual step, no enforcement at dispatch
+auto_rejects_fired: []
+falsification:
+  1_vacant_process: pass
+  2_not_a_wrapper: pass
+  3_mechanical_gap: pass
+steelman:
+  occupancy_ceiling: 2.5
+  why_build: Skeptic builds because expired-license dispatch creates
+    compliance callbacks and SoR leaves the block manual.
+claim_hygiene: ok
+file_on: none
+keep_gate: pass
+deny_catalog: embedded_saas_baseline

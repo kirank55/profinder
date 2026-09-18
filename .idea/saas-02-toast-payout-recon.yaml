@@ -1,0 +1,46 @@
+candidate_seat: Toast cloud third-party delivery payout reconciliation
+v1_as_shipped: Matcher joining Toast check-level sales to DoorDash / Uber Eats
+  payout lines, flagging missing or short payouts with fee-breakdown evidence
+  pack for dispute.
+entry: generated
+niche:
+  icp: independent restaurants
+  system_of_record: Toast cloud
+  workflow_step: delivery payout reconciliation
+  ship_form: unset
+  unique_data_or_distribution: unset
+  hard_nos: []
+  source: user
+slices:
+  - cross-system payout matcher
+verdicts:
+  as_company: Sparse 3
+  as_oss: Sparse 3
+  as_plugin: Sparse 4
+density_scores:
+  problem_density: 5
+  exact_mechanics_density: 0
+incumbents:
+  - name: Toast DoorDash payout support
+    url: https://support.toasttab.com/en/article/When-do-I-get-paid-by-DoorDash-Grubhub-and-Uber-Eats
+    quote: "issue payouts directly to you, not through Toast"
+    seat_match: adjacent_pain
+    leftover: confirms cross-system gap, no matcher
+  - name: Toast reconciliation report
+    url: https://support.toasttab.com/en/article/When-do-I-get-paid-by-DoorDash-Grubhub-and-Uber-Eats
+    quote: "The Reconciliation report gives you a single list of every payout Toast has sent"
+    seat_match: adjacent_pain
+    leftover: Toast-side payouts only, no delivery-platform join
+auto_rejects_fired: []
+falsification:
+  1_vacant_process: pass
+  2_not_a_wrapper: pass
+  3_mechanical_gap: pass
+steelman:
+  occupancy_ceiling: 3
+  why_build: Skeptic builds because operators already reconcile Toast vs
+    delivery payouts in spreadsheets and neither side ships the join.
+claim_hygiene: ok
+file_on: none
+keep_gate: pass
+deny_catalog: embedded_saas_baseline
