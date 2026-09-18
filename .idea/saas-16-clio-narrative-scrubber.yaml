@@ -1,0 +1,61 @@
+candidate_seat: Client-ready narrative scrubber for Clio cloud time-entry descriptions before invoicing
+v1_as_shipped: Editor flagging vague/block-billed Clio time-entry narratives against
+  OCG patterns, rewriting into split single-task lines for attorney accept
+  into Clio.
+entry: generated
+niche:
+  icp: law firms
+  system_of_record: Clio cloud
+  workflow_step: time-entry narrative cleanup for invoicing
+  ship_form: unset
+  unique_data_or_distribution: unset
+  hard_nos: []
+  source: user
+slices:
+  - OCG vague-verb flag plus block-bill splitter
+verdicts:
+  as_company: Sparse 3
+  as_oss: Sparse 3
+  as_plugin: Sparse 3
+density_scores:
+  problem_density: 6
+  exact_mechanics_density: 1
+incumbents:
+  - name: Clio Manage AI billing automation
+    url: https://help.clio.com/hc/en-us/articles/29764998990491-Manage-AI-Automate-Billing-and-Expense-Entry
+    quote: "AI converts recorded entries into invoices and refines descriptions for clarity and polish."
+    seat_match: adjacent_pain
+    leftover: generic polish only, no OCG block-split or vague-verb enforcement
+  - name: TimeSentry Clio integration
+    url: https://timesentry.ai/lp/clio
+    quote: "Our AI generates detailed, professional time entry descriptions ready for client review, formatted to match your Clio billing standards."
+    seat_match: adjacent_pain
+    leftover: generates descriptions, does not flag/split block-billed lines
+  - name: Billables AI Clio integration
+    url: https://billables.ai/integrations/clio
+    quote: "It then generates detailed, professional-grade time entries"
+    seat_match: adjacent_pain
+    leftover: generation tailored to guidelines, no line-splitting repair queue
+  - name: TIQ Time
+    url: https://www.tiqtime.com/solution
+    quote: "Block billing, forbidden words, length checks and more"
+    seat_match: wrong_substrate
+    leftover: exact OCG mechanics but no Clio on PMS list, different host
+  - name: Brightflag OCG guide
+    url: https://brightflag.com/resources/tips-for-creating-outside-counsel-guidelines
+    quote: "Block billing occurs when fee earners describe multiple tasks in one invoice line item."
+    seat_match: adjacent_pain
+    leftover: client-side rule definition, no Clio draft-entry editor
+auto_rejects_fired: []
+falsification:
+  1_vacant_process: pass
+  2_not_a_wrapper: pass
+  3_mechanical_gap: pass
+steelman:
+  occupancy_ceiling: 4
+  why_build: Clio polish is generic; no Clio-native OCG splitter exists, TIQ proves
+    willingness to pay for OCG enforcement.
+claim_hygiene: ok
+file_on: none
+keep_gate: pass
+deny_catalog: embedded_saas_baseline

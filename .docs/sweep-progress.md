@@ -6,27 +6,27 @@ Stop when `keeps >= 3` OR `researched >= 1000`.
 `pitchable` = `as_company` Sparse (2-4) / Greenfield (0-1) + 0 auto-rejects +
   3/3 falsification + >= 5 verified incumbents + `keep_gate: pass` (G1-G9).
 
-## Counter (sweep 1 + catch-up + waves 2-4 partial)
+## Counter (sweep 1 + catch-up + waves 2-4)
 
-- Researched: **228** cards
-- Keeps: **21** (provisional, subagent-scored, spot-verified)
-- Drops: **207** (mostly Occupied / file_on native primitive)
+- Researched: **253** cards
+- Keeps: **26** (provisional, subagent-scored, spot-verified)
+- Drops: **227** (mostly Occupied / file_on native primitive)
 
 | SoR | cards | keeps |
 | --- | ---: | ---: |
 | Patterson Eaglesoft (Windows) | 21 | 0 |
 | Dentrix (Windows) | 16 | 0 |
-| Clio cloud | 22 | 3 |
+| Clio cloud | 27 | 5 |
 | MyCase cloud | 17 | 2 |
-| ServiceTitan cloud | 32 | 6 |
-| Housecall Pro cloud | 17 | 0 |
-| Toast cloud | 22 | 1 |
+| ServiceTitan cloud | 37 | 6 |
+| Housecall Pro cloud | 22 | 2 |
+| Toast cloud | 27 | 1 |
 | Square cloud | 16 | 0 |
 | Mindbody cloud | 23 | 2 |
 | Buildertrend cloud | 15 | 0 |
 | Jane cloud | 20 | 4 |
-| SimplePractice cloud | 17 | 3 |
-| **Total** | **228** | **21** |
+| SimplePractice cloud | 22 | 4 |
+| **Total** | **253** | **26** |
 
 Catch-up hunts logged: Clio trust accounting (+5, 1 keep), ServiceTitan
 payroll run 1 (+5, 3 keeps), ServiceTitan payroll run 2 (+6, 0 keeps),
@@ -44,6 +44,10 @@ Square inventory (+5, 0).
 
 Wave 4 partial: Mindbody memberships (+5, 0), Buildertrend daily logs (+5,
 0), Jane reminders (+5, 2 keeps).
+
+Wave 4 rest: SimplePractice intake docs (+5, 1 keep), ServiceTitan
+memberships (+5, 0), Toast KDS (+5, 0), Clio time/billing (+5, 2 keeps),
+Housecall dispatch (+5, 2 keeps).
 
 ## Top 3 keeps (see `.idea/`)
 
@@ -65,7 +69,12 @@ Jane referral-letter draft, SimplePractice superbill tracker,
 `saas-11` Clio SOL tolling ledger (Sparse 3),
 `saas-12` MyCase settlement lien-payee ledger (Sparse 3),
 `saas-13` Jane caregiver co-confirmation (Sparse 3),
-`saas-14` Jane day-of ETA rescue (Sparse 3).
+`saas-14` Jane day-of ETA rescue (Sparse 3),
+`saas-15` SimplePractice upload readability triage (Sparse 3),
+`saas-16` Clio narrative scrubber (Sparse 3),
+`saas-17` Clio LEDES rejection bench (Sparse 3),
+`saas-18` Housecall on-call auto-assign (Sparse 3),
+`saas-19` Housecall skill-cert matcher (Sparse 3).
 
 ## Typical drop reasons (correct Occupied)
 
