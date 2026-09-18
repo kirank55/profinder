@@ -6,27 +6,27 @@ Stop when `keeps >= 3` OR `researched >= 1000`.
 `pitchable` = `as_company` Sparse (2-4) / Greenfield (0-1) + 0 auto-rejects +
   3/3 falsification + >= 5 verified incumbents + `keep_gate: pass` (G1-G9).
 
-## Counter (sweep 1 + catch-up + wave 2)
+## Counter (sweep 1 + catch-up + waves 2-3)
 
-- Researched: **167** cards
-- Keeps: **17** (provisional, subagent-scored, spot-verified)
-- Drops: **150** (mostly Occupied / file_on native primitive)
+- Researched: **213** cards
+- Keeps: **19** (provisional, subagent-scored, spot-verified)
+- Drops: **194** (mostly Occupied / file_on native primitive)
 
 | SoR | cards | keeps |
 | --- | ---: | ---: |
-| Patterson Eaglesoft (Windows) | 15 | 0 |
-| Dentrix (Windows) | 11 | 0 |
-| Clio cloud | 16 | 2 |
-| MyCase cloud | 11 | 1 |
-| ServiceTitan cloud | 26 | 6 |
-| Housecall Pro cloud | 11 | 0 |
-| Toast cloud | 16 | 1 |
-| Square cloud | 11 | 0 |
+| Patterson Eaglesoft (Windows) | 21 | 0 |
+| Dentrix (Windows) | 16 | 0 |
+| Clio cloud | 22 | 3 |
+| MyCase cloud | 17 | 2 |
+| ServiceTitan cloud | 32 | 6 |
+| Housecall Pro cloud | 17 | 0 |
+| Toast cloud | 22 | 1 |
+| Square cloud | 16 | 0 |
 | Mindbody cloud | 18 | 2 |
 | Buildertrend cloud | 10 | 0 |
 | Jane cloud | 15 | 2 |
 | SimplePractice cloud | 17 | 3 |
-| **Total** | **167** | **17** |
+| **Total** | **213** | **19** |
 
 Catch-up hunts logged: Clio trust accounting (+5, 1 keep), ServiceTitan
 payroll run 1 (+5, 3 keeps), ServiceTitan payroll run 2 (+6, 0 keeps),
@@ -36,6 +36,11 @@ Wave 2 (fresh steps, closed aisles avoided): Housecall invoicing (+6, 0),
 Eaglesoft claims (+5, 0), Dentrix eligibility (+6, 0), MyCase intake (+6,
 1 keep), Square scheduling (+6, 0), Mindbody scheduling (+6, 1 keep),
 Jane billing (+5, 1 keep), SimplePractice telehealth (+5, 0).
+
+Wave 3 (third steps): ServiceTitan inventory (+6, 0), Toast loyalty (+6,
+0), Clio calendaring (+6, 1 keep), Housecall reviews (+6, 0), Eaglesoft
+scheduling (+6, 0), Dentrix claims (+5, 0), MyCase billing (+6, 1 keep),
+Square inventory (+5, 0).
 
 ## Top 3 keeps (see `.idea/`)
 
@@ -53,7 +58,9 @@ Jane referral-letter draft, SimplePractice superbill tracker,
 `saas-07` ServiceTitan recoverable draw ledger (Sparse 3),
 `saas-08` MyCase conflict-check gate (Sparse 3),
 `saas-09` Mindbody reliability-weighted waitlist promoter (Sparse 3),
-`saas-10` Jane OON superbill-to-reimbursement tracker (Sparse 3).
+`saas-10` Jane OON superbill-to-reimbursement tracker (Sparse 3),
+`saas-11` Clio SOL tolling ledger (Sparse 3),
+`saas-12` MyCase settlement lien-payee ledger (Sparse 3).
 
 ## Typical drop reasons (correct Occupied)
 
