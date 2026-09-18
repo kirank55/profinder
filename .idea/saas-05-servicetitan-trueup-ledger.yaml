@@ -1,0 +1,66 @@
+candidate_seat: Commission true-up ledger for post-close invoice edits on ServiceTitan payroll
+v1_as_shipped: Nightly diff job outside ServiceTitan comparing closed payroll lines
+  to later invoice edits, emitting next-cycle adjustment file for
+  payroll-provider import.
+entry: generated
+niche:
+  icp: home-service operators
+  system_of_record: ServiceTitan cloud
+  workflow_step: technician commission true-up after payroll close
+  ship_form: unset
+  unique_data_or_distribution: unset
+  hard_nos: []
+  source: user
+slices:
+  - post-close-diff-to-adjustment-file
+verdicts:
+  as_company: Sparse 3
+  as_oss: Sparse 3
+  as_plugin: Sparse 4
+density_scores:
+  problem_density: 6
+  exact_mechanics_density: 0
+incumbents:
+  - name: ServiceTitan Payroll Adjustments
+    url: https://help.servicetitan.com/docs/payroll-features
+    quote: "Use payroll adjustments to make positive and negative corrections to an employee's payroll."
+    seat_match: adjacent_pain
+    leftover: no nightly diff of closed pay lines against later invoice edits
+  - name: ServiceTitan Master Pay File
+    url: https://help.servicetitan.com/v1/docs/finalize-payroll
+    quote: "The Master Pay File report consolidates all employee time and pay data into a single report that you can export."
+    seat_match: adjacent_pain
+    leftover: no automatic carry of post-close deltas into next-cycle file
+  - name: Miter ServiceTitan sync
+    url: https://marketplace.servicetitan.com/partner/miter
+    quote: "Turn ServiceTitan hours into payroll instantly. Miter syncs timesheets, bonuses & job data automatically"
+    seat_match: adjacent_pain
+    leftover: no closed-period snapshot comparison for late edits
+  - name: Inova Payroll sync
+    url: https://marketplace.servicetitan.com/partner/inova-payroll
+    quote: "Eliminate manual entry and errors with payroll data flowing directly from ServiceTitan to Inova."
+    seat_match: adjacent_pain
+    leftover: no delta ledger for edits landing after lock
+  - name: Volca payroll agent
+    url: https://volca.ai/payroll-automation
+    quote: "Volca's AI agent replicates your entire payroll team and the process they carry out weekly."
+    seat_match: adjacent_pain
+    leftover: no immutable closed-period baseline with per-line true-up trace
+  - name: Salesforce Spiff ICM
+    url: https://www.salesforce.com/sales/incentive-compensation-management/
+    quote: "Automate commission calculations, reduce administrative overhead"
+    seat_match: wrong_substrate
+    leftover: calculator on other substrate without payroll-export line join
+auto_rejects_fired: []
+falsification:
+  1_vacant_process: pass
+  2_not_a_wrapper: pass
+  3_mechanical_gap: pass
+steelman:
+  occupancy_ceiling: 4
+  why_build: Post-close edits silently mis-pay techs; immutable snapshot plus
+    automatic delta file owns next-cycle correction.
+claim_hygiene: ok
+file_on: none
+keep_gate: pass
+deny_catalog: embedded_saas_baseline

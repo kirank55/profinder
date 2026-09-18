@@ -6,27 +6,31 @@ Stop when `keeps >= 3` OR `researched >= 1000`.
 `pitchable` = `as_company` Sparse (2-4) / Greenfield (0-1) + 0 auto-rejects +
   3/3 falsification + >= 5 verified incumbents + `keep_gate: pass` (G1-G9).
 
-## Counter (sweep 1)
+## Counter (sweep 1 + 5 catch-up hunts)
 
-- Researched: **95** cards
-- Keeps: **10** (provisional, subagent-scored, spot-verified)
-- Drops: **85** (mostly Occupied / file_on native primitive)
+- Researched: **122** cards
+- Keeps: **14** (provisional, subagent-scored, spot-verified)
+- Drops: **108** (mostly Occupied / file_on native primitive)
 
 | SoR | cards | keeps |
 | --- | ---: | ---: |
 | Patterson Eaglesoft (Windows) | 10 | 0 |
 | Dentrix (Windows) | 5 | 0 |
-| Clio cloud | 11 | 1 |
+| Clio cloud | 16 | 2 |
 | MyCase cloud | 5 | 0 |
-| ServiceTitan cloud | 15 | 3 |
+| ServiceTitan cloud | 26 | 6 |
 | Housecall Pro cloud | 5 | 0 |
-| Toast cloud | 10 | 1 |
+| Toast cloud | 16 | 1 |
 | Square cloud | 5 | 0 |
 | Mindbody cloud | 12 | 1 |
-| Buildertrend cloud | 5 | 0 |
+| Buildertrend cloud | 10 | 0 |
 | Jane cloud | 10 | 1 |
 | SimplePractice cloud | 12 | 3 |
-| **Total** | **95** | **10** |
+| **Total** | **122** | **14** |
+
+Catch-up hunts logged: Clio trust accounting (+5, 1 keep), ServiceTitan
+payroll run 1 (+5, 3 keeps), ServiceTitan payroll run 2 (+6, 0 keeps),
+Toast inventory (+6, 0 keeps), Buildertrend change orders (+5, 0 keeps).
 
 ## Top 3 keeps (see `.idea/`)
 
@@ -37,7 +41,11 @@ Stop when `keeps >= 3` OR `researched >= 1000`.
 Other keeps: ServiceTitan warranty packet builder, Clio crash-report DOT
 order helper, Mindbody intro-offer duplicate detection, SimplePractice
 supervision hours accumulator, SimplePractice medical-necessity guard,
-Jane referral-letter draft, SimplePractice superbill tracker.
+Jane referral-letter draft, SimplePractice superbill tracker,
+`saas-04` Clio dormant-trust escheatment sweeper (Sparse 3),
+`saas-05` ServiceTitan commission true-up ledger (Sparse 3),
+`saas-06` ServiceTitan versioned spiff plan engine (Sparse 3),
+`saas-07` ServiceTitan recoverable draw ledger (Sparse 3).
 
 ## Typical drop reasons (correct Occupied)
 

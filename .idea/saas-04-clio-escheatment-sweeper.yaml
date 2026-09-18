@@ -1,0 +1,66 @@
+candidate_seat: Dormant trust balance escheatment sweeper on Clio cloud ledgers
+v1_as_shipped: Nightly scanner flagging Clio trust matters with no activity beyond
+  state dormancy threshold, with escheatment due date in a review queue;
+  standalone web app with Clio OAuth, advisory-only.
+entry: generated
+niche:
+  icp: law firms
+  system_of_record: Clio cloud
+  workflow_step: dormant trust balance review with escheatment
+  ship_form: unset
+  unique_data_or_distribution: unset
+  hard_nos: []
+  source: user
+slices:
+  - dormancy aging queue with due-date
+verdicts:
+  as_company: Sparse 3
+  as_oss: Sparse 3
+  as_plugin: Occupied 5
+density_scores:
+  problem_density: 4
+  exact_mechanics_density: 0
+incumbents:
+  - name: IOLTA Trusts
+    url: https://www.ioltatrusts.com/
+    quote: "Dormant / stale ledger detection"
+    seat_match: adjacent_pain
+    leftover: detection bullet only, no Clio-matter aging queue with due-date
+  - name: LeanLaw dormant guide
+    url: https://www.leanlaw.co/blog/what-to-do-with-dormant-client-funds-in-your-trust-account-at-year-end
+    quote: "Dormant funds in trust accounts must be properly identified and handled according to state escheat laws, typically after 3-5 years of inactivity"
+    seat_match: adjacent_pain
+    leftover: guidance content, no Clio-matter scanner product
+  - name: Clio View Reconciliation Reports
+    url: https://help.clio.com/hc/en-us/articles/54824841490075-View-Reconciliation-Reports
+    quote: "Reconciliation reports can be accessed in Clio Manage for 10 years, so you keep a full history for audit and compliance purposes."
+    seat_match: adjacent_pain
+    leftover: history to manually spot stale, no dormancy threshold queue
+  - name: Clio Accounting reconciliation
+    url: https://help.clio.com/hc/en-us/articles/21058568234267-Clio-Accounting-Operating-and-Trust-Reconciliation
+    quote: "When all three records align and there are no unexplained differences, the account is reconciled."
+    seat_match: adjacent_pain
+    leftover: reconciliation correctness, no dormancy aging
+  - name: QuickBooks Online and Clio
+    url: https://help.clio.com/hc/en-us/articles/9290134235163-QuickBooks-Online-and-Clio
+    quote: "Clio syncs at the account level, not to sub-accounts within Quickbooks."
+    seat_match: adjacent_pain
+    leftover: account-level sync limit, no escheatment workflow
+  - name: CosmoLex Trust Accounting
+    url: https://cosmolex.com/features/trust-accounting
+    quote: "An arsenal of fiduciary reports for your trust balances ensures compliance."
+    seat_match: wrong_substrate
+    leftover: reports on CosmoLex host, not Clio cloud dormancy queue
+auto_rejects_fired: []
+falsification:
+  1_vacant_process: pass
+  2_not_a_wrapper: pass
+  3_mechanical_gap: pass
+steelman:
+  occupancy_ceiling: 3
+  why_build: Clio reconciles but never ages matters; 50-state dormancy plus
+    due-diligence is periodic review no incumbent queues on Clio.
+claim_hygiene: ok
+file_on: none
+keep_gate: pass
+deny_catalog: embedded_saas_baseline
