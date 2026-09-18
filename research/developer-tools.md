@@ -2,7 +2,7 @@
 
 Branch: `devtool` | Date: 2026-09-18 | Method: primary-source only (official docs fetched this run)
 
-> Scope: bounded map of major dev-tool/infra categories in 2026 to support profinder seat-hunting. Every factual claim below traces to a primary source fetched this run. Unverifiable items are marked `NEED_EVIDENCE`.
+> Scope: bounded map of major dev-tool/infra categories in 2026 to support devtool-finder seat-hunting. Every factual claim below traces to a primary source fetched this run. Unverifiable items are marked `NEED_EVIDENCE`.
 
 ## 1. CI/CD — GitHub Actions
 - Homepage/docs: https://docs.github.com/en/actions
@@ -23,7 +23,7 @@ Branch: `devtool` | Date: 2026-09-18 | Method: primary-source only (official doc
 - Homepage/docs: https://kubernetes.io/docs/home/
 - What it does: `NEED_EVIDENCE` — this run's fetch returned nav tree only (truncated), no definitional sentence captured. Do not cite a definition without re-fetching https://kubernetes.io/docs/concepts/overview/components/ .
 - Fetched evidence: docs tree contains Concepts / Tasks / Tutorials / Cluster Administration / Scheduling / Security — confirms scope is container orchestration + cluster ops.
-- Seat-match note: `NEED_EVIDENCE` for any density claim; treat as Occupied by default per profinder fail-closed rule.
+- Seat-match note: `NEED_EVIDENCE` for any density claim; treat as Occupied by default per devtool-finder fail-closed rule.
 
 ## 4. IaC — Terraform (HashiCorp Developer)
 - Homepage/docs: https://developer.hashicorp.com/terraform/docs
@@ -65,8 +65,8 @@ Branch: `devtool` | Date: 2026-09-18 | Method: primary-source only (official doc
 
 ## Sparse-seat hints (evidence-only, not verdicts)
 - Crowded (do not propose as company without keep-gate pass): generic CI, generic containers/K8s, generic IaC, generic IDE, generic AI completion, generic metrics, generic e2e.
-- Thin edges worth a proper profinder hunt (each needs intake → 5+ seats → 4-class search before any keep): agent sandbox reproducible envs (`sbxenv.yaml`-style), hardened-image/VEX + attestations verification, Actions Runner Controller self-host ops, Terraform provider gaps in a named niche, PromQL→Perses migration UX, Playwright trace/flake triage as a seat (not PR hygiene).
-- Profinder rule reminder: `as_company` defaults to Occupied / `file_on`; Sparse/Greenfield requires `keep_gate: pass` with literal quotes + mandatory search classes.
+- Thin edges worth a proper devtool-finder hunt (each needs intake → 5+ seats → 4-class search before any keep): agent sandbox reproducible envs (`sbxenv.yaml`-style), hardened-image/VEX + attestations verification, Actions Runner Controller self-host ops, Terraform provider gaps in a named niche, PromQL→Perses migration UX, Playwright trace/flake triage as a seat (not PR hygiene).
+- Devtool-finder rule reminder: `as_company` defaults to Occupied / `file_on`; Sparse/Greenfield requires `keep_gate: pass` with literal quotes + mandatory search classes.
 
 ## Sources (all fetched this run, 2026-09-18)
 1. https://docs.github.com/en/actions
