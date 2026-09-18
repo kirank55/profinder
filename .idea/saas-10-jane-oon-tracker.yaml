@@ -1,0 +1,66 @@
+candidate_seat: OON superbill-to-reimbursement tracker linked to Jane superbill IDs
+v1_as_shipped: Read-only tracker ingesting Jane superbill IDs plus patient contact,
+  polling payer OON status, surfacing EOB amounts with timed nudges until paid;
+  no claim mutation.
+entry: generated
+niche:
+  icp: allied health clinics
+  system_of_record: Jane cloud
+  workflow_step: insurance billing and superbills - OON reimbursement tracking
+  ship_form: unset
+  unique_data_or_distribution: unset
+  hard_nos: []
+  source: user
+slices:
+  - oON-status-tracker
+verdicts:
+  as_company: Sparse 3
+  as_oss: Sparse 3
+  as_plugin: Sparse 3
+density_scores:
+  problem_density: 6
+  exact_mechanics_density: 0
+incumbents:
+  - name: Jane Cash Visits and Superbills guide
+    url: https://jane.app/guide/cash-visits-superbills
+    quote: "You can generate a superbill for any appointment (paid or unpaid) after you've added billing codes."
+    seat_match: adjacent_pain
+    leftover: no cross-payer status link with EOB parse plus timed nudges
+  - name: Jane Integrated Claims with Claim.MD
+    url: https://jane.app/guide/integrated-claims-with-claim-md
+    quote: "With Integrated Claims, you can connect your Claim.MD account to do the following"
+    seat_match: adjacent_pain
+    leftover: no patient-side OON reimbursement follow-up loop
+  - name: Mentaya
+    url: https://mentaya.com/
+    quote: "Submit out-of-network claims automatically (clients get ~62% reimbursed)"
+    seat_match: adjacent_pain
+    leftover: no link to Jane superbill IDs with allied-health code sets
+  - name: Reimbursify Physical Therapy OON
+    url: https://reimbursify.com/out-of-network-claims/physical-therapy
+    quote: "Reimbursify provides software that simplifies filing for out-of-network (OON) health insurance reimbursement claims."
+    seat_match: adjacent_pain
+    leftover: no automatic Jane-ID sync with status polling
+  - name: WebPT Billing
+    url: https://www.webpt.com/products/billing-software
+    quote: "For cash-pay services, create superbills directly in the WebPT platform to keep the cash flowing and support patients seeking reimbursement from their insurance."
+    seat_match: wrong_substrate
+    leftover: no Jane-placed tracking loop
+  - name: Jane EDI file to clearinghouse guide
+    url: https://jane.app/guide/creating-an-edi-file-to-submit-to-a-clearinghouse
+    quote: "Jane is now able to generate an EDI text file of your claims to download from Jane and then upload to either Office Ally, Trizetto, Claim.MD, and/or Availity!"
+    seat_match: adjacent_pain
+    leftover: no OON patient reimbursement status tracking
+auto_rejects_fired: []
+falsification:
+  1_vacant_process: pass
+  2_not_a_wrapper: pass
+  3_mechanical_gap: pass
+steelman:
+  occupancy_ceiling: 3
+  why_build: Jane emails superbills but adjacent OON tools live off-Jane, leaving
+    Jane-ID-linked status plus nudge loop unoccupied.
+claim_hygiene: ok
+file_on: none
+keep_gate: pass
+deny_catalog: embedded_saas_baseline
