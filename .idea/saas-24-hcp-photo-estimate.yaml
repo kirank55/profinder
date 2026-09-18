@@ -1,0 +1,66 @@
+candidate_seat: Photo scope-to-estimate draft builder on Housecall Pro for home-service operators
+v1_as_shipped: Mobile web intake collecting customer photos plus room/equipment
+  picks, pushing a line-item draft with photo attachments into the native
+  estimate draft queue.
+entry: generated
+niche:
+  icp: home-service operators
+  system_of_record: Housecall Pro cloud
+  workflow_step: estimates and online booking
+  ship_form: unset
+  unique_data_or_distribution: unset
+  hard_nos: []
+  source: user
+slices:
+  - customer-photo intake to line-item draft with attachments
+verdicts:
+  as_company: Sparse 3
+  as_oss: Sparse 3
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 6
+  exact_mechanics_density: 0
+incumbents:
+  - name: Housecall Pro jobsite photo app
+    url: https://www.housecallpro.com/features/jobsite-photo-app/
+    quote: "Use photos, videos, and checklists in Housecall Pro to show your work and protect your business."
+    seat_match: adjacent_pain
+    leftover: tech-side documentation after booking, no customer photos to draft
+  - name: Housecall Pro price book visuals
+    url: https://www.housecallpro.com/features/price-book/
+    quote: "Attach images to any service or material."
+    seat_match: adjacent_pain
+    leftover: visuals on tech-built line items, no inbound photo-seeded draft
+  - name: CompanyCam
+    url: https://companycam.com/
+    quote: "Document every detail of the job."
+    seat_match: adjacent_pain
+    leftover: field-captured record, no pre-visit intake to priced draft
+  - name: Jobber quotes
+    url: https://www.getjobber.com/features/quotes/
+    quote: "you can attach photos, PDFs, and other files directly to a Jobber quote"
+    seat_match: wrong_substrate
+    leftover: photo attachment on another substrate, not this seat
+  - name: ResponsiBid
+    url: https://responsibid.com/
+    quote: "Track quotes through every stage"
+    seat_match: adjacent_pain
+    leftover: quote-stage tracking, no photo-seeded draft creation
+  - name: Zapier Housecall Pro app
+    url: https://zapier.com/apps/housecall-pro/integrations
+    quote: "Triggers when a job is scheduled."
+    seat_match: adjacent_pain
+    leftover: job/customer glue triggers only, no photo intake to draft
+auto_rejects_fired: []
+falsification:
+  1_vacant_process: pass
+  2_not_a_wrapper: pass
+  3_mechanical_gap: pass
+steelman:
+  occupancy_ceiling: 4
+  why_build: Customer photos already decide scope by text; no occupant turns them
+    into a priced draft with attachments at this step.
+claim_hygiene: ok
+file_on: none
+keep_gate: pass
+deny_catalog: embedded_saas_baseline

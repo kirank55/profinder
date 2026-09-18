@@ -6,27 +6,27 @@ Stop when `keeps >= 3` OR `researched >= 1000`.
 `pitchable` = `as_company` Sparse (2-4) / Greenfield (0-1) + 0 auto-rejects +
   3/3 falsification + >= 5 verified incumbents + `keep_gate: pass` (G1-G9).
 
-## Counter (sweep 1 + catch-up + waves 2-4)
+## Counter (sweep 1 + catch-up + waves 2-5)
 
-- Researched: **253** cards
-- Keeps: **26** (provisional, subagent-scored, spot-verified)
-- Drops: **227** (mostly Occupied / file_on native primitive)
+- Researched: **294** cards
+- Keeps: **31** (provisional, subagent-scored, spot-verified)
+- Drops: **263** (mostly Occupied / file_on native primitive)
 
 | SoR | cards | keeps |
 | --- | ---: | ---: |
-| Patterson Eaglesoft (Windows) | 21 | 0 |
-| Dentrix (Windows) | 16 | 0 |
-| Clio cloud | 27 | 5 |
-| MyCase cloud | 17 | 2 |
-| ServiceTitan cloud | 37 | 6 |
-| Housecall Pro cloud | 22 | 2 |
-| Toast cloud | 27 | 1 |
-| Square cloud | 16 | 0 |
+| Patterson Eaglesoft (Windows) | 26 | 1 |
+| Dentrix (Windows) | 22 | 0 |
+| Clio cloud | 32 | 7 |
+| MyCase cloud | 22 | 2 |
+| ServiceTitan cloud | 42 | 6 |
+| Housecall Pro cloud | 27 | 3 |
+| Toast cloud | 32 | 1 |
+| Square cloud | 21 | 1 |
 | Mindbody cloud | 23 | 2 |
 | Buildertrend cloud | 15 | 0 |
 | Jane cloud | 20 | 4 |
 | SimplePractice cloud | 22 | 4 |
-| **Total** | **253** | **26** |
+| **Total** | **294** | **31** |
 
 Catch-up hunts logged: Clio trust accounting (+5, 1 keep), ServiceTitan
 payroll run 1 (+5, 3 keeps), ServiceTitan payroll run 2 (+6, 0 keeps),
@@ -48,6 +48,11 @@ Wave 4 partial: Mindbody memberships (+5, 0), Buildertrend daily logs (+5,
 Wave 4 rest: SimplePractice intake docs (+5, 1 keep), ServiceTitan
 memberships (+5, 0), Toast KDS (+5, 0), Clio time/billing (+5, 2 keeps),
 Housecall dispatch (+5, 2 keeps).
+
+Wave 5: Eaglesoft tx-planning (+5, 1 keep), Dentrix scheduling (+6, 0),
+MyCase doc assembly (+5, 0), Square invoices (+5, 1 keep), Toast payroll
+(+5, 0), Clio portal (+5, 2 keeps), ServiceTitan pricebook (+5, 0),
+Housecall estimates (+5, 1 keep).
 
 ## Top 3 keeps (see `.idea/`)
 
@@ -74,7 +79,12 @@ Jane referral-letter draft, SimplePractice superbill tracker,
 `saas-16` Clio narrative scrubber (Sparse 3),
 `saas-17` Clio LEDES rejection bench (Sparse 3),
 `saas-18` Housecall on-call auto-assign (Sparse 3),
-`saas-19` Housecall skill-cert matcher (Sparse 3).
+`saas-19` Housecall skill-cert matcher (Sparse 3),
+`saas-20` Eaglesoft estimate change-order diff (Sparse 3),
+`saas-21` Square estimate-to-invoice drift gate (Sparse 3),
+`saas-22` Clio portal share auto-expiry (Sparse 3),
+`saas-23` Clio portal upload quarantine (Sparse 3),
+`saas-24` Housecall photo scope-to-estimate draft (Sparse 3).
 
 ## Typical drop reasons (correct Occupied)
 

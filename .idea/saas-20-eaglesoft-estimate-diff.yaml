@@ -1,0 +1,65 @@
+candidate_seat: Eaglesoft estimate change-order diff sheet versioning case estimates for re-acceptance on Windows
+v1_as_shipped: Read-only tray snapshotting each processed Eaglesoft estimate PDF
+  to SmartDoc, rendering 1-page line-level adds/drops/fee-delta change-order for
+  patient re-acceptance, filing back to SmartDoc.
+entry: generated
+niche:
+  icp: independent dental practices
+  system_of_record: Patterson Eaglesoft on Windows
+  workflow_step: treatment planning and case estimates
+  ship_form: unset
+  unique_data_or_distribution: unset
+  hard_nos: []
+  source: user
+slices: []
+verdicts:
+  as_company: Sparse 3
+  as_oss: Sparse 3
+  as_plugin: Occupied 5
+density_scores:
+  problem_density: 6
+  exact_mechanics_density: 1
+incumbents:
+  - name: Eaglesoft Process Treatment Plan
+    url: https://pattersonsupport.custhelp.com/app/answers/detail/a_id/10476/~/eaglesoft---process-a-treatment-plan
+    quote: "After the services have been entered for the treatment plan, the next step is to generate an estimate for the patient"
+    seat_match: adjacent_pain
+    leftover: no line-level version-to-version adds/drops/fee-delta rendering
+  - name: OffTheCusp Recalc Ins tip
+    url: https://www.offthecusp.com/10-essential-treatment-plan-tips-tricks
+    quote: "Select the Recalc Ins button to update the estimated insurance on a treatment plan, anytime the benefits or fees have changed."
+    seat_match: adjacent_pain
+    leftover: refreshes totals in place, no versioned change trail for re-sign
+  - name: mConsent Eaglesoft integration
+    url: https://mconsent.net/eaglesoft/
+    quote: "Eaglesoft continues to be the system of record."
+    seat_match: adjacent_pain
+    leftover: captures signatures and forms, no estimate version diffing
+  - name: Adit Treatment Plans
+    url: https://adit.com/treatment-plans
+    quote: "Sync patient details directly from your EHR and keep all treatment plan information organized in one place."
+    seat_match: adjacent_pain
+    leftover: tracks plan statuses, no line-level estimate deltas across revisions
+  - name: CareStack Treatment Planning
+    url: https://carestack.com/dental-software/features/treatment-planning
+    quote: "Team members can create phases, rename them, and designate the time needed for each phase."
+    seat_match: wrong_substrate
+    leftover: phasing inside separate cloud chart, no delta rendering
+  - name: OffTheCusp presentation save comment
+    url: https://www.offthecusp.com/10-essential-treatment-plan-tips-tricks
+    quote: "When we save the tx plan it automatically saves to the smart doc. Is there a way to save the tx plan presentation to the smart doc?"
+    seat_match: adjacent_pain
+    leftover: archiving friction, no versioned change-order trail
+auto_rejects_fired: []
+falsification:
+  1_vacant_process: pass
+  2_not_a_wrapper: pass
+  3_mechanical_gap: pass
+steelman:
+  occupancy_ceiling: 3
+  why_build: Revisions reprint as new totals with no line-level adds/drops/fee-delta
+    trail; change-order diff with re-acceptance capture cuts disputes.
+claim_hygiene: ok
+file_on: none
+keep_gate: pass
+deny_catalog: embedded_saas_baseline
