@@ -6,11 +6,11 @@ Stop when `keeps >= 3` OR `researched >= 1000`.
 `pitchable` = `as_company` Sparse (2-4) / Greenfield (0-1) + 0 auto-rejects +
   3/3 falsification + >= 5 verified incumbents + `keep_gate: pass` (G1-G9).
 
-## Counter (sweep 1 + catch-up + waves 2-3)
+## Counter (sweep 1 + catch-up + waves 2-4 partial)
 
-- Researched: **213** cards
-- Keeps: **19** (provisional, subagent-scored, spot-verified)
-- Drops: **194** (mostly Occupied / file_on native primitive)
+- Researched: **228** cards
+- Keeps: **21** (provisional, subagent-scored, spot-verified)
+- Drops: **207** (mostly Occupied / file_on native primitive)
 
 | SoR | cards | keeps |
 | --- | ---: | ---: |
@@ -22,11 +22,11 @@ Stop when `keeps >= 3` OR `researched >= 1000`.
 | Housecall Pro cloud | 17 | 0 |
 | Toast cloud | 22 | 1 |
 | Square cloud | 16 | 0 |
-| Mindbody cloud | 18 | 2 |
-| Buildertrend cloud | 10 | 0 |
-| Jane cloud | 15 | 2 |
+| Mindbody cloud | 23 | 2 |
+| Buildertrend cloud | 15 | 0 |
+| Jane cloud | 20 | 4 |
 | SimplePractice cloud | 17 | 3 |
-| **Total** | **213** | **19** |
+| **Total** | **228** | **21** |
 
 Catch-up hunts logged: Clio trust accounting (+5, 1 keep), ServiceTitan
 payroll run 1 (+5, 3 keeps), ServiceTitan payroll run 2 (+6, 0 keeps),
@@ -41,6 +41,9 @@ Wave 3 (third steps): ServiceTitan inventory (+6, 0), Toast loyalty (+6,
 0), Clio calendaring (+6, 1 keep), Housecall reviews (+6, 0), Eaglesoft
 scheduling (+6, 0), Dentrix claims (+5, 0), MyCase billing (+6, 1 keep),
 Square inventory (+5, 0).
+
+Wave 4 partial: Mindbody memberships (+5, 0), Buildertrend daily logs (+5,
+0), Jane reminders (+5, 2 keeps).
 
 ## Top 3 keeps (see `.idea/`)
 
@@ -60,7 +63,9 @@ Jane referral-letter draft, SimplePractice superbill tracker,
 `saas-09` Mindbody reliability-weighted waitlist promoter (Sparse 3),
 `saas-10` Jane OON superbill-to-reimbursement tracker (Sparse 3),
 `saas-11` Clio SOL tolling ledger (Sparse 3),
-`saas-12` MyCase settlement lien-payee ledger (Sparse 3).
+`saas-12` MyCase settlement lien-payee ledger (Sparse 3),
+`saas-13` Jane caregiver co-confirmation (Sparse 3),
+`saas-14` Jane day-of ETA rescue (Sparse 3).
 
 ## Typical drop reasons (correct Occupied)
 

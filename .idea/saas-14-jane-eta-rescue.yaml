@@ -1,0 +1,70 @@
+candidate_seat: Day-of running-late ETA rescue synced to Jane schedule
+v1_as_shipped: Sidecar day-of SMS with one-tap late options (5/10/15); captures
+  ETA reply; writes ETA, buffer note into Jane day schedule; alerts practitioner
+  on short fuse.
+entry: generated
+niche:
+  icp: allied health clinics
+  system_of_record: Jane cloud
+  workflow_step: appointment reminders and no-show prevention
+  ship_form: unset
+  unique_data_or_distribution: unset
+  hard_nos: []
+  source: user
+slices: []
+verdicts:
+  as_company: Sparse 3
+  as_oss: Sparse 4
+  as_plugin: Occupied 5
+density_scores:
+  problem_density: 7
+  exact_mechanics_density: 0
+incumbents:
+  - name: Jane native reminders
+    url: https://jane.app/guide/email-sms-reminders
+    quote: "Jane will only send one reminder per type (email or SMS)."
+    seat_match: adjacent_pain
+    leftover: one-way schedule, no ETA capture loop
+  - name: Jane scheduling readiness
+    url: https://jane.app/features/scheduling
+    quote: "View no-show history and outstanding balances before check-in"
+    seat_match: adjacent_pain
+    leftover: history view, no day-of ETA write-in
+  - name: TrustDrivenCare two-way
+    url: https://jane.app/guide/trustdrivencare-hub
+    quote: "Jane's integration with TDC syncs your patient and appointment data directly into TDC, so you can send two-way SMS conversations, automated reminders, targeted email campaigns, and smart patient outreach without managing a separate contact list."
+    seat_match: adjacent_pain
+    leftover: outbound two-way without Jane schedule write-back
+  - name: TDC no write-back
+    url: https://trustdrivencare.com/janeapp-integration
+    quote: "Patient and appointment data flows into TDC, no manual export."
+    seat_match: adjacent_pain
+    leftover: sync out only, ETA cannot land back in day view
+  - name: Phreesia self-service
+    url: https://www.phreesia.com/patient-appointment-reminders/
+    quote: "Phreesia reaches patients by text, email and voice call, whichever they respond to best."
+    seat_match: adjacent_pain
+    leftover: different SoR, no Jane buffer edit
+  - name: Artera multi-touch
+    url: https://artera.io/blog/patient-no-shows/
+    quote: "On average, Artera reduces patient no-show rates by 33% over a one-way system, according to cumulative Artera case study data."
+    seat_match: adjacent_pain
+    leftover: enterprise comms hub, no Jane day-schedule ETA
+  - name: Noterro fallback
+    url: https://www.noterro.com/features/appointment-reminder-software
+    quote: "If a text message fails, Noterro automatically sends a voice call or email reminder to ensure patients still receive their appointment details."
+    seat_match: wrong_substrate
+    leftover: fallback on other SoR, no Jane ETA mechanic
+auto_rejects_fired: []
+falsification:
+  1_vacant_process: pass
+  2_not_a_wrapper: pass
+  3_mechanical_gap: pass
+steelman:
+  occupancy_ceiling: 7
+  why_build: Day-of lateness has no Jane-native ETA capture while the leading Jane
+    SMS addon writes nothing back, leaving buffer rescue unenforced.
+claim_hygiene: ok
+file_on: none
+keep_gate: pass
+deny_catalog: embedded_saas_baseline
