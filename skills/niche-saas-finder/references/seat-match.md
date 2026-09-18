@@ -43,6 +43,7 @@ If `v1_as_shipped` is a conjunction, split slices before labeling.
 | Fetched Capterra category listing | Toast end-of-night close | `adjacent_pain` |
 | Python SDK claimed as Eaglesoft Windows seat | remake-case intake on Eaglesoft | `language_scoped` |
 | ServiceTitan App Marketplace app the SoR consults at job-complete | missing-trade pack on that app | `exact` for the app slice; leftover is auto-reject 5 |
+| ServiceTitan required Skills + skill-gap alert at book/assign | license-expiry dispatch guard on ServiceTitan | `exact` for the assignment-gate slice; leftover auto-expire is auto-reject 5 |
 | Horizontal CRM | vertical workflow on a named SoR | `wrong_substrate` or `adjacent_pain` |
 
 ## How to write a row
