@@ -14,6 +14,10 @@ Do not emit a `niche_icp` block. Do not use `host_primitive`,
 card fail. A marketplace app labeled `exact` without a fetched SoR
 write-path quote is a card fail. Citing Landlock, Kroxylicious, or
 `CREATE PUBLICATION` as occupancy on this card is a card fail.
+Omitted `search_classes`, fewer than 5 incumbent rows, two rows from
+one SoR URL as the whole table, or `as_plugin` Occupied with
+`file_on: none` forbids `keep_gate: pass`. A tracker name without this
+card is not a keep.
 
 ```yaml
 candidate_seat: <one-line stack position>
@@ -75,6 +79,9 @@ Seat-match labels match [seat-match.md](seat-match.md)
 mismatch is `wrong_substrate`; G2/Capterra listings are `adjacent_pain`).
 `keep_gate: fail` forbids `as_company` Sparse/Greenfield. Default
 company verdict is Occupied or `file_on`.
+
+`as_plugin` Occupied plus `file_on: none` is a card fail. Leftover
+that names the SoR must set `file_on` to that URL.
 
 `deny_catalog: embedded_saas_baseline` is the happy path when no local
 killed-seats file exists. `incomplete` only if gate-bind fallback and a

@@ -24,7 +24,8 @@ Five logos is not a search. Before scoring, run **all four** classes
 against this seat's workflow step. Record the queries on the card under
 `search_classes`. Stopping after adjacent pain tools (horizontal CRM,
 generic form builders, unfetched G2/Capterra lists) without class 1-2
-is a keep-gate G2 fail.
+is a keep-gate G2 fail. Stopping after a SoR help article that admits
+"no dedicated module" without class 2-3 is the same G2 fail.
 
 1. **`sor_primitive`.** SoR docs, flags, native workflow, or API for
    that step (the host primitive).
@@ -49,6 +50,37 @@ These starters are query shapes, not a closed-aisle list and not
 generation seeds. Switch hosts for aisle-close live in
 [seat-generation-saas.md](seat-generation-saas.md).
 
+## Class-1 gap quote is not a stop
+
+A fetched SoR sentence that says any of: "does not have a native /
+dedicated … module", "you must build a custom … report", "is a manual
+step", "scheduled report is the only proactive mechanism", "use custom
+fields / forms / tags / skills" is **class-1 occupancy of the
+workaround named on that same page**. Record that workaround as a row
+(Skills required-for-job-type, Invoice Items report, intro-offer
+one-purchase flag, chart letterhead templates, claim scrub, warranty
+holding workflow). Then run class 2 and class 3. Do not score yet.
+
+That workaround is `exact` for the headline UX when it *is* the
+assignment gate / one-purchase rule / letter print / submit block.
+Leftover "automate the manual step" or "sync the date field" is
+auto-reject 5, not Sparse. Labeling it `adjacent_pain` so
+`exact_mechanics_density` can be 0 is a card fail.
+
+Class 3 is a **step-noun query without using the SoR name as the only
+token**. Two quotes from one SoR URL do not count as class 3.
+
+| SoR family | Class 3-4 query shapes (always run; not generation seeds) |
+| --- | --- |
+| Home service | EPA / refrigerant cylinder ledger SKUs; technician license / cert compliance SKUs; manufacturer warranty-claim packet SKUs; `{SoR} marketplace` + the step |
+| Restaurant / retail | POS vs DoorDash / Uber Eats / Grubhub payout-matcher SKUs; `{SoR}` Shop / marketplace + payout / recon |
+| Legal | crash / police-report order portals; docket / SOL engines; trust escheatment SKUs; `{SoR}` App Directory + the step |
+| Clinic / studio | OON superbill / reimbursement trackers; supervision-hours trackers; `{SoR}` letter / template library for the step |
+| Dental / construction | claims / lab / change-order add-on SKUs **and** the named marketplace |
+
+Do not copy those SKU names onto a new seat as occupancy. Re-search
+**this** step. Name **this** step's class-3 page.
+
 ## Extraction rules
 
 - >=5 named incumbents per candidate **and** classes 1-4 attempted.
@@ -65,13 +97,22 @@ generation seeds. Switch hosts for aisle-close live in
   for the SKU in the seat.
 - Write-time consult: a marketplace app with no fetched SoR write-path
   quote is not `exact`. See [gate-bind-saas.md](gate-bind-saas.md).
+- Quote `url` must be the page that contains the quote. A real
+  sentence from a different article on the same vendor is still
+  `NEED_EVIDENCE` on that row.
+- Two incumbent rows from one SoR help URL do not satisfy ">=5 named
+  incumbents."
 
 ## Stop condition
 
 Do **not** stop at the fifth adjacent logo.
 
-Stop when: classes 1-4 have been queried **and** either >=5 verified
+Do **not** stop because class 1 said there is no dedicated module.
+
+Stop when: classes 1-4 have been queried **and** class 3 produced a
+named commercial SKU row or `NEED_EVIDENCE` **and** either >=5 verified
 rows exist or three independent 404/`NEED_EVIDENCE` rows exist for class
-1-2 (SoR primitive and drop-in addon). Thin class 1-2 evidence =>
-`claim_hygiene: unsourced` and `as_company` must not be
-Sparse/Greenfield-keep.
+1-2 (SoR primitive and drop-in addon). Thin class 1-2 **or** skipped
+class 3 => `claim_hygiene: unsourced` and `as_company` must not be
+Sparse/Greenfield-keep. A keep whose only incumbents are the named
+SoR's help center is a G2 fail.

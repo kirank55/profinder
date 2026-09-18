@@ -30,14 +30,19 @@ the named SoR). Do not found.
 `as_plugin` answers "is the leftover a flag/plugin/issue on a named
 host?" It cannot be Greenfield when an incumbent leftover already names
 that host. Greenfield plugin plus an `exact` row is a card fail.
+Occupied plugin plus `file_on: none` is a card fail.
 
 `1_vacant_process` fails when any incumbent is `exact` for a slice of
 `v1_as_shipped`, unless `file_on` is set on that slice and the company
 score is only the remaining process. Redefining the seat as
 "orchestration around the SoR primitive" is not a vacant process.
+Labeling the SoR workaround `adjacent_pain` because the leftover is
+manual is not a vacant process.
 
 Unadopted is not Greenfield. A thin marketplace listing often means the
-seat is gist-shaped or already named.
+seat is gist-shaped or already named. A SoR sentence that there is no
+dedicated module is occupancy of the workaround on that page, not
+Greenfield.
 
 ## Split verdicts
 
@@ -99,7 +104,8 @@ not Sparse, when the honest move is to file or wait.
 
 - `keep` -- `as_company` is Sparse or Greenfield, no auto-reject, all
   three falsification tests hold, >=5 named incumbents (or explicit
-  "could not find 5" plus why), **and** `keep_gate: pass`.
+  "could not find 5" plus why), **and** `keep_gate: pass`. A tracker
+  bullet without an emitted candidate card is not a keep.
 - `file_on` -- Occupied leftover belongs on a named SoR or marketplace app.
 - `hold` -- Occupied/Saturated **as a company** but the leftover is a
   clean plugin, OSS experiment, or follow-up seat.

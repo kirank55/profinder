@@ -4,15 +4,15 @@ Read this before the first 0-10 score in a session. Each case is: claim
 -> correct labels -> disposition -> mistake to avoid.
 
 Do not copy these dispositions onto a **new** seat. Copy the **labeling
-discipline**. If the restated v1 *is* one of the three false keeps
-below, apply that case's disposition; do not re-keep it as Sparse
-because leftover prose is strong.
+discipline**. If the restated v1 *is* one of the false keeps below,
+apply that case's disposition; do not re-keep it as Sparse because
+leftover prose is strong.
 
-Do not add seeds. Labeling notes in
+Do not add aisle seeds. Labeling notes in
 [gate-bind-saas.md](gate-bind-saas.md) and switch hosts in
 [seat-generation-saas.md](seat-generation-saas.md) are not extra
 false-keeps. Aisle switch trips on those switch hosts, not on these
-three seeds unless the restated v1 *is* one of them.
+cases unless the restated v1 *is* one of them.
 
 Do not cite Landlock, Kroxylicious, or `CREATE PUBLICATION` as occupancy
 for a vertical SaaS seat. That is a card fail.
@@ -76,6 +76,41 @@ calling Zapier "just plumbing."
 **Mistake to avoid:** Labeling Typeform `exact` for Clio demand-letter
 intake. Auto-pitching probe (d).
 
+## SoR gap quote sold as vacancy
+
+### "No dedicated module" then skip class 2-3
+
+**Claim:** Sparse 2.5–3. The SoR help page says it has no native
+certification / EPA / 3PO-payout module, so a write-time dispatch
+guard, cylinder ledger, or Toast↔DoorDash matcher is a vacant company
+seat. Two quotes from that help URL; `exact_mechanics_density: 0`;
+`file_on: none`; `keep_gate: pass`.
+
+**Correct:** Occupied leftover. The same page names the workaround
+primitive (required Skills at book/assign, Invoice Items + refrigerant
+forms, Toast-side Reconciliation report). That workaround is `exact`
+for the headline UX slice. Class 3 already sits in the step (payout
+matchers, refrigerant ledgers, hours trackers, crash-report portals,
+OON reimbursement SKUs). Leftover "auto-remove the Skill when the date
+lapses" / "join on Toast write-path" / "sit on the SoR" is auto-reject
+5. Two SoR-help rows are a G2 fail. `as_plugin` Occupied plus
+`file_on: none` is a card fail. Unadopted waitlists of the matcher are
+not Greenfield.
+
+If the restated v1 *is* ServiceTitan license-expiry dispatch guard,
+Toast third-party delivery payout reconciliation, or ServiceTitan EPA
+refrigerant cylinder ledger, apply this disposition. Do not re-keep
+them as Sparse.
+
+**Disposition:** `file_on` the SoR workaround or the class-3 SKU.
+`as_company` Occupied. `as_oss` may still be Sparse for a bounded
+script.
+
+**Mistake to avoid:** Stopping search because class 1 admitted a gap.
+Labeling the workaround `adjacent_pain` so density can be 0. Stamping
+`keep_gate: pass` with two incumbents. Recording a tracker "keep"
+without emitting a card.
+
 ## Labeling notes (do not generalize into new seeds)
 
 These are seat-match reminders, not generation seeds and not extra
@@ -90,6 +125,9 @@ false-keeps.
 - Marketplace app the SoR does not consult at write-time is auto-reject
   7, not a company keep. `exact` requires the write-time consult test
   in [gate-bind-saas.md](gate-bind-saas.md).
+- SoR workaround on the class-1 page is `exact` for that slice when it
+  is the headline UX. "Manual step" leftover is auto-reject 5, not
+  `adjacent_pain` with density 0.
 
 ## Steelman discipline
 

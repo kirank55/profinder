@@ -94,8 +94,8 @@ After the first two restated seats in a hunt:
 
 - Count a trip if the seat is `exact` on that row's class-1 or class-2
   **switch host**, or matches a local deny one-liner. Do not trip from
-  the three calibration seeds unless the restated v1 *is* one of those
-  seeds.
+  the calibration false keeps unless the restated v1 *is* one of those
+  cases.
 - Opt-out: pick a **different** inventory row (do not reuse a
   just-closed SKU). Fill niche from the new row. Generate a new set of
   >=5 seats.
@@ -138,13 +138,16 @@ Generate >=5 raw seats per hunt request **inside the niche**. Then run
 the `SKILL.md` pipeline on each (deny after restate). Expect most to
 become `file_on` or drop. A hunt that emits five slogan keeps has
 failed. A hunt that emits seats outside the SoR has failed. A hunt that
-emits Sparse company keeps without `keep_gate: pass` has failed.
+emits Sparse company keeps without `keep_gate: pass` has failed. A hunt
+that records tracker "keeps" without emitting
+[output-template-saas.md](output-template-saas.md) cards has failed.
 
 If `v1_as_shipped` is a conjunction, list slices on the raw seat before
 search.
 
 Do not use closed-aisle leftovers as generation seeds (add a trade to a
 ServiceTitan app, generic form + Zapier, CSV + reminder + portal as one
-SKU). That is prior-kill-as-rubric. Do not port the previous hunt's
+SKU, SoR "no dedicated module" write-time guard). That is
+prior-kill-as-rubric. Do not port the previous hunt's
 one-line seats onto a new SoR (Clio demand-letter leftover → MyCase
 demand-letter leftover). Re-search **this** SoR.
