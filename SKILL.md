@@ -1,5 +1,5 @@
 ---
-name: profinder
+name: devtool-finder
 description: >
   Find sparse developer-tool and infrastructure seats by niching the stack
   first, then generating positions, naming incumbents with URL plus quote,
@@ -8,13 +8,14 @@ description: >
   quotes, mandatory search classes, no occupied bundle). Use when asked to
   find, hunt, or propose product seats, including broad "SaaS idea" or
   "something to build" prompts -- those must be grilled into a named stack
-  and host before generation or search; do not invent a niche. Abort if the
-  request is people-search (GitHub profiles, freelancers, professors). Do
-  not use this skill to rate an already-chosen idea when an idea-rater is
-  the requested job.
+  and host before generation or search; do not invent a niche. Do not use
+  for vertical-workflow SaaS seats on a named system of record (that is a
+  SaaS-finder job). Abort if the request is people-search (GitHub profiles,
+  freelancers, professors). Do not use this skill to rate an already-chosen
+  idea when an idea-rater is the requested job.
 ---
 
-# Profinder
+# Devtool finder
 
 Propose and document vacant developer-tool / infrastructure seats. Score
 **occupancy**, not pain. Pain is abundant. Empty seats are not.
@@ -30,11 +31,12 @@ Propose and document vacant developer-tool / infrastructure seats. Score
 - Quotes are contiguous substrings of a page fetched this run. Paraphrase is `NEED_EVIDENCE`.
 - `as_company` **defaults to Occupied or `file_on`**. A Sparse/Greenfield company keep is fail-closed and requires `keep_gate: pass`.
 - Object is a **stack seat**, never PR hygiene. If the user pastes a PR process question, abort that object.
+- This skill is self-contained at the repo root. Load only files in `references/`; do not load sibling `skills/` trees (e.g. SaaS-finder playbooks).
 - User-supplied niche, unique data, and "nobody does this" scope generation. They are not occupancy evidence and do not replace incumbent URLs.
 
 ## Procedure
 
-1. **Abort checks.** People-finder (GitHub profiles, freelancers, professors) -> stop; wrong skill, do not reuse these references. Request is "rate this idea / ADR" -> that is a rater job: hand off to an idea-rating skill or workflow; optionally continue only as restatement of a seat into a candidate card, never as a rater verdict.
+1. **Abort checks.** People-finder (GitHub profiles, freelancers, professors) -> stop; wrong skill, do not reuse these references. Vertical-workflow SaaS hunt on a named system of record (Clio, Eaglesoft, Toast, ServiceTitan) -> stop; wrong skill, do not reuse these references. Request is "rate this idea / ADR" -> that is a rater job: hand off to an idea-rating skill or workflow; optionally continue only as restatement of a seat into a candidate card, never as a rater verdict.
 
 2. **Choose entry / scope gate.** A slogan is not a seat. Do not generate or search until the object is a named stack position.
    - User named a seat or pasted an ADR/idea that already restates without slogans -> go to step 4 (restate). Do not load intake.
