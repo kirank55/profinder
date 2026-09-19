@@ -1,7 +1,6 @@
 candidate_seat: Recoverable draw-against-commission ledger synced to ServiceTitan payroll
-v1_as_shipped: Standalone recoverable-draw ledger outside ServiceTitan offsetting
-  each payroll export by outstanding draw balance while carrying forward
-  remaining negative balances.
+v1_as_shipped: Standalone recoverable-draw ledger outside ServiceTitan offsetting each payroll export
+  by outstanding draw balance while carrying forward remaining negative balances.
 entry: generated
 niche:
   icp: home-service operators
@@ -12,55 +11,70 @@ niche:
   hard_nos: []
   source: user
 slices:
-  - recoverable-draw-balance-ledger
+- recoverable-draw-balance-ledger
 verdicts:
-  as_company: Sparse 3
+  as_company: Occupied 6
   as_oss: Sparse 3
   as_plugin: Sparse 4
 density_scores:
   problem_density: 6
   exact_mechanics_density: 0
 incumbents:
-  - name: ServiceTitan Advance adjustment
-    url: https://help.servicetitan.com/v1/docs/finalize-payroll
-    quote: "Payment given before payroll, deducted later from gross pay"
-    seat_match: adjacent_pain
-    leftover: no recoverable-balance ledger across pay periods
-  - name: ServiceTitan Sold Advance adjustment
-    url: https://help.servicetitan.com/v1/docs/finalize-payroll
-    quote: "Sold credit paid early, deducted later from gross pay"
-    seat_match: adjacent_pain
-    leftover: no per-tech balance aging with automatic offset
-  - name: ServiceTitan Payroll Adjustments
-    url: https://help.servicetitan.com/docs/payroll-features
-    quote: "Use payroll adjustments to make positive and negative corrections to an employee's payroll."
-    seat_match: adjacent_pain
-    leftover: no draw-balance carry-forward with negative-balance handling
-  - name: Miter bonuses commissions sync
-    url: https://marketplace.servicetitan.com/partner/miter
-    quote: "Miter's API automatically pulls in approved timesheets, bonuses, and commissions"
-    seat_match: adjacent_pain
-    leftover: no recoverable-draw ledger keyed to payroll exports
-  - name: Gusto commission entry
-    url: https://support.gusto.com/article/106622082100000/hourly-employee-pay-rates-and-custom-earning-types
-    quote: "Commissions and other types of additional compensation can be added each time payroll is run."
-    seat_match: adjacent_pain
-    leftover: no draw-versus-payout netting across periods
-  - name: Salesforce Spiff automation
-    url: https://www.salesforce.com/sales/incentive-compensation-management/
-    quote: "Automate even the most intricate commission structures"
-    seat_match: wrong_substrate
-    leftover: general engine on other substrate without draw ledger for export flow
-auto_rejects_fired: []
+- name: ServiceTitan Advance adjustment
+  url: https://help.servicetitan.com/v1/docs/finalize-payroll
+  quote: Payment given before payroll, deducted later from gross pay
+  seat_match: adjacent_pain
+  leftover: no recoverable-balance ledger across pay periods
+- name: ServiceTitan Sold Advance adjustment
+  url: https://help.servicetitan.com/v1/docs/finalize-payroll
+  quote: Sold credit paid early, deducted later from gross pay
+  seat_match: adjacent_pain
+  leftover: no per-tech balance aging with automatic offset
+- name: ServiceTitan Payroll Adjustments
+  url: https://help.servicetitan.com/docs/payroll-features
+  quote: Use payroll adjustments to make positive and negative corrections to an employee's payroll.
+  seat_match: adjacent_pain
+  leftover: no draw-balance carry-forward with negative-balance handling
+- name: Miter bonuses commissions sync
+  url: https://marketplace.servicetitan.com/partner/miter
+  quote: Miter's API automatically pulls in approved timesheets, bonuses, and commissions
+  seat_match: adjacent_pain
+  leftover: no recoverable-draw ledger keyed to payroll exports
+- name: Gusto commission entry
+  url: https://support.gusto.com/article/106622082100000/hourly-employee-pay-rates-and-custom-earning-types
+  quote: Commissions and other types of additional compensation can be added each time payroll is run.
+  seat_match: adjacent_pain
+  leftover: no draw-versus-payout netting across periods
+- name: Salesforce Spiff automation
+  url: https://www.salesforce.com/sales/incentive-compensation-management/
+  quote: Automate even the most intricate commission structures
+  seat_match: wrong_substrate
+  leftover: general engine on other substrate without draw ledger for export flow
+auto_rejects_fired:
+- 5
+- 7
 falsification:
-  1_vacant_process: pass
-  2_not_a_wrapper: pass
-  3_mechanical_gap: pass
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
 steelman:
   occupancy_ceiling: 4
-  why_build: Draws paid early then forgotten; balance ledger with automatic
-    offset owns recovery across periods.
+  why_build: Draws paid early then forgotten; balance ledger with automatic offset owns recovery across
+    periods.
 claim_hygiene: ok
-file_on: none
-keep_gate: pass
+file_on: https://help.servicetitan.com/v1/docs/finalize-payroll
+keep_gate: fail
 deny_catalog: embedded_saas_baseline
+search_classes:
+  sor_primitive: ServiceTitan cloud draw-against-commission accounting within technician payroll native
+    docs
+  dropin_addon: ServiceTitan cloud marketplace app draw-against-commission accounting within technician
+    payroll write path
+  commercial_sku: draw-against-commission accounting within technician payroll automation ServiceTitan
+    cloud
+  tracker_leftover: ServiceTitan cloud draw-against-commission accounting within technician payroll fail
+    points workaround feature request
+audit:
+  by: keep-gate audit (PR14 + gate-bind-saas G1-G9)
+  result: not pitchable as company; filed as Occupied/file_on
+  keep_gate: fail

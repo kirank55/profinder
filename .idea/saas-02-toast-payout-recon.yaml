@@ -1,7 +1,6 @@
 candidate_seat: Toast cloud third-party delivery payout reconciliation
-v1_as_shipped: Matcher joining Toast check-level sales to DoorDash / Uber Eats
-  payout lines, flagging missing or short payouts with fee-breakdown evidence
-  pack for dispute.
+v1_as_shipped: Matcher joining Toast check-level sales to DoorDash / Uber Eats payout lines, flagging
+  missing or short payouts with fee-breakdown evidence pack for dispute.
 entry: generated
 niche:
   icp: independent restaurants
@@ -12,35 +11,46 @@ niche:
   hard_nos: []
   source: user
 slices:
-  - cross-system payout matcher
+- cross-system payout matcher
 verdicts:
-  as_company: Sparse 3
+  as_company: Occupied 6.5
   as_oss: Sparse 3
   as_plugin: Sparse 4
 density_scores:
   problem_density: 5
   exact_mechanics_density: 0
 incumbents:
-  - name: Toast DoorDash payout support
-    url: https://support.toasttab.com/en/article/When-do-I-get-paid-by-DoorDash-Grubhub-and-Uber-Eats
-    quote: "issue payouts directly to you, not through Toast"
-    seat_match: adjacent_pain
-    leftover: confirms cross-system gap, no matcher
-  - name: Toast reconciliation report
-    url: https://support.toasttab.com/en/article/When-do-I-get-paid-by-DoorDash-Grubhub-and-Uber-Eats
-    quote: "The Reconciliation report gives you a single list of every payout Toast has sent"
-    seat_match: adjacent_pain
-    leftover: Toast-side payouts only, no delivery-platform join
-auto_rejects_fired: []
+- name: Toast DoorDash payout support
+  url: https://support.toasttab.com/en/article/When-do-I-get-paid-by-DoorDash-Grubhub-and-Uber-Eats
+  quote: issue payouts directly to you, not through Toast
+  seat_match: adjacent_pain
+  leftover: confirms cross-system gap, no matcher
+- name: Toast reconciliation report
+  url: https://support.toasttab.com/en/article/When-do-I-get-paid-by-DoorDash-Grubhub-and-Uber-Eats
+  quote: The Reconciliation report gives you a single list of every payout Toast has sent
+  seat_match: adjacent_pain
+  leftover: Toast-side payouts only, no delivery-platform join
+auto_rejects_fired:
+- 5
+- 7
 falsification:
-  1_vacant_process: pass
-  2_not_a_wrapper: pass
-  3_mechanical_gap: pass
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
 steelman:
   occupancy_ceiling: 3
-  why_build: Skeptic builds because operators already reconcile Toast vs
-    delivery payouts in spreadsheets and neither side ships the join.
+  why_build: Skeptic builds because operators already reconcile Toast vs delivery payouts in spreadsheets
+    and neither side ships the join.
 claim_hygiene: ok
-file_on: none
-keep_gate: pass
+file_on: https://support.toasttab.com/en/article/When-do-I-get-paid-by-DoorDash-Grubhub-and-Uber-Eats
+keep_gate: fail
 deny_catalog: embedded_saas_baseline
+search_classes:
+  sor_primitive: Toast cloud delivery payout reconciliation native docs
+  dropin_addon: Toast cloud marketplace app delivery payout reconciliation write path
+  commercial_sku: delivery payout reconciliation automation Toast cloud
+  tracker_leftover: Toast cloud delivery payout reconciliation fail points workaround feature request
+audit:
+  by: keep-gate audit (PR14 + gate-bind-saas G1-G9)
+  result: not pitchable as company; filed as Occupied/file_on
+  keep_gate: fail

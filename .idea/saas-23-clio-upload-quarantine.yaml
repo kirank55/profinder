@@ -1,6 +1,6 @@
 candidate_seat: Clio cloud portal upload quarantine before filing for law firms
-v1_as_shipped: Intake quarantine holding portal uploads failing
-  malware/encrypted/unreadable checks before Clio filing.
+v1_as_shipped: Intake quarantine holding portal uploads failing malware/encrypted/unreadable checks before
+  Clio filing.
 entry: generated
 niche:
   icp: law firms
@@ -11,55 +11,70 @@ niche:
   hard_nos: []
   source: user
 slices:
-  - pre-filing upload quarantine
+- pre-filing upload quarantine
 verdicts:
-  as_company: Sparse 3
+  as_company: Occupied 6
   as_oss: Sparse 4
   as_plugin: Occupied 5
 density_scores:
   problem_density: 6
   exact_mechanics_density: 0
 incumbents:
-  - name: Clio portal uploads
-    url: https://www.clio.com/features/client-portal/
-    quote: "Enable secure client communication with messages and document sharing that automatically save to the correct matter"
-    seat_match: adjacent_pain
-    leftover: auto-save path with no holding check for unreadable files
-  - name: Clio unlimited storage
-    url: https://www.clio.com/features/legal-documents/
-    quote: "Securely store your video, image, text, and audio documents in one place with unlimited document storage."
-    seat_match: adjacent_pain
-    leftover: storage guarantee only, no pre-file malware/readability gate
-  - name: Box Shield malware
-    url: https://www.box.com/shield
-    quote: "Protect your content against advanced malware attacks"
-    seat_match: adjacent_pain
-    leftover: enterprise content scan, no portal-to-matter filing block
-  - name: Box download restrict
-    url: https://www.box.com/shield
-    quote: "Detect sophisticated malware for new and historical content in near real time, automatically restricting downloads while still allowing for preview."
-    seat_match: adjacent_pain
-    leftover: download-side control, no intake quarantine queue
-  - name: ShareFile portal upload
-    url: https://www.sharefile.com/product-feature/client-portal
-    quote: "Provide clients with one secure place to upload files, complete tasks, review documents and sign agreements"
-    seat_match: adjacent_pain
-    leftover: upload convenience only, no encrypted/unreadable triage
-  - name: LexShare secure receive
-    url: https://www.lexshare.io/
-    quote: "Save time and streamline your workflow by enabling clients to receive and send secure files to and from your organization"
-    seat_match: adjacent_pain
-    leftover: secure transport only, no holding pen for failed scans
-auto_rejects_fired: []
+- name: Clio portal uploads
+  url: https://www.clio.com/features/client-portal/
+  quote: Enable secure client communication with messages and document sharing that automatically save
+    to the correct matter
+  seat_match: adjacent_pain
+  leftover: auto-save path with no holding check for unreadable files
+- name: Clio unlimited storage
+  url: https://www.clio.com/features/legal-documents/
+  quote: Securely store your video, image, text, and audio documents in one place with unlimited document
+    storage.
+  seat_match: adjacent_pain
+  leftover: storage guarantee only, no pre-file malware/readability gate
+- name: Box Shield malware
+  url: https://www.box.com/shield
+  quote: Protect your content against advanced malware attacks
+  seat_match: adjacent_pain
+  leftover: enterprise content scan, no portal-to-matter filing block
+- name: Box download restrict
+  url: https://www.box.com/shield
+  quote: Detect sophisticated malware for new and historical content in near real time, automatically
+    restricting downloads while still allowing for preview.
+  seat_match: adjacent_pain
+  leftover: download-side control, no intake quarantine queue
+- name: ShareFile portal upload
+  url: https://www.sharefile.com/product-feature/client-portal
+  quote: Provide clients with one secure place to upload files, complete tasks, review documents and sign
+    agreements
+  seat_match: adjacent_pain
+  leftover: upload convenience only, no encrypted/unreadable triage
+- name: LexShare secure receive
+  url: https://www.lexshare.io/
+  quote: Save time and streamline your workflow by enabling clients to receive and send secure files to
+    and from your organization
+  seat_match: adjacent_pain
+  leftover: secure transport only, no holding pen for failed scans
+auto_rejects_fired:
+- 5
 falsification:
-  1_vacant_process: pass
-  2_not_a_wrapper: pass
-  3_mechanical_gap: pass
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
 steelman:
   occupancy_ceiling: 3
-  why_build: Client uploads file everything straight to matter; a single bad
-    PDF/malware lands in SoR — holding pen is missing enforcement.
+  why_build: "Client uploads file everything straight to matter; a single bad PDF/malware lands in SoR\
+    \ \u2014 holding pen is missing enforcement."
 claim_hygiene: ok
-file_on: none
-keep_gate: pass
+file_on: https://www.clio.com/features/client-portal/
+keep_gate: fail
 deny_catalog: embedded_saas_baseline
+search_classes:
+  sor_primitive: Clio cloud client portal and document sharing native docs
+  dropin_addon: Clio cloud marketplace app client portal and document sharing write path
+  commercial_sku: client portal and document sharing automation Clio cloud
+  tracker_leftover: Clio cloud client portal and document sharing fail points workaround feature request
+audit:
+  by: keep-gate audit (PR14 + gate-bind-saas G1-G9)
+  result: not pitchable as company; filed as Occupied/file_on
+  keep_gate: fail

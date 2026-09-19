@@ -1,7 +1,7 @@
 candidate_seat: ServiceTitan cloud EPA refrigerant cylinder ledger
-v1_as_shipped: Cylinder-level ledger tracking recovered / reclaimed refrigerant
-  against 15 lb AIM Act threshold and leak-rate math, with purchase-ledger
-  evidence export; SoR has only custom invoice-item reports.
+v1_as_shipped: Cylinder-level ledger tracking recovered / reclaimed refrigerant against 15 lb AIM Act
+  threshold and leak-rate math, with purchase-ledger evidence export; SoR has only custom invoice-item
+  reports.
 entry: generated
 niche:
   icp: hvac shops
@@ -12,35 +12,47 @@ niche:
   hard_nos: []
   source: user
 slices:
-  - cylinder ledger with threshold guard
+- cylinder ledger with threshold guard
 verdicts:
-  as_company: Sparse 2.5
+  as_company: Occupied 6.5
   as_oss: Sparse 3
   as_plugin: Occupied 5
 density_scores:
   problem_density: 5
   exact_mechanics_density: 0
 incumbents:
-  - name: RefrigerantTrack threshold note
-    url: https://refrigeranttrack.com/
-    quote: "The appliance charge threshold dropped from 50 lbs to 15 lbs as of January 2026."
-    seat_match: adjacent_pain
-    leftover: standalone tracker, no ServiceTitan write-time placement
-  - name: ServiceTitan refrigerant tracking gap
-    url: https://help.servicetitan.com/docs/stay-compliant-with-permits-regulations-1
-    quote: "ServiceTitan does not have a dedicated EPA refrigerant tracking module. You must build a custom Invoice Items report"
-    seat_match: adjacent_pain
-    leftover: manual report, no ledger or threshold enforcement
-auto_rejects_fired: []
+- name: RefrigerantTrack threshold note
+  url: https://refrigeranttrack.com/
+  quote: The appliance charge threshold dropped from 50 lbs to 15 lbs as of January 2026.
+  seat_match: adjacent_pain
+  leftover: standalone tracker, no ServiceTitan write-time placement
+- name: ServiceTitan refrigerant tracking gap
+  url: https://help.servicetitan.com/docs/stay-compliant-with-permits-regulations-1
+  quote: ServiceTitan does not have a dedicated EPA refrigerant tracking module. You must build a custom
+    Invoice Items report
+  seat_match: adjacent_pain
+  leftover: manual report, no ledger or threshold enforcement
+auto_rejects_fired:
+- 5
 falsification:
-  1_vacant_process: pass
-  2_not_a_wrapper: pass
-  3_mechanical_gap: pass
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
 steelman:
   occupancy_ceiling: 2.5
-  why_build: Skeptic builds because AIM Act threshold change forces ledger
-    work the SoR leaves as a manual report.
+  why_build: Skeptic builds because AIM Act threshold change forces ledger work the SoR leaves as a manual
+    report.
 claim_hygiene: ok
-file_on: none
-keep_gate: pass
+file_on: https://help.servicetitan.com/docs/stay-compliant-with-permits-regulations-1
+keep_gate: fail
 deny_catalog: embedded_saas_baseline
+search_classes:
+  sor_primitive: ServiceTitan cloud refrigerant compliance / cylinder tracking native docs
+  dropin_addon: ServiceTitan cloud marketplace app refrigerant compliance / cylinder tracking write path
+  commercial_sku: refrigerant compliance / cylinder tracking automation ServiceTitan cloud
+  tracker_leftover: ServiceTitan cloud refrigerant compliance / cylinder tracking fail points workaround
+    feature request
+audit:
+  by: keep-gate audit (PR14 + gate-bind-saas G1-G9)
+  result: not pitchable as company; filed as Occupied/file_on
+  keep_gate: fail

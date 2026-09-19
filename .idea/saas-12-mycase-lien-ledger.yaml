@@ -1,7 +1,6 @@
 candidate_seat: Settlement lien-payee ledger posting verified payoffs into MyCase billing disbursement
-v1_as_shipped: Matter-level lien register (payee, lien type, original amount,
-  negotiated amount, status) whose verified payoff figures flow into the MyCase
-  billing disbursement statement.
+v1_as_shipped: Matter-level lien register (payee, lien type, original amount, negotiated amount, status)
+  whose verified payoff figures flow into the MyCase billing disbursement statement.
 entry: generated
 niche:
   icp: law firms
@@ -13,53 +12,66 @@ niche:
   source: user
 slices: []
 verdicts:
-  as_company: Sparse 3
+  as_company: Occupied 6
   as_oss: Sparse 3
   as_plugin: Occupied 5
 density_scores:
   problem_density: 6
   exact_mechanics_density: 0
 incumbents:
-  - name: MyCase legal billing
-    url: https://www.mycase.com/products/legal-billing-software
-    quote: "Billing software that helps law firms automatically capture time across client tasks and generate invoices from tracked time."
-    seat_match: adjacent_pain
-    leftover: no lien-type register, no negotiated-amount flow into disbursement
-  - name: MyCase LawPay payments integration
-    url: https://www.mycase.com/features/legal-payments-software/
-    quote: "Streamline your billings and collections by accepting cards, eChecks, and electronic payments from your clients while ensuring compliance with ABA and IOLTA guidelines."
-    seat_match: adjacent_pain
-    leftover: no lien-payee split at payout
-  - name: V.law settlement platform
-    url: https://v.law/services/for-law-firms
-    quote: "V.law is the only software built to power the entire settlement lifecycle, from resolution to distribution, with integrated banking capabilities."
-    seat_match: adjacent_pain
-    leftover: standalone rails, no matter-level register inside billing seat
-  - name: LeanLaw contingency lien management
-    url: https://www.leanlaw.co/solutions/contingency
-    quote: "Track liens from the day they're filed"
-    seat_match: wrong_substrate
-    leftover: equivalent lives on another substrate, billing-seat register absent
-  - name: Supio Case Ledger
-    url: https://www.supio.com/products/case-economics
-    quote: "Track, extract, and manage every lien against a case"
-    seat_match: adjacent_pain
-    leftover: extraction sidecar, figures do not post to billing statement
-  - name: LeanLaw contingency framing
-    url: https://www.leanlaw.co/solutions/contingency
-    quote: "Neither has a dedicated contingency settlement calculator, lien tracking, or a PI-specific workflow."
-    seat_match: adjacent_pain
-    leftover: page states dedicated calculator and lien tracking absent in seat
-auto_rejects_fired: []
+- name: MyCase legal billing
+  url: https://www.mycase.com/products/legal-billing-software
+  quote: Billing software that helps law firms automatically capture time across client tasks and generate
+    invoices from tracked time.
+  seat_match: adjacent_pain
+  leftover: no lien-type register, no negotiated-amount flow into disbursement
+- name: MyCase LawPay payments integration
+  url: https://www.mycase.com/features/legal-payments-software/
+  quote: Streamline your billings and collections by accepting cards, eChecks, and electronic payments
+    from your clients while ensuring compliance with ABA and IOLTA guidelines.
+  seat_match: adjacent_pain
+  leftover: no lien-payee split at payout
+- name: V.law settlement platform
+  url: https://v.law/services/for-law-firms
+  quote: V.law is the only software built to power the entire settlement lifecycle, from resolution to
+    distribution, with integrated banking capabilities.
+  seat_match: adjacent_pain
+  leftover: standalone rails, no matter-level register inside billing seat
+- name: LeanLaw contingency lien management
+  url: https://www.leanlaw.co/solutions/contingency
+  quote: Track liens from the day they're filed
+  seat_match: wrong_substrate
+  leftover: equivalent lives on another substrate, billing-seat register absent
+- name: Supio Case Ledger
+  url: https://www.supio.com/products/case-economics
+  quote: Track, extract, and manage every lien against a case
+  seat_match: adjacent_pain
+  leftover: extraction sidecar, figures do not post to billing statement
+- name: LeanLaw contingency framing
+  url: https://www.leanlaw.co/solutions/contingency
+  quote: Neither has a dedicated contingency settlement calculator, lien tracking, or a PI-specific workflow.
+  seat_match: adjacent_pain
+  leftover: page states dedicated calculator and lien tracking absent in seat
+auto_rejects_fired:
+- 5
 falsification:
-  1_vacant_process: pass
-  2_not_a_wrapper: pass
-  3_mechanical_gap: pass
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
 steelman:
   occupancy_ceiling: 4
-  why_build: Standalone settlement rails and AI ledgers exist, but no matter-level
-    lien register with negotiated-amount lifecycle sits in the MyCase billing seat.
+  why_build: Standalone settlement rails and AI ledgers exist, but no matter-level lien register with
+    negotiated-amount lifecycle sits in the MyCase billing seat.
 claim_hygiene: ok
-file_on: none
-keep_gate: pass
+file_on: https://www.mycase.com/products/legal-billing-software
+keep_gate: fail
 deny_catalog: embedded_saas_baseline
+search_classes:
+  sor_primitive: MyCase cloud billing and online payments native docs
+  dropin_addon: MyCase cloud marketplace app billing and online payments write path
+  commercial_sku: billing and online payments automation MyCase cloud
+  tracker_leftover: MyCase cloud billing and online payments fail points workaround feature request
+audit:
+  by: keep-gate audit (PR14 + gate-bind-saas G1-G9)
+  result: not pitchable as company; filed as Occupied/file_on
+  keep_gate: fail

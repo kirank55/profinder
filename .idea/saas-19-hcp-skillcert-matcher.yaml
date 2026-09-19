@@ -1,7 +1,6 @@
 candidate_seat: Skill-certification matcher filtering Housecall Pro techs at dispatch time
-v1_as_shipped: Cert-skill store with expiry plus per-job license check, ranking
-  eligible Housecall Pro techs and writing recommended assignee into dispatch
-  board.
+v1_as_shipped: Cert-skill store with expiry plus per-job license check, ranking eligible Housecall Pro
+  techs and writing recommended assignee into dispatch board.
 entry: generated
 niche:
   icp: home-service operators
@@ -12,51 +11,64 @@ niche:
   hard_nos: []
   source: user
 slices:
-  - cert-expiry store with license check
-  - rank-and-write recommended assignee
+- cert-expiry store with license check
+- rank-and-write recommended assignee
 verdicts:
-  as_company: Sparse 3
+  as_company: Occupied 6
   as_oss: Sparse 3
   as_plugin: Occupied 6
 density_scores:
   problem_density: 6
   exact_mechanics_density: 0
 incumbents:
-  - name: Housecall Pro Scheduling
-    url: https://www.housecallpro.com/features/scheduling-software/
-    quote: "See estimated drive time between jobs"
-    seat_match: adjacent_pain
-    leftover: no license-expiry check blocking unqualified assign
-  - name: Housecall Pro Dispatching
-    url: https://www.housecallpro.com/features/dispatching-software/
-    quote: "See estimated drive times between jobs so you can adjust schedules and minimize wasted hours on the road."
-    seat_match: adjacent_pain
-    leftover: no skill-ranked shortlist with compliance block
-  - name: Beeline Routes via Housecall Pro Integrations
-    url: https://www.housecallpro.com/integrations/
-    quote: "Save travel time with route optimization and custom scheduling."
-    seat_match: adjacent_pain
-    leftover: no cert store with per-job eligibility proof
-  - name: ServiceTitan Dispatch Software
-    url: https://www.servicetitan.com/features/dispatch-software
-    quote: "Dispatchers can use the property data display on the Dispatch Board to help assign the best suited tech to service and sell to customers."
-    seat_match: wrong_substrate
-    leftover: no cert-lifecycle engine with expiry enforcement
-  - name: FieldEdge Scheduling Dispatching
-    url: https://fieldedge.com/field-service-software/scheduling-and-dispatching/
-    quote: "Assign the right tech to every job using skill set, location, and workload."
-    seat_match: wrong_substrate
-    leftover: no license verification with audit trail
-auto_rejects_fired: []
+- name: Housecall Pro Scheduling
+  url: https://www.housecallpro.com/features/scheduling-software/
+  quote: See estimated drive time between jobs
+  seat_match: adjacent_pain
+  leftover: no license-expiry check blocking unqualified assign
+- name: Housecall Pro Dispatching
+  url: https://www.housecallpro.com/features/dispatching-software/
+  quote: See estimated drive times between jobs so you can adjust schedules and minimize wasted hours
+    on the road.
+  seat_match: adjacent_pain
+  leftover: no skill-ranked shortlist with compliance block
+- name: Beeline Routes via Housecall Pro Integrations
+  url: https://www.housecallpro.com/integrations/
+  quote: Save travel time with route optimization and custom scheduling.
+  seat_match: adjacent_pain
+  leftover: no cert store with per-job eligibility proof
+- name: ServiceTitan Dispatch Software
+  url: https://www.servicetitan.com/features/dispatch-software
+  quote: Dispatchers can use the property data display on the Dispatch Board to help assign the best suited
+    tech to service and sell to customers.
+  seat_match: wrong_substrate
+  leftover: no cert-lifecycle engine with expiry enforcement
+- name: FieldEdge Scheduling Dispatching
+  url: https://fieldedge.com/field-service-software/scheduling-and-dispatching/
+  quote: Assign the right tech to every job using skill set, location, and workload.
+  seat_match: wrong_substrate
+  leftover: no license verification with audit trail
+auto_rejects_fired:
+- 5
 falsification:
-  1_vacant_process: pass
-  2_not_a_wrapper: pass
-  3_mechanical_gap: pass
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
 steelman:
   occupancy_ceiling: 6
-  why_build: Gas/electrical mis-dispatch risks callback and compliance; cert-aware
-    ranking blocks bad assigns at dispatch.
+  why_build: Gas/electrical mis-dispatch risks callback and compliance; cert-aware ranking blocks bad
+    assigns at dispatch.
 claim_hygiene: ok
-file_on: none
-keep_gate: pass
+file_on: https://www.housecallpro.com/features/scheduling-software/
+keep_gate: fail
 deny_catalog: embedded_saas_baseline
+search_classes:
+  sor_primitive: Housecall Pro cloud technician dispatch and GPS tracking native docs
+  dropin_addon: Housecall Pro cloud marketplace app technician dispatch and GPS tracking write path
+  commercial_sku: technician dispatch and GPS tracking automation Housecall Pro cloud
+  tracker_leftover: Housecall Pro cloud technician dispatch and GPS tracking fail points workaround feature
+    request
+audit:
+  by: keep-gate audit (PR14 + gate-bind-saas G1-G9)
+  result: not pitchable as company; filed as Occupied/file_on
+  keep_gate: fail

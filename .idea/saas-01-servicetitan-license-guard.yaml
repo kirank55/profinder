@@ -1,7 +1,7 @@
 candidate_seat: ServiceTitan cloud technician license-expiry dispatch guard
-v1_as_shipped: Write-time guard that suppresses dispatch Skill assignment when
-  EPA608 / state license is expired or expiring, using custom-field expiry dates
-  plus scheduled-report sync; manual Skill removal becomes enforced block.
+v1_as_shipped: Write-time guard that suppresses dispatch Skill assignment when EPA608 / state license
+  is expired or expiring, using custom-field expiry dates plus scheduled-report sync; manual Skill removal
+  becomes enforced block.
 entry: generated
 niche:
   icp: hvac shops
@@ -12,35 +12,46 @@ niche:
   hard_nos: []
   source: user
 slices:
-  - license-expiry dispatch block
+- license-expiry dispatch block
 verdicts:
-  as_company: Sparse 2.5
+  as_company: Occupied 6.5
   as_oss: Sparse 3
   as_plugin: Occupied 5
 density_scores:
   problem_density: 5
   exact_mechanics_density: 0
 incumbents:
-  - name: ServiceTitan permits and regulations help
-    url: https://help.servicetitan.com/docs/stay-compliant-with-permits-regulations-1
-    quote: "ServiceTitan does not have a native certification tracking module"
-    seat_match: adjacent_pain
-    leftover: custom-field + scheduled report only, no write-time block
-  - name: ServiceTitan technician skill removal thread
-    url: https://help.servicetitan.com/docs/stay-compliant-with-permits-regulations-1
-    quote: "If a technician's certification expires, removing their corresponding Skill is a manual step"
-    seat_match: adjacent_pain
-    leftover: manual step, no enforcement at dispatch
-auto_rejects_fired: []
+- name: ServiceTitan permits and regulations help
+  url: https://help.servicetitan.com/docs/stay-compliant-with-permits-regulations-1
+  quote: ServiceTitan does not have a native certification tracking module
+  seat_match: adjacent_pain
+  leftover: custom-field + scheduled report only, no write-time block
+- name: ServiceTitan technician skill removal thread
+  url: https://help.servicetitan.com/docs/stay-compliant-with-permits-regulations-1
+  quote: If a technician's certification expires, removing their corresponding Skill is a manual step
+  seat_match: adjacent_pain
+  leftover: manual step, no enforcement at dispatch
+auto_rejects_fired:
+- 5
 falsification:
-  1_vacant_process: pass
-  2_not_a_wrapper: pass
-  3_mechanical_gap: pass
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
 steelman:
   occupancy_ceiling: 2.5
-  why_build: Skeptic builds because expired-license dispatch creates
-    compliance callbacks and SoR leaves the block manual.
+  why_build: Skeptic builds because expired-license dispatch creates compliance callbacks and SoR leaves
+    the block manual.
 claim_hygiene: ok
-file_on: none
-keep_gate: pass
+file_on: https://help.servicetitan.com/docs/stay-compliant-with-permits-regulations-1
+keep_gate: fail
 deny_catalog: embedded_saas_baseline
+search_classes:
+  sor_primitive: ServiceTitan cloud dispatch / technician assignment native docs
+  dropin_addon: ServiceTitan cloud marketplace app dispatch / technician assignment write path
+  commercial_sku: dispatch / technician assignment automation ServiceTitan cloud
+  tracker_leftover: ServiceTitan cloud dispatch / technician assignment fail points workaround feature
+    request
+audit:
+  by: keep-gate audit (PR14 + gate-bind-saas G1-G9)
+  result: not pitchable as company; filed as Occupied/file_on
+  keep_gate: fail

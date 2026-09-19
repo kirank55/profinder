@@ -1,6 +1,6 @@
 candidate_seat: SOL tolling ledger writing adjusted SOL date to Clio SOL calendar
-v1_as_shipped: Tolling-event ledger computing adjusted SOL date from tolling
-  doctrines, writing adjusted date to Clio SOL calendar field.
+v1_as_shipped: Tolling-event ledger computing adjusted SOL date from tolling doctrines, writing adjusted
+  date to Clio SOL calendar field.
 entry: generated
 niche:
   icp: law firms
@@ -12,53 +12,67 @@ niche:
   source: user
 slices: []
 verdicts:
-  as_company: Sparse 3
+  as_company: Occupied 6
   as_oss: Sparse 3
   as_plugin: Occupied 6
 density_scores:
   problem_density: 7
   exact_mechanics_density: 0
 incumbents:
-  - name: Clio Manage Legal Calendaring
-    url: https://www.clio.com/features/legal-calendaring-software
-    quote: "See statute of limitations dates for all your cases"
-    seat_match: adjacent_pain
-    leftover: shows static SOL dates, no tolling-event recomputation
-  - name: Clio Calendar Set Up and Settings
-    url: https://help.clio.com/hc/en-us/articles/9290016489883-Calendar-Set-Up-and-Settings
-    quote: "This calendar shows you the statute of limitation dates for your matters."
-    seat_match: adjacent_pain
-    leftover: date-field display only, no tolling ledger
-  - name: LawToolBox
-    url: https://lawtoolbox.com/
-    quote: "Automatically calculate 80+ court-specific deadlines by entering a single trial date"
-    seat_match: adjacent_pain
-    leftover: trial-date chain engine, no SOL tolling pause/resume
-  - name: DocketCalendar
-    url: https://www.docketcalendar.com/
-    quote: "DocketCalendar connects to your local court rules and fully automates calculating, counting, and calendaring due dates related to your case."
-    seat_match: adjacent_pain
-    leftover: court-rule due dates, no tolling-adjusted SOL writer for Clio
-  - name: Deadlines.com
-    url: https://deadlines.com/features
-    quote: "Deadlines.com allows smaller firms to generate deadlines using the same technology that is trusted by over 70% of the top 100 firms in the country"
-    seat_match: adjacent_pain
-    leftover: CompuLaw rules deadlines, no tolling ledger
-  - name: CalendarRules FAQ
-    url: https://calendarrules.com/faq
-    quote: "Additional time that may be added based on how documents were served, such as by mail, electronic service, or personal service"
-    seat_match: adjacent_pain
-    leftover: service-offset logic only, no SOL tolling doctrine computation
-auto_rejects_fired: []
+- name: Clio Manage Legal Calendaring
+  url: https://www.clio.com/features/legal-calendaring-software
+  quote: See statute of limitations dates for all your cases
+  seat_match: adjacent_pain
+  leftover: shows static SOL dates, no tolling-event recomputation
+- name: Clio Calendar Set Up and Settings
+  url: https://help.clio.com/hc/en-us/articles/9290016489883-Calendar-Set-Up-and-Settings
+  quote: This calendar shows you the statute of limitation dates for your matters.
+  seat_match: adjacent_pain
+  leftover: date-field display only, no tolling ledger
+- name: LawToolBox
+  url: https://lawtoolbox.com/
+  quote: Automatically calculate 80+ court-specific deadlines by entering a single trial date
+  seat_match: adjacent_pain
+  leftover: trial-date chain engine, no SOL tolling pause/resume
+- name: DocketCalendar
+  url: https://www.docketcalendar.com/
+  quote: DocketCalendar connects to your local court rules and fully automates calculating, counting,
+    and calendaring due dates related to your case.
+  seat_match: adjacent_pain
+  leftover: court-rule due dates, no tolling-adjusted SOL writer for Clio
+- name: Deadlines.com
+  url: https://deadlines.com/features
+  quote: Deadlines.com allows smaller firms to generate deadlines using the same technology that is trusted
+    by over 70% of the top 100 firms in the country
+  seat_match: adjacent_pain
+  leftover: CompuLaw rules deadlines, no tolling ledger
+- name: CalendarRules FAQ
+  url: https://calendarrules.com/faq
+  quote: Additional time that may be added based on how documents were served, such as by mail, electronic
+    service, or personal service
+  seat_match: adjacent_pain
+  leftover: service-offset logic only, no SOL tolling doctrine computation
+auto_rejects_fired:
+- 5
 falsification:
-  1_vacant_process: pass
-  2_not_a_wrapper: pass
-  3_mechanical_gap: pass
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
 steelman:
   occupancy_ceiling: 4
-  why_build: Clio shows SOL dates but computes no tolling; a tolling-event ledger
-    with audit trail is a mechanical gap adjacent tools don't claim.
+  why_build: Clio shows SOL dates but computes no tolling; a tolling-event ledger with audit trail is
+    a mechanical gap adjacent tools don't claim.
 claim_hygiene: ok
 file_on: https://help.clio.com/hc/en-us/articles/9290016489883-Calendar-Set-Up-and-Settings
-keep_gate: pass
+keep_gate: fail
 deny_catalog: embedded_saas_baseline
+search_classes:
+  sor_primitive: Clio cloud SOL tolling deadline tracking and calendaring native docs
+  dropin_addon: Clio cloud marketplace app SOL tolling deadline tracking and calendaring write path
+  commercial_sku: SOL tolling deadline tracking and calendaring automation Clio cloud
+  tracker_leftover: Clio cloud SOL tolling deadline tracking and calendaring fail points workaround feature
+    request
+audit:
+  by: keep-gate audit (PR14 + gate-bind-saas G1-G9)
+  result: not pitchable as company; filed as Occupied/file_on
+  keep_gate: fail
