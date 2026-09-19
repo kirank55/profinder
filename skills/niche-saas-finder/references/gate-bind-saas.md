@@ -110,6 +110,22 @@ Cannot fetch either the SoR write-path page or the marketplace page ->
 `NEED_EVIDENCE` on that row. A marketplace app labeled `exact` without
 that quote is a card fail.
 
+## Fail-closed defaults (apply before scoring, no discretion)
+
+- A class-1 SoR-help row describing the workaround primitive for the
+  headline slice **defaults to `exact`**. Demotion to `adjacent_pain`
+  requires a quote on the same page showing the v1's write-path gap;
+  "manual", "custom", "report", or "not automatic" in the leftover
+  never demotes. An unlabeled-or-demoted workaround row beside a
+  passing `1_vacant_process` is a card fail.
+- Auto-reject 7 fires unless the card records a `write_path_attempt`
+  (SoR write-path URL fetched this run plus quoted trigger or explicit
+  miss). Skipping the attempt fires the reject; it never exempts the
+  seat from it.
+- `1_vacant_process` passes only with zero `exact` rows on every
+  slice. A pass beside an `exact` row is a card fail, even when
+  `file_on` names another slice.
+
 ## Auto-reject remap
 
 Rubric ids unchanged. Any one is fatal for an `as_company`

@@ -19,6 +19,11 @@ one SoR URL as the whole table, or `as_plugin` Occupied with
 `file_on: none` forbids `keep_gate: pass`. A tracker name without this
 card is not a keep.
 
+A Sparse/Greenfield `as_company` card must also carry a `keep_proof`
+block. `keep_gate: pass` without a complete `keep_proof` is a card
+fail, not a keep. The proof is mechanical: every check cites the card
+field that satisfies it. "Looks clear" is not a check.
+
 ```yaml
 candidate_seat: <one-line stack position>
 v1_as_shipped: <concrete v1 and stack placement>
@@ -56,6 +61,7 @@ incumbents:
     quote: "<contiguous substring of that page, fetched this run>"
     seat_match: exact | adjacent_pain | language_scoped | wrong_substrate | obsolete | price_packaging
     leftover: <what is missing if this row is exact>
+    found_via: sor_primitive | dropin_addon | commercial_sku | tracker_leftover   # class that produced this row; every class must produce >=1 row on a keep
 
 auto_rejects_fired: []            # ids from rubric.md as remapped in gate-bind-saas.md
 falsification:
@@ -70,6 +76,16 @@ steelman:
 claim_hygiene: ok | unsourced | implausible
 file_on: <incumbent repo/issue/marketplace URL, or none>
 keep_gate: pass | fail            # pass required for as_company Sparse/Greenfield; G1-G9 in gate-bind-saas.md
+keep_proof:                       # required when keep_gate is pass; run keep-proof-check.py before counting the keep
+  search_class_hit:               # one incumbent name per class; each class must hit >=1 row
+    sor_primitive: <incumbent name>
+    dropin_addon: <incumbent name>
+    commercial_sku: <incumbent name>
+    tracker_leftover: <incumbent name>
+  distinct_urls: <count of distinct incumbent urls, >=4>
+  need_evidence_rows: <count, must be 0 on a keep>
+  file_on_justification: "<leftover sentence naming the host, or 'no leftover names a host'>"
+  write_path_attempt: "<SoR write-path URL fetched for the consult test + outcome, or NEED_EVIDENCE>"
 deny_catalog: local_adr_0001 | embedded_saas_baseline | incomplete
 rate_next: <not_run | compose_next>   # reminder only: hand a candidate to an idea-rater, never inline a rater verdict
 ```
