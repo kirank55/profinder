@@ -1,0 +1,72 @@
+candidate_seat: Eaglesoft claim attachment assembly at claim creation for independent dental practices
+v1_as_shipped: Windows add-in on the Eaglesoft claim-create path that pulls required X-ray/perio-chart attachments by payer rule and attaches before send; missing-attachment report on block.
+entry: generated
+
+niche:
+  icp: independent dental practices / labs
+  system_of_record: Patterson Eaglesoft on Windows
+  workflow_step: insurance claim creation and attachment
+  ship_form: company
+  unique_data_or_distribution: unset
+  hard_nos: []
+  source: user
+
+slices: [payer-rule attachment check, attachment assembly before send]
+
+search_classes:
+  sor_primitive: Eaglesoft Vyne eClaim submission claim-create docs
+  dropin_addon: Vyne Trellis JETT attachments Eaglesoft write path
+  commercial_sku: DentalXChange Attachment Services payer rules claim creation
+  tracker_leftover: Vyne auto-send validated claims attachment requirement issue
+
+verdicts:
+  as_company: Occupied 8
+  as_oss: Occupied 6
+  as_plugin: Occupied 6
+
+density_scores:
+  problem_density: 9
+  exact_mechanics_density: 8
+
+incumbents:
+  - name: Patterson Vyne eClaim Submission (Answer 43891)
+    url: https://pattersonsupport.custhelp.com/app/answers/detail/a_id/43891/
+    quote: "Set Default Insurance Form to Vyne Plugin"
+    seat_match: exact
+    leftover: Claim-create path already routes through Vyne plugin as the default form; no vacant primitive.
+  - name: Patterson Vyne Claim Management (same page)
+    url: https://pattersonsupport.custhelp.com/app/answers/detail/a_id/43891/
+    quote: "Vyne Claim Management screen will open and the claims you have sent will appear."
+    seat_match: exact
+    leftover: Management/tracking of sent claims ships natively in the Vyne flow.
+  - name: Vyne Trellis JETT attachments
+    url: https://vynedental.com/getting-started_files_uploading-attaching/
+    quote: "The JETT File Uploader sends printed documents to Vyne Trellis Files, eliminating local storage or exports. Documents are instantly available in Vyne Trellis for claims attachments, secure email, and other workflows"
+    seat_match: exact
+    leftover: Attachment assembly before send is the vendor headline UX.
+  - name: Vyne auto-send validated claims (same Patterson page)
+    url: https://pattersonsupport.custhelp.com/app/answers/detail/a_id/43891/
+    quote: "Vyne Trellis offers an option to automatically send newly uploaded claims, as long as the claims pass all validations and do not require attachments."
+    seat_match: exact
+    leftover: Payer-rule validation + attachment-requirement check already ships; the proposed rule engine is the incumbent feature.
+  - name: DentalXChange Attachment Services (payer rules + unsolicited/solicited attachments)
+    url: https://help.dentalxchange.com/DentalXChangeHelp/DentalXChangeAttachmentServices.htm
+    quote: "NEED_EVIDENCE (403 on fetch this run; search highlights describe payer attachment rules and ClaimConnect attachment pages but no verified contiguous quote)"
+    seat_match: adjacent_pain
+    leftover: Second clearinghouse confirms the step is a bus aisle, not a vacancy; row kept as NEED_EVIDENCE per G1.
+
+auto_rejects_fired: [1]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
+
+steelman:
+  occupancy_ceiling: 8
+  why_build: "Payer attachment rejections are expensive; a rule-driven assembly at claim creation would cut denials."
+
+claim_hygiene: ok
+file_on: https://pattersonsupport.custhelp.com/app/answers/detail/a_id/43891/
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: not_run

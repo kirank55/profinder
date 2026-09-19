@@ -1,0 +1,68 @@
+candidate_seat: Eaglesoft recall enforcement at schedule-save for independent dental practices
+v1_as_shipped: Service consulting Eaglesoft schedule-save that forces a recall appointment for high-risk perio patients when no future recall exists; writes recall record back.
+entry: generated
+niche:
+  icp: independent dental practices / labs
+  system_of_record: Patterson Eaglesoft on Windows
+  workflow_step: recall scheduling at schedule-save
+  ship_form: company
+  unique_data_or_distribution: unset
+  hard_nos: []
+  source: user
+slices: [recall outreach automation, schedule-status writeback]
+search_classes:
+  sor_primitive: Eaglesoft eReminders unconfirmed appointment docs
+  dropin_addon: Patterson authorized vendor recall reminders Eaglesoft
+  commercial_sku: RevenueWell Solutionreach Eaglesoft recall automation
+  tracker_leftover: eReminders unconfirmed-appointment status behavior
+verdicts:
+  as_company: Occupied 8
+  as_oss: Occupied 6
+  as_plugin: Occupied 6
+density_scores:
+  problem_density: 9
+  exact_mechanics_density: 9
+incumbents:
+  - name: Patterson eReminders (Answer 7440)
+    url: https://pattersonsupport.custhelp.com/app/answers/detail/a_id/7440
+    quote: "eReminders uses outbound messaging through phone calls, emails and/or text messages to remind patients about upcoming appointments."
+    seat_match: exact
+    leftover: Native reminder primitive already ships on the schedule; no vacant reminder seat.
+  - name: Patterson eReminders status writeback (same page)
+    url: https://pattersonsupport.custhelp.com/app/answers/detail/a_id/7440
+    quote: "Automatically updates the status of scheduled appointment"
+    seat_match: exact
+    leftover: Schedule-status writeback is native behavior, not a wedge.
+  - name: RevenueWell Eaglesoft integration
+    url: https://www.revenuewell.com/integrations/eaglesoft-revenuewell
+    quote: "Our superior Eaglesoft integration gives RevenueWell the unique ability to automate more of your most critical front office workflows than any comparable system and does so using the most granular data-sets and filters possible."
+    seat_match: exact
+    leftover: Front-office recall workflow automation is the vendor headline on this exact SoR.
+  - name: RevenueWell reminder cadences (same page)
+    url: https://www.revenuewell.com/integrations/eaglesoft-revenuewell
+    quote: "Intelligent, automatic reminder cadences and pre-built marketing campaigns for every front office need, including treatment plan follow ups, premed alerts, expiring insurance benefits, bill pay/collections, online scheduling and payments that write back to the ledger automatically."
+    seat_match: exact
+    leftover: Recall plus ledger-writeback bundle already sold as one SKU.
+  - name: Solutionreach Eaglesoft recall automation
+    url: https://www.solutionreach.com/blog/eaglesoft-dental-recall-automation
+    quote: "It connects to Eaglesoft, reads the scheduling and recall data you already have, runs the outreach on its own, and writes confirmations and reschedules back into Eaglesoft as patients reply."
+    seat_match: exact
+    leftover: Recall-read plus outreach plus writeback loop is a shipping commercial product on this SoR.
+  - name: Solutionreach auto-recall trigger (same page)
+    url: https://www.solutionreach.com/blog/eaglesoft-dental-recall-automation
+    quote: "Reads recall intervals and last-visit dates, then sends recall outreach automatically the moment a patient is due, with no staff trigger required"
+    seat_match: exact
+    leftover: The enforcement-at-save mechanic itself is the vendor headline; nothing vacant remains.
+auto_rejects_fired: [1]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
+steelman:
+  occupancy_ceiling: 9
+  why_build: "Hygiene recall leakage is real money; enforcing recall at schedule-save would close the loop staff forget."
+claim_hygiene: ok
+file_on: https://pattersonsupport.custhelp.com/app/answers/detail/a_id/7440
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: not_run

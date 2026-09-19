@@ -1,0 +1,77 @@
+candidate_seat: Eaglesoft lab-case remake block at appointment completion for independent dental practices
+v1_as_shipped: Windows tray service that watches Eaglesoft appointment-complete write, checks linked lab-case status via Patterson eServices/lab API, and blocks completion with remake reason when case is flagged remake; logs block reason.
+entry: generated
+
+niche:
+  icp: independent dental practices / labs
+  system_of_record: Patterson Eaglesoft on Windows
+  workflow_step: lab case tracking at appointment completion
+  ship_form: company
+  unique_data_or_distribution: unset
+  hard_nos: []
+  source: user
+
+slices: [lab-case status consult at completion, remake block reason log]
+
+search_classes:
+  sor_primitive: Eaglesoft Lab Tracking appointment completion docs
+  dropin_addon: Patterson eServices marketplace lab integration appointment write path
+  commercial_sku: dental lab case tracking remake automation Eaglesoft
+  tracker_leftover: Eaglesoft lab tracking fail points remake workaround feature request
+
+verdicts:
+  as_company: Occupied 7
+  as_oss: Occupied 6
+  as_plugin: Occupied 6
+
+density_scores:
+  problem_density: 8
+  exact_mechanics_density: 8
+
+incumbents:
+  - name: Eaglesoft native Lab Tracking (Patterson Support Answer 451)
+    url: https://pattersonsupport.custhelp.com/app/answers/detail/a_id/451/~/laboratory-case-window
+    quote: "From the Activities menu, click on Lab Tracking or click on the Lab Tracking icon in the toolbar."
+    seat_match: exact
+    leftover: Native window already lists current/returned cases with status colors and Task Manager reminder; no vacant tracking primitive.
+  - name: US Tech Automations lab tracking + remake workflow
+    url: https://ustechautomations.com/resources/blog/automate-dental-lab-case-tracking-workflow-2026
+    quote: "Automated lab case tracking connects your practice management system (Dentrix, Eaglesoft, Open Dental) to lab submission workflows, delivery monitoring, and patient scheduling"
+    seat_match: exact
+    leftover: Vendor already sells remake trigger as a service implementation; headline UX ships as automation build.
+  - name: US Tech Automations remake trigger (same page, second quote)
+    url: https://ustechautomations.com/resources/blog/automate-dental-lab-case-tracking-workflow-2026
+    quote: "Remake workflows trigger automatically on quality issue reports."
+    seat_match: exact
+    leftover: Remake slice itself is the vendor headline; nothing vacant remains for a company wedge.
+  - name: Dentrix Lab Case Manager
+    url: https://magazine.dentrix.com/manage-your-lab-cases-in-dentrix/
+    quote: "With the Lab Case Manager, you can see right from the patient's appointment if the case is out or in, see what lab it went to, check the due date, and check the delivery status using the tracking number."
+    seat_match: wrong_substrate
+    leftover: Same slogan on the other SKU; proves the step is occupied as a category, not a vacant process on Eaglesoft.
+  - name: EasyRx Practice lab prescription tracking
+    url: https://www.easyrxcloud.com/easyrx-practice
+    quote: "With EasyRx Practice, an integrated, cloud-based case management software, you get one easy-to-manage digital workflow that submits, manages, and tracks your prescriptions so patients get their appliances on time."
+    seat_match: adjacent_pain
+    leftover: Treats lab prescription pain with different mechanics/segment (ortho/cloud); not the Eaglesoft Windows write-time seat.
+  - name: Crew Process manual Eaglesoft workaround (tracker leftover culture)
+    url: https://www.thecrewprocess.com/eaglesoft-blog/labtracking
+    quote: "I am not a fan of the Eaglesoft Lab Tracker. There are way too many \"fail\" points."
+    seat_match: adjacent_pain
+    leftover: Workaround culture (OUT/IN prefix codes, phased plans) confirms pain is real but occupied by process, not a vacant product seat.
+
+auto_rejects_fired: [1]
+falsification:
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
+
+steelman:
+  occupancy_ceiling: 8
+  why_build: "Native tracker is manual and workaround-heavy; a write-time remake block at completion would stop seat appointments with missing remakes."
+
+claim_hygiene: ok
+file_on: https://pattersonsupport.custhelp.com/app/answers/detail/a_id/451/~/laboratory-case-window
+keep_gate: fail
+deny_catalog: embedded_saas_baseline
+rate_next: not_run

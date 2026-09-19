@@ -1,0 +1,73 @@
+# Iteration 1 — raw seats (Eaglesoft)
+# niche: independent dental practices / labs on Patterson Eaglesoft on Windows
+# source: user (explore every category)
+
+- candidate_seat: Eaglesoft lab-case remake block at appointment completion for independent dental practices
+  v1_as_shipped: Windows tray service that watches Eaglesoft appointment-complete write, checks linked lab-case status via Patterson eServices/lab API, and blocks completion with remake reason when case is flagged remake; logs block reason.
+  workflow_step: lab case tracking at appointment completion
+  system_of_record: Patterson Eaglesoft on Windows
+  why_not_a_slogan: The mechanic is a write-time consult on the completion path, not "dental SaaS".
+  niche:
+    icp: independent dental practices / labs
+    system_of_record: Patterson Eaglesoft on Windows
+    workflow_step: lab case tracking at appointment completion
+    ship_form: company
+    unique_data_or_distribution: unset
+    hard_nos: []
+    source: user
+
+- candidate_seat: Eaglesoft claim attachment assembly at claim creation for independent dental practices
+  v1_as_shipped: Windows add-in on the Eaglesoft claim-create path that pulls required X-ray/perio-chart attachments by payer rule and attaches before send; missing-attachment report on block.
+  workflow_step: insurance claim creation and attachment
+  system_of_record: Patterson Eaglesoft on Windows
+  why_not_a_slogan: Mechanic is payer-rule attachment check on the claim write path.
+  niche:
+    icp: independent dental practices / labs
+    system_of_record: Patterson Eaglesoft on Windows
+    workflow_step: insurance claim creation and attachment
+    ship_form: company
+    unique_data_or_distribution: unset
+    hard_nos: []
+    source: user
+
+- candidate_seat: Eaglesoft recall enforcement at schedule-save for independent dental practices
+  v1_as_shipped: Service consulting Eaglesoft schedule-save that forces a recall appointment for high-risk perio patients when no future recall exists; writes recall record back.
+  workflow_step: recall scheduling at schedule-save
+  system_of_record: Patterson Eaglesoft on Windows
+  why_not_a_slogan: Enforcement on the schedule write, not reminders-as-marketing.
+  niche:
+    icp: independent dental practices / labs
+    system_of_record: Patterson Eaglesoft on Windows
+    workflow_step: recall scheduling at schedule-save
+    ship_form: company
+    unique_data_or_distribution: unset
+    hard_nos: []
+    source: user
+
+- candidate_seat: Eaglesoft implant/consumable decrement at procedure posting for independent practices
+  v1_as_shipped: Posting hook that decrements implant/abutment lot inventory when CDT implant codes post in Eaglesoft, with reorder point alert.
+  workflow_step: consumable inventory decrement at procedure posting
+  system_of_record: Patterson Eaglesoft on Windows
+  why_not_a_slogan: Lot decrement tied to CDT posting, not generic inventory app.
+  niche:
+    icp: independent dental practices / labs
+    system_of_record: Patterson Eaglesoft on Windows
+    workflow_step: consumable inventory decrement at procedure posting
+    ship_form: company
+    unique_data_or_distribution: unset
+    hard_nos: []
+    source: user
+
+- candidate_seat: Eaglesoft treatment-plan deposit capture at plan presentation for independent practices
+  v1_as_shipped: Plan-presentation overlay that writes the accepted treatment plan total plus deposit payment back to Eaglesoft ledger at signing; partial-pay schedule created.
+  workflow_step: treatment plan acceptance and deposit capture
+  system_of_record: Patterson Eaglesoft on Windows
+  why_not_a_slogan: Ledger write-back at plan acceptance, not a generic payment link.
+  niche:
+    icp: independent dental practices / labs
+    system_of_record: Patterson Eaglesoft on Windows
+    workflow_step: treatment plan acceptance and deposit capture
+    ship_form: company
+    unique_data_or_distribution: unset
+    hard_nos: []
+    source: user
