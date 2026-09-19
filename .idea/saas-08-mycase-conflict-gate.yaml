@@ -1,8 +1,7 @@
 candidate_seat: Conflict-check gate blocking MyCase contact creation on name match
-v1_as_shipped: Standalone review screen where intake staff enter prospective-client
-  name; tool fuzzy-matches live MyCase contacts/matters through MyCase API,
-  returning block/clear verdict plus audit timestamp; mounted beside MyCase
-  intake prior to contact creation.
+v1_as_shipped: Standalone review screen where intake staff enter prospective-client name; tool fuzzy-matches
+  live MyCase contacts/matters through MyCase API, returning block/clear verdict plus audit timestamp;
+  mounted beside MyCase intake prior to contact creation.
 entry: generated
 niche:
   icp: law firms
@@ -13,55 +12,67 @@ niche:
   hard_nos: []
   source: user
 slices:
-  - fuzzy name-match block/clear gate with audit timestamp
+- fuzzy name-match block/clear gate with audit timestamp
 verdicts:
-  as_company: Sparse 3
+  as_company: Occupied 6
   as_oss: Sparse 3
   as_plugin: Occupied 6
 density_scores:
   problem_density: 5
   exact_mechanics_density: 0
 incumbents:
-  - name: MyCase Conflict Checking help
-    url: https://supportcenter.mycase.com/en/articles/9369864-conflict-checking-in-mycase
-    quote: "Using the Global Search Bar helps you perform thorough conflict checks"
-    seat_match: adjacent_pain
-    leftover: no automatic fuzzy alias block with exportable audit
-  - name: MyCase Leads Overview
-    url: https://supportcenter.mycase.com/en/articles/9370266-leads-overview
-    quote: "The Leads feature in MyCase allows you to easily add and track your leads."
-    seat_match: adjacent_pain
-    leftover: no pre-creation hard block prior to Convert to Case
-  - name: MyCase What's New conflict toggle
-    url: https://supportcenter.mycase.com/en/articles/9369799-what-s-new
-    quote: "Be confident that conflict checks have been completed for all leads and cases."
-    seat_match: adjacent_pain
-    leftover: no automated match logic, manual toggle record only
-  - name: Intaker MyCase integration
-    url: http://mycase.com/integrations/intaker-integration
-    quote: "Leads captured by Intaker and transcripts of any web chats sync back to MyCase, keeping all client communication in one convenient place."
-    seat_match: adjacent_pain
-    leftover: no name-match conflict verdict logic
-  - name: Lawmatics Conflict Check Software
-    url: https://www.lawmatics.com/legal-crm/conflict-check-software
-    quote: "Automations can also be configured to approve, deny, or flag new clients as a possible conflict."
-    seat_match: wrong_substrate
-    leftover: same automatic verdict missing on named SoR placement
-  - name: Lead Docket intake platform
-    url: https://www.leaddocket.com/
-    quote: "Lead Docket immediately captures the lead's information from your web form."
-    seat_match: adjacent_pain
-    leftover: no conflict-screening verdict layer
-auto_rejects_fired: []
+- name: MyCase Conflict Checking help
+  url: https://supportcenter.mycase.com/en/articles/9369864-conflict-checking-in-mycase
+  quote: Using the Global Search Bar helps you perform thorough conflict checks
+  seat_match: adjacent_pain
+  leftover: no automatic fuzzy alias block with exportable audit
+- name: MyCase Leads Overview
+  url: https://supportcenter.mycase.com/en/articles/9370266-leads-overview
+  quote: The Leads feature in MyCase allows you to easily add and track your leads.
+  seat_match: adjacent_pain
+  leftover: no pre-creation hard block prior to Convert to Case
+- name: MyCase What's New conflict toggle
+  url: https://supportcenter.mycase.com/en/articles/9369799-what-s-new
+  quote: Be confident that conflict checks have been completed for all leads and cases.
+  seat_match: adjacent_pain
+  leftover: no automated match logic, manual toggle record only
+- name: Intaker MyCase integration
+  url: http://mycase.com/integrations/intaker-integration
+  quote: Leads captured by Intaker and transcripts of any web chats sync back to MyCase, keeping all client
+    communication in one convenient place.
+  seat_match: adjacent_pain
+  leftover: no name-match conflict verdict logic
+- name: Lawmatics Conflict Check Software
+  url: https://www.lawmatics.com/legal-crm/conflict-check-software
+  quote: Automations can also be configured to approve, deny, or flag new clients as a possible conflict.
+  seat_match: wrong_substrate
+  leftover: same automatic verdict missing on named SoR placement
+- name: Lead Docket intake platform
+  url: https://www.leaddocket.com/
+  quote: Lead Docket immediately captures the lead's information from your web form.
+  seat_match: adjacent_pain
+  leftover: no conflict-screening verdict layer
+auto_rejects_fired:
+- 5
+- 7
 falsification:
-  1_vacant_process: pass
-  2_not_a_wrapper: pass
-  3_mechanical_gap: pass
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
 steelman:
   occupancy_ceiling: 3
-  why_build: Manual search plus toggle misses aliases; automatic block/clear with
-    timestamped audit is procedural enforcement no native screen ships.
+  why_build: Manual search plus toggle misses aliases; automatic block/clear with timestamped audit is
+    procedural enforcement no native screen ships.
 claim_hygiene: ok
-file_on: none
-keep_gate: pass
+file_on: https://supportcenter.mycase.com/en/articles/9369864-conflict-checking-in-mycase
+keep_gate: fail
 deny_catalog: embedded_saas_baseline
+search_classes:
+  sor_primitive: MyCase cloud client intake and lead conversion native docs
+  dropin_addon: MyCase cloud marketplace app client intake and lead conversion write path
+  commercial_sku: client intake and lead conversion automation MyCase cloud
+  tracker_leftover: MyCase cloud client intake and lead conversion fail points workaround feature request
+audit:
+  by: keep-gate audit (PR14 + gate-bind-saas G1-G9)
+  result: not pitchable as company; filed as Occupied/file_on
+  keep_gate: fail

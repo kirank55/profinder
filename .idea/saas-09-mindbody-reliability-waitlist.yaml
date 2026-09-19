@@ -1,6 +1,7 @@
-candidate_seat: Reliability-weighted waitlist promoter reordering promotion by check-in history inside Mindbody class scheduling
-v1_as_shipped: Reliability-weighted waitlist promoter reordering Mindbody class
-  roster promotion by check-in history inside front-desk scheduling view.
+candidate_seat: Reliability-weighted waitlist promoter reordering promotion by check-in history inside
+  Mindbody class scheduling
+v1_as_shipped: Reliability-weighted waitlist promoter reordering Mindbody class roster promotion by check-in
+  history inside front-desk scheduling view.
 entry: generated
 niche:
   icp: fitness studios
@@ -12,54 +13,65 @@ niche:
   source: user
 slices: []
 verdicts:
-  as_company: Sparse 3
+  as_company: Occupied 6
   as_oss: Sparse 3
   as_plugin: Occupied 5
 density_scores:
   problem_density: 5
   exact_mechanics_density: 0
 incumbents:
-  - name: Mindbody Scheduling
-    url: https://www.mindbodyonline.com/business/scheduling
-    quote: "When someone cancels, the next waitlisted client is automatically moved to the class roster."
-    seat_match: adjacent_pain
-    leftover: no reliability-weighted promotion order, join-time order remains
-  - name: Mindbody Waitlist Improvements
-    url: https://www.mindbodyonline.com/business/education/product-waitlist-improvements
-    quote: "Moves waitlisted clients to the roster as spots open, based on when they joined the waitlist."
-    seat_match: adjacent_pain
-    leftover: no promotion ordered by past attendance reliability
-  - name: Mindbody Class API docs
-    url: https://github.com/noahott/Mindbody-PHP-API/blob/master/docs/Api/ClassApi.md
-    quote: "Get waiting list entries."
-    seat_match: adjacent_pain
-    leftover: no scoring key for promotion, list retrieval only
-  - name: Bitlancer Waitlist Assistant
-    url: https://bitlancer.com/mindbody-charge-for-late-cancel-no-show
-    quote: "Keep classes full by continuously adding clients off the waitlist when a spot opens up."
-    seat_match: adjacent_pain
-    leftover: no reliability ordering, follows existing queue order
-  - name: Momence Waitlist FAQ
-    url: https://help.momence.com/en/articles/12028307-waitlist-faq-s-classes
-    quote: "When a spot opens up, the first wait-lister is automatically added and immediately and notified by SMS."
-    seat_match: wrong_substrate
-    leftover: no reliability ordering, first-come order remains
-  - name: TNYA Mindbody Waitlist Guide
-    url: https://www.tnya.org/book/waitlist-guide
-    quote: "If there are more walk-ups than slots, walk-ups will be prioritized in waitlist order."
-    seat_match: adjacent_pain
-    leftover: no automated reliability ordering, manual queue order remains
-auto_rejects_fired: []
+- name: Mindbody Scheduling
+  url: https://www.mindbodyonline.com/business/scheduling
+  quote: When someone cancels, the next waitlisted client is automatically moved to the class roster.
+  seat_match: adjacent_pain
+  leftover: no reliability-weighted promotion order, join-time order remains
+- name: Mindbody Waitlist Improvements
+  url: https://www.mindbodyonline.com/business/education/product-waitlist-improvements
+  quote: Moves waitlisted clients to the roster as spots open, based on when they joined the waitlist.
+  seat_match: adjacent_pain
+  leftover: no promotion ordered by past attendance reliability
+- name: Mindbody Class API docs
+  url: https://github.com/noahott/Mindbody-PHP-API/blob/master/docs/Api/ClassApi.md
+  quote: Get waiting list entries.
+  seat_match: adjacent_pain
+  leftover: no scoring key for promotion, list retrieval only
+- name: Bitlancer Waitlist Assistant
+  url: https://bitlancer.com/mindbody-charge-for-late-cancel-no-show
+  quote: Keep classes full by continuously adding clients off the waitlist when a spot opens up.
+  seat_match: adjacent_pain
+  leftover: no reliability ordering, follows existing queue order
+- name: Momence Waitlist FAQ
+  url: https://help.momence.com/en/articles/12028307-waitlist-faq-s-classes
+  quote: When a spot opens up, the first wait-lister is automatically added and immediately and notified
+    by SMS.
+  seat_match: wrong_substrate
+  leftover: no reliability ordering, first-come order remains
+- name: TNYA Mindbody Waitlist Guide
+  url: https://www.tnya.org/book/waitlist-guide
+  quote: If there are more walk-ups than slots, walk-ups will be prioritized in waitlist order.
+  seat_match: adjacent_pain
+  leftover: no automated reliability ordering, manual queue order remains
+auto_rejects_fired:
+- 5
 falsification:
-  1_vacant_process: pass
-  2_not_a_wrapper: pass
-  3_mechanical_gap: pass
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
 steelman:
   occupancy_ceiling: 5
-  why_build: Join-time auto-fill ships everywhere, but no roster promotes by
-    check-in reliability; studios still eat predictable no-shows from chronic
-    late-cancel clients.
+  why_build: Join-time auto-fill ships everywhere, but no roster promotes by check-in reliability; studios
+    still eat predictable no-shows from chronic late-cancel clients.
 claim_hygiene: ok
-file_on: none
-keep_gate: pass
+file_on: https://help.momence.com/en/articles/12028307-waitlist-faq-s-classes
+keep_gate: fail
 deny_catalog: embedded_saas_baseline
+search_classes:
+  sor_primitive: Mindbody cloud class scheduling and waitlist management native docs
+  dropin_addon: Mindbody cloud marketplace app class scheduling and waitlist management write path
+  commercial_sku: class scheduling and waitlist management automation Mindbody cloud
+  tracker_leftover: Mindbody cloud class scheduling and waitlist management fail points workaround feature
+    request
+audit:
+  by: keep-gate audit (PR14 + gate-bind-saas G1-G9)
+  result: not pitchable as company; filed as Occupied/file_on
+  keep_gate: fail

@@ -1,7 +1,7 @@
 candidate_seat: Manager approval gate for estimate-to-invoice line drift on Square
-v1_as_shipped: Diff middleware comparing Square estimate lines/taxes/discounts vs
-  draft invoice, blocking PublishInvoice over threshold, with manager
-  approve/reject queue and audit; standalone app on Square Invoices + Orders APIs.
+v1_as_shipped: Diff middleware comparing Square estimate lines/taxes/discounts vs draft invoice, blocking
+  PublishInvoice over threshold, with manager approve/reject queue and audit; standalone app on Square
+  Invoices + Orders APIs.
 entry: generated
 niche:
   icp: retail stores
@@ -12,57 +12,73 @@ niche:
   hard_nos: []
   source: user
 slices:
-  - estimate-invoice diff
-  - publish-block on drift
-  - manager approve queue
+- estimate-invoice diff
+- publish-block on drift
+- manager approve queue
 verdicts:
-  as_company: Sparse 3
+  as_company: Occupied 6
   as_oss: Sparse 3
   as_plugin: Occupied 5
 density_scores:
   problem_density: 4
   exact_mechanics_density: 0
 incumbents:
-  - name: Square Invoices native
-    url: https://squareup.com/us/en/invoices
-    quote: "Convert accepted estimates to invoices automatically and request payment from your customers instantly."
-    seat_match: adjacent_pain
-    leftover: no drift threshold with manager hold before pay-link send
-  - name: Square Estimates help
-    url: https://squareup.com/help/us/en/article/7215-create-an-estimate-online
-    quote: "With Square Invoices, you can send clients an estimate so they can review a quote before moving forward with the goods or services. Once accepted, you can quickly convert an estimate to an invoice."
-    seat_match: adjacent_pain
-    leftover: no line-level drift check between quoted and billed totals
-  - name: Square Invoices API publish
-    url: https://developer.squareup.com/docs/invoices-api/create-publish-invoices
-    quote: "You can also configure the invoice to be processed at a future date and configure reminders for before and after the due date."
-    seat_match: adjacent_pain
-    leftover: no blocking publish on price/qty drift
-  - name: Zoho Billing approvals
-    url: https://www.zoho.com/us/billing/automated-invoice-processing
-    quote: "Route invoices to the appropriate team members for verification and approvals automatically."
-    seat_match: wrong_substrate
-    leftover: no same enforcement wired to Square estimate IDs
-  - name: FreshBooks reminders
-    url: https://support.freshbooks.com/hc/en-us/articles/227559727-What-are-payment-reminders-and-late-fees
-    quote: "Payment reminders and late fees allow you to remind your clients about their outstanding invoices by sending a reminder email and/or by charging a percentage or flat fee."
-    seat_match: wrong_substrate
-    leftover: no drift diff plus hold queue
-  - name: Square App Marketplace Invoicing
-    url: https://squareup.com/us/en/app-marketplace/category/invoicing-and-services
-    quote: "In the office or out in the field, you need to be able to track work orders, issue invoices, and get paid."
-    seat_match: adjacent_pain
-    leftover: no drift-gate enforcement at publish time
-auto_rejects_fired: []
+- name: Square Invoices native
+  url: https://squareup.com/us/en/invoices
+  quote: Convert accepted estimates to invoices automatically and request payment from your customers
+    instantly.
+  seat_match: adjacent_pain
+  leftover: no drift threshold with manager hold before pay-link send
+- name: Square Estimates help
+  url: https://squareup.com/help/us/en/article/7215-create-an-estimate-online
+  quote: With Square Invoices, you can send clients an estimate so they can review a quote before moving
+    forward with the goods or services. Once accepted, you can quickly convert an estimate to an invoice.
+  seat_match: adjacent_pain
+  leftover: no line-level drift check between quoted and billed totals
+- name: Square Invoices API publish
+  url: https://developer.squareup.com/docs/invoices-api/create-publish-invoices
+  quote: You can also configure the invoice to be processed at a future date and configure reminders for
+    before and after the due date.
+  seat_match: adjacent_pain
+  leftover: no blocking publish on price/qty drift
+- name: Zoho Billing approvals
+  url: https://www.zoho.com/us/billing/automated-invoice-processing
+  quote: Route invoices to the appropriate team members for verification and approvals automatically.
+  seat_match: wrong_substrate
+  leftover: no same enforcement wired to Square estimate IDs
+- name: FreshBooks reminders
+  url: https://support.freshbooks.com/hc/en-us/articles/227559727-What-are-payment-reminders-and-late-fees
+  quote: Payment reminders and late fees allow you to remind your clients about their outstanding invoices
+    by sending a reminder email and/or by charging a percentage or flat fee.
+  seat_match: wrong_substrate
+  leftover: no drift diff plus hold queue
+- name: Square App Marketplace Invoicing
+  url: https://squareup.com/us/en/app-marketplace/category/invoicing-and-services
+  quote: In the office or out in the field, you need to be able to track work orders, issue invoices,
+    and get paid.
+  seat_match: adjacent_pain
+  leftover: no drift-gate enforcement at publish time
+auto_rejects_fired:
+- 5
+- 7
 falsification:
-  1_vacant_process: pass
-  2_not_a_wrapper: pass
-  3_mechanical_gap: pass
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
 steelman:
   occupancy_ceiling: 4
-  why_build: Retail discount/substitution drift between estimate and till invoice
-    causes margin leak; no Square-native manager hold exists.
+  why_build: Retail discount/substitution drift between estimate and till invoice causes margin leak;
+    no Square-native manager hold exists.
 claim_hygiene: ok
-file_on: none
-keep_gate: pass
+file_on: https://squareup.com/help/us/en/article/7215-create-an-estimate-online
+keep_gate: fail
 deny_catalog: embedded_saas_baseline
+search_classes:
+  sor_primitive: Square cloud invoices and estimates native docs
+  dropin_addon: Square cloud marketplace app invoices and estimates write path
+  commercial_sku: invoices and estimates automation Square cloud
+  tracker_leftover: Square cloud invoices and estimates fail points workaround feature request
+audit:
+  by: keep-gate audit (PR14 + gate-bind-saas G1-G9)
+  result: not pitchable as company; filed as Occupied/file_on
+  keep_gate: fail

@@ -1,7 +1,6 @@
 candidate_seat: Versioned spiff plan engine pinned to ServiceTitan payroll lines
-v1_as_shipped: Standalone plan builder outside ServiceTitan storing effective-dated
-  spiff versions, stamping plan-version ID onto each payroll export line for
-  audit replay over ServiceTitan API read.
+v1_as_shipped: Standalone plan builder outside ServiceTitan storing effective-dated spiff versions, stamping
+  plan-version ID onto each payroll export line for audit replay over ServiceTitan API read.
 entry: generated
 niche:
   icp: home-service operators
@@ -12,55 +11,73 @@ niche:
   hard_nos: []
   source: user
 slices:
-  - effective-dated-plan-version-store
+- effective-dated-plan-version-store
 verdicts:
-  as_company: Sparse 3
+  as_company: Occupied 6
   as_oss: Sparse 3
   as_plugin: Sparse 4
 density_scores:
   problem_density: 6
   exact_mechanics_density: 0
 incumbents:
-  - name: ServiceTitan Configurable Payroll
-    url: https://help.servicetitan.com/docs/configurable-payroll-overview
-    quote: "Configurable Payroll lets you create multiple payroll profiles with unique pay rules for paying commission and bonuses."
-    seat_match: adjacent_pain
-    leftover: no effective-dated versions with replay of prior periods
-  - name: ServiceTitan Configurable Payroll flexibility
-    url: https://help.servicetitan.com/docs/payroll-features
-    quote: "Configurable Payroll gives you flexibility on how you manage performance pay for your diverse team of technicians."
-    seat_match: adjacent_pain
-    leftover: no version stamp on each paycheck line for audit replay
-  - name: ServiceTitan Payroll Pro
-    url: https://marketplace.servicetitan.com/partner/servicetitan-payroll-pro
-    quote: "Payroll Pro streamlines payroll and makes processing painless, reducing it down to three clicks."
-    seat_match: adjacent_pain
-    leftover: no plan-version store separate from payroll run
-  - name: Salesforce Spiff audit trail
-    url: https://www.salesforce.com/sales/incentive-compensation-management/
-    quote: "Add effective dates on any user, plan, or logic."
-    seat_match: wrong_substrate
-    leftover: versioning on other substrate without export-line join
-  - name: Gusto custom earnings
-    url: https://support.gusto.com/article/106622082100000/hourly-employee-pay-rates-and-custom-earning-types
-    quote: "you can create a custom earning type and name it whatever you like."
-    seat_match: adjacent_pain
-    leftover: no spiff-plan versioning tied to job lines
-  - name: Inova commission support
-    url: https://marketplace.servicetitan.com/partner/inova-payroll
-    quote: "The ServiceTitan Inova integration is great for service industry related businesses because of how configurable payroll works with complex pay such as commission-based pay structures."
-    seat_match: adjacent_pain
-    leftover: no plan-version audit trail for mid-period changes
-auto_rejects_fired: []
+- name: ServiceTitan Configurable Payroll
+  url: https://help.servicetitan.com/docs/configurable-payroll-overview
+  quote: Configurable Payroll lets you create multiple payroll profiles with unique pay rules for paying
+    commission and bonuses.
+  seat_match: adjacent_pain
+  leftover: no effective-dated versions with replay of prior periods
+- name: ServiceTitan Configurable Payroll flexibility
+  url: https://help.servicetitan.com/docs/payroll-features
+  quote: Configurable Payroll gives you flexibility on how you manage performance pay for your diverse
+    team of technicians.
+  seat_match: adjacent_pain
+  leftover: no version stamp on each paycheck line for audit replay
+- name: ServiceTitan Payroll Pro
+  url: https://marketplace.servicetitan.com/partner/servicetitan-payroll-pro
+  quote: Payroll Pro streamlines payroll and makes processing painless, reducing it down to three clicks.
+  seat_match: adjacent_pain
+  leftover: no plan-version store separate from payroll run
+- name: Salesforce Spiff audit trail
+  url: https://www.salesforce.com/sales/incentive-compensation-management/
+  quote: Add effective dates on any user, plan, or logic.
+  seat_match: wrong_substrate
+  leftover: versioning on other substrate without export-line join
+- name: Gusto custom earnings
+  url: https://support.gusto.com/article/106622082100000/hourly-employee-pay-rates-and-custom-earning-types
+  quote: you can create a custom earning type and name it whatever you like.
+  seat_match: adjacent_pain
+  leftover: no spiff-plan versioning tied to job lines
+- name: Inova commission support
+  url: https://marketplace.servicetitan.com/partner/inova-payroll
+  quote: The ServiceTitan Inova integration is great for service industry related businesses because of
+    how configurable payroll works with complex pay such as commission-based pay structures.
+  seat_match: adjacent_pain
+  leftover: no plan-version audit trail for mid-period changes
+auto_rejects_fired:
+- 5
+- 7
 falsification:
-  1_vacant_process: pass
-  2_not_a_wrapper: pass
-  3_mechanical_gap: pass
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
 steelman:
   occupancy_ceiling: 4
-  why_build: Mid-period plan edits cause disputes; effective-dated store with
-    line-level stamp owns audit replay.
+  why_build: Mid-period plan edits cause disputes; effective-dated store with line-level stamp owns audit
+    replay.
 claim_hygiene: ok
-file_on: none
-keep_gate: pass
+file_on: https://help.servicetitan.com/docs/configurable-payroll-overview
+keep_gate: fail
 deny_catalog: embedded_saas_baseline
+search_classes:
+  sor_primitive: ServiceTitan cloud spiff and commission plan versioning for payroll calculation native
+    docs
+  dropin_addon: ServiceTitan cloud marketplace app spiff and commission plan versioning for payroll calculation
+    write path
+  commercial_sku: spiff and commission plan versioning for payroll calculation automation ServiceTitan
+    cloud
+  tracker_leftover: ServiceTitan cloud spiff and commission plan versioning for payroll calculation fail
+    points workaround feature request
+audit:
+  by: keep-gate audit (PR14 + gate-bind-saas G1-G9)
+  result: not pitchable as company; filed as Occupied/file_on
+  keep_gate: fail

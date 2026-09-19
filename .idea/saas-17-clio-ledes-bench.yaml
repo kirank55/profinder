@@ -1,7 +1,7 @@
-candidate_seat: E-billing rejection repair bench for Clio cloud LEDES invoices rejected by client ebilling hubs
-v1_as_shipped: Inbox importing rejected LEDES files from Clio bills, mapping hub
-  error codes to offending lines; attorney fixes and re-exports corrected LEDES
-  for re-upload to Clio.
+candidate_seat: E-billing rejection repair bench for Clio cloud LEDES invoices rejected by client ebilling
+  hubs
+v1_as_shipped: Inbox importing rejected LEDES files from Clio bills, mapping hub error codes to offending
+  lines; attorney fixes and re-exports corrected LEDES for re-upload to Clio.
 entry: generated
 niche:
   icp: law firms
@@ -12,50 +12,66 @@ niche:
   hard_nos: []
   source: user
 slices:
-  - rejection error-code to line mapper
+- rejection error-code to line mapper
 verdicts:
-  as_company: Sparse 3
+  as_company: Occupied 6
   as_oss: Sparse 3
   as_plugin: Sparse 3
 density_scores:
   problem_density: 6
   exact_mechanics_density: 1
 incumbents:
-  - name: Clio LEDES Bills
-    url: https://help.clio.com/hc/en-us/articles/14078113389723-LEDES-Bills
-    quote: "In Clio Manage, you can download individual or bulk bills in CSV, LEDES 1998B, LEDES 1998BI, LEDES XML 2.0, and LEDES XML 2.1 formats"
-    seat_match: adjacent_pain
-    leftover: export only, no rejection-code mapping or line repair
-  - name: LEDES Shield validation
-    url: https://ledesshield.com/ledes-invoice-validation
-    quote: "LEDES invoice validation helps law firms identify formatting errors, missing codes, and common rejection triggers before submitting invoices"
-    seat_match: adjacent_pain
-    leftover: pre-submission check, no Clio bill-linked repair bench
-  - name: Litify LEDES errors guide
-    url: https://www.litify.com/blog/ledes-billing-errors
-    quote: "Five error categories cause most LEDES invoice rejections"
-    seat_match: adjacent_pain
-    leftover: educational taxonomy, not a Clio repair workflow
-  - name: Brightflag legal bill review
-    url: https://brightflag.com/legal-bill-review
-    quote: "With Brightflag, this work is done by artificial intelligence, increasing accuracy and freeing the in-house team"
-    seat_match: adjacent_pain
-    leftover: client-side approval, no firm-side Clio rejection repair
-  - name: TimeSolv billing
-    url: https://www.timesolv.com/
-    quote: "Our Legal Time Tracking and Billing Solution eliminates missed billable hours and simplifies invoicing"
-    seat_match: wrong_substrate
-    leftover: separate SoR billing SKU, not a Clio rejection bench
-auto_rejects_fired: []
+- name: Clio LEDES Bills
+  url: https://help.clio.com/hc/en-us/articles/14078113389723-LEDES-Bills
+  quote: In Clio Manage, you can download individual or bulk bills in CSV, LEDES 1998B, LEDES 1998BI,
+    LEDES XML 2.0, and LEDES XML 2.1 formats
+  seat_match: adjacent_pain
+  leftover: export only, no rejection-code mapping or line repair
+- name: LEDES Shield validation
+  url: https://ledesshield.com/ledes-invoice-validation
+  quote: LEDES invoice validation helps law firms identify formatting errors, missing codes, and common
+    rejection triggers before submitting invoices
+  seat_match: adjacent_pain
+  leftover: pre-submission check, no Clio bill-linked repair bench
+- name: Litify LEDES errors guide
+  url: https://www.litify.com/blog/ledes-billing-errors
+  quote: Five error categories cause most LEDES invoice rejections
+  seat_match: adjacent_pain
+  leftover: educational taxonomy, not a Clio repair workflow
+- name: Brightflag legal bill review
+  url: https://brightflag.com/legal-bill-review
+  quote: With Brightflag, this work is done by artificial intelligence, increasing accuracy and freeing
+    the in-house team
+  seat_match: adjacent_pain
+  leftover: client-side approval, no firm-side Clio rejection repair
+- name: TimeSolv billing
+  url: https://www.timesolv.com/
+  quote: Our Legal Time Tracking and Billing Solution eliminates missed billable hours and simplifies
+    invoicing
+  seat_match: wrong_substrate
+  leftover: separate SoR billing SKU, not a Clio rejection bench
+auto_rejects_fired:
+- 5
 falsification:
-  1_vacant_process: pass
-  2_not_a_wrapper: pass
-  3_mechanical_gap: pass
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
 steelman:
   occupancy_ceiling: 3
-  why_build: Clio exports LEDES but never repairs hub rejections; error-to-line
-    mapping is a mechanical gap.
+  why_build: Clio exports LEDES but never repairs hub rejections; error-to-line mapping is a mechanical
+    gap.
 claim_hygiene: ok
-file_on: none
-keep_gate: pass
+file_on: https://help.clio.com/hc/en-us/articles/14078113389723-LEDES-Bills
+keep_gate: fail
 deny_catalog: embedded_saas_baseline
+search_classes:
+  sor_primitive: Clio cloud LEDES e-billing rejection repair after invoice generation native docs
+  dropin_addon: Clio cloud marketplace app LEDES e-billing rejection repair after invoice generation write
+    path
+  commercial_sku: LEDES e-billing rejection repair after invoice generation automation Clio cloud
+  tracker_leftover: Clio cloud LEDES e-billing rejection repair after invoice generation fail points workaround
+    feature request
+audit:
+  by: keep-gate audit (PR14 + gate-bind-saas G1-G9)
+  result: not pitchable as company; filed as Occupied/file_on
+  keep_gate: fail

@@ -1,6 +1,6 @@
 candidate_seat: Intake upload readability triage on SimplePractice cloud
-v1_as_shipped: Upload readability triage scoring Client Portal ID/insurance images
-  for blur/crop/size, drafting a re-upload reminder for staff review.
+v1_as_shipped: Upload readability triage scoring Client Portal ID/insurance images for blur/crop/size,
+  drafting a re-upload reminder for staff review.
 entry: generated
 niche:
   icp: private practices
@@ -11,55 +11,70 @@ niche:
   hard_nos: []
   source: user
 slices:
-  - readability-scoring-triage
+- readability-scoring-triage
 verdicts:
-  as_company: Sparse 3
+  as_company: Occupied 6
   as_oss: Sparse 3
   as_plugin: Sparse 2
 density_scores:
   problem_density: 4
   exact_mechanics_density: 0
 incumbents:
-  - name: SimplePractice Client Portal setup
-    url: https://support.simplepractice.com/hc/en-us/articles/207925883-Setting-up-the-Client-Portal
-    quote: "You can allow clients to upload documents through their Client Portal to share them with you, such as an insurance policy or driver's license."
-    seat_match: adjacent_pain
-    leftover: allows upload, no blur/crop scoring
-  - name: SimplePractice Client Help signing docs
-    url: https://support.simplepracticeclient.com/hc/en-us/articles/10346852897165-Signing-and-completing-documents-and-forms
-    quote: "You can upload the following file types, as long as the individual file size is 10MB or less:"
-    seat_match: adjacent_pain
-    leftover: size gate only, no readability check
-  - name: SimplePractice Files tab
-    url: https://support.simplepractice.com/hc/en-us/articles/20108059649421-Managing-the-client-Files-Overview-page
-    quote: "Files with a Pending status display a yellow bubble next to Files on the client's Overview page."
-    seat_match: adjacent_pain
-    leftover: tracks completion, not image quality
-  - name: Jotform Private Practice Forms
-    url: https://www.jotform.com/private-practice-forms/
-    quote: "You can also add file upload fields to accept documents like medical history files from patients."
-    seat_match: wrong_substrate
-    leftover: generic upload on Jotform host, not SimplePractice triage
-  - name: IntakeQ Features
-    url: https://intakeq.com/features
-    quote: "You can also use the portal to send and receive intake forms, share treatment notes and much more."
-    seat_match: wrong_substrate
-    leftover: transport portal on IntakeQ host, no legibility score
-  - name: Keragon SimplePractice automation
-    url: https://www.keragon.com/blog/automate-simplepractice-without-api
-    quote: "SimplePractice has no public API and no webhooks, so no automation tool can read or write your SimplePractice data directly."
-    seat_match: adjacent_pain
-    leftover: proves write-time enforcement impossible; advisory triage remains gap
-auto_rejects_fired: []
+- name: SimplePractice Client Portal setup
+  url: https://support.simplepractice.com/hc/en-us/articles/207925883-Setting-up-the-Client-Portal
+  quote: You can allow clients to upload documents through their Client Portal to share them with you,
+    such as an insurance policy or driver's license.
+  seat_match: adjacent_pain
+  leftover: allows upload, no blur/crop scoring
+- name: SimplePractice Client Help signing docs
+  url: https://support.simplepracticeclient.com/hc/en-us/articles/10346852897165-Signing-and-completing-documents-and-forms
+  quote: 'You can upload the following file types, as long as the individual file size is 10MB or less:'
+  seat_match: adjacent_pain
+  leftover: size gate only, no readability check
+- name: SimplePractice Files tab
+  url: https://support.simplepractice.com/hc/en-us/articles/20108059649421-Managing-the-client-Files-Overview-page
+  quote: Files with a Pending status display a yellow bubble next to Files on the client's Overview page.
+  seat_match: adjacent_pain
+  leftover: tracks completion, not image quality
+- name: Jotform Private Practice Forms
+  url: https://www.jotform.com/private-practice-forms/
+  quote: You can also add file upload fields to accept documents like medical history files from patients.
+  seat_match: wrong_substrate
+  leftover: generic upload on Jotform host, not SimplePractice triage
+- name: IntakeQ Features
+  url: https://intakeq.com/features
+  quote: You can also use the portal to send and receive intake forms, share treatment notes and much
+    more.
+  seat_match: wrong_substrate
+  leftover: transport portal on IntakeQ host, no legibility score
+- name: Keragon SimplePractice automation
+  url: https://www.keragon.com/blog/automate-simplepractice-without-api
+  quote: SimplePractice has no public API and no webhooks, so no automation tool can read or write your
+    SimplePractice data directly.
+  seat_match: adjacent_pain
+  leftover: proves write-time enforcement impossible; advisory triage remains gap
+auto_rejects_fired:
+- 5
 falsification:
-  1_vacant_process: pass
-  2_not_a_wrapper: pass
-  3_mechanical_gap: pass
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
 steelman:
   occupancy_ceiling: 4
-  why_build: Uploads pass allowlist but staff still chase blurry IDs pre-visit;
-    upstream readability score plus drafted re-upload saves back-and-forth.
+  why_build: Uploads pass allowlist but staff still chase blurry IDs pre-visit; upstream readability score
+    plus drafted re-upload saves back-and-forth.
 claim_hygiene: ok
-file_on: none
-keep_gate: pass
+file_on: https://support.simplepractice.com/hc/en-us/articles/207925883-Setting-up-the-Client-Portal
+keep_gate: fail
 deny_catalog: embedded_saas_baseline
+search_classes:
+  sor_primitive: SimplePractice cloud client portal intake paperwork and document collection native docs
+  dropin_addon: SimplePractice cloud marketplace app client portal intake paperwork and document collection
+    write path
+  commercial_sku: client portal intake paperwork and document collection automation SimplePractice cloud
+  tracker_leftover: SimplePractice cloud client portal intake paperwork and document collection fail points
+    workaround feature request
+audit:
+  by: keep-gate audit (PR14 + gate-bind-saas G1-G9)
+  result: not pitchable as company; filed as Occupied/file_on
+  keep_gate: fail

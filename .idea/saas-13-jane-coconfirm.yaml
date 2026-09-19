@@ -1,7 +1,6 @@
 candidate_seat: Caregiver co-confirmation for dependent bookings on Jane cloud
-v1_as_shipped: Sidecar SMS loop to guardian contact linked to Jane appointment ID;
-  requires guardian CONFIRM within 24h window; writes confirm state to Jane
-  appointment note; timeout escalates to front-desk queue.
+v1_as_shipped: Sidecar SMS loop to guardian contact linked to Jane appointment ID; requires guardian CONFIRM
+  within 24h window; writes confirm state to Jane appointment note; timeout escalates to front-desk queue.
 entry: generated
 niche:
   icp: allied health clinics
@@ -13,58 +12,73 @@ niche:
   source: user
 slices: []
 verdicts:
-  as_company: Sparse 3
+  as_company: Occupied 6
   as_oss: Sparse 3
   as_plugin: Occupied 6
 density_scores:
   problem_density: 6
   exact_mechanics_density: 0
 incumbents:
-  - name: Jane native reminders
-    url: https://jane.app/guide/email-sms-reminders
-    quote: "Jane lets you send your patients or clients automatic email and text message (SMS) reminders before each appointment."
-    seat_match: adjacent_pain
-    leftover: single-contact schedule only, no second-contact state
-  - name: Jane Relationships
-    url: https://jane.app/guide/client-relationships
-    quote: "This allows a patient to receive booking emails for other related patients."
-    seat_match: adjacent_pain
-    leftover: email-copy only, no SMS co-confirm enforcement
-  - name: Jane SMS limit
-    url: https://jane.app/guide/email-sms-reminders
-    quote: "only one mobile number can be added to a patient's profile for SMS notifications"
-    seat_match: adjacent_pain
-    leftover: proves second-number gap on same SoR
-  - name: TrustDrivenCare Jane integration
-    url: https://trustdrivencare.com/janeapp-integration
-    quote: "Nothing is written back into Jane."
-    seat_match: adjacent_pain
-    leftover: two-way chat without schedule write-back
-  - name: Mango Voice Jane
-    url: https://mangovoice.com/jane
-    quote: "When a patient calls, a call pop surfaces their name, date of birth, patient number, and appointment history automatically."
-    seat_match: adjacent_pain
-    leftover: inbound phone context, no outbound co-confirm loop
-  - name: Phreesia reminders
-    url: https://www.phreesia.com/patient-appointment-reminders/
-    quote: "Phreesia sends automated reminders by text, email and voice so patients confirm, cancel or reschedule before the day of."
-    seat_match: adjacent_pain
-    leftover: different SoR, no Jane guardian binding
-  - name: Jane feature requests
-    url: https://jane.app/guide/feature-requests
-    quote: "you can submit, review, and vote on improvements for Jane."
-    seat_match: adjacent_pain
-    leftover: request board, not a shipping co-confirm seat
-auto_rejects_fired: []
+- name: Jane native reminders
+  url: https://jane.app/guide/email-sms-reminders
+  quote: Jane lets you send your patients or clients automatic email and text message (SMS) reminders
+    before each appointment.
+  seat_match: adjacent_pain
+  leftover: single-contact schedule only, no second-contact state
+- name: Jane Relationships
+  url: https://jane.app/guide/client-relationships
+  quote: This allows a patient to receive booking emails for other related patients.
+  seat_match: adjacent_pain
+  leftover: email-copy only, no SMS co-confirm enforcement
+- name: Jane SMS limit
+  url: https://jane.app/guide/email-sms-reminders
+  quote: only one mobile number can be added to a patient's profile for SMS notifications
+  seat_match: adjacent_pain
+  leftover: proves second-number gap on same SoR
+- name: TrustDrivenCare Jane integration
+  url: https://trustdrivencare.com/janeapp-integration
+  quote: Nothing is written back into Jane.
+  seat_match: adjacent_pain
+  leftover: two-way chat without schedule write-back
+- name: Mango Voice Jane
+  url: https://mangovoice.com/jane
+  quote: When a patient calls, a call pop surfaces their name, date of birth, patient number, and appointment
+    history automatically.
+  seat_match: adjacent_pain
+  leftover: inbound phone context, no outbound co-confirm loop
+- name: Phreesia reminders
+  url: https://www.phreesia.com/patient-appointment-reminders/
+  quote: Phreesia sends automated reminders by text, email and voice so patients confirm, cancel or reschedule
+    before the day of.
+  seat_match: adjacent_pain
+  leftover: different SoR, no Jane guardian binding
+- name: Jane feature requests
+  url: https://jane.app/guide/feature-requests
+  quote: you can submit, review, and vote on improvements for Jane.
+  seat_match: adjacent_pain
+  leftover: request board, not a shipping co-confirm seat
+auto_rejects_fired:
+- 5
+- 7
 falsification:
-  1_vacant_process: pass
-  2_not_a_wrapper: pass
-  3_mechanical_gap: pass
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
 steelman:
   occupancy_ceiling: 4
-  why_build: Jane caps SMS to one number with email-only relationship copies while
-    TDC writes nothing back, leaving guardian co-confirm unenforced.
+  why_build: Jane caps SMS to one number with email-only relationship copies while TDC writes nothing
+    back, leaving guardian co-confirm unenforced.
 claim_hygiene: ok
-file_on: none
-keep_gate: pass
+file_on: https://jane.app/guide/email-sms-reminders
+keep_gate: fail
 deny_catalog: embedded_saas_baseline
+search_classes:
+  sor_primitive: Jane cloud appointment reminders and no-show prevention native docs
+  dropin_addon: Jane cloud marketplace app appointment reminders and no-show prevention write path
+  commercial_sku: appointment reminders and no-show prevention automation Jane cloud
+  tracker_leftover: Jane cloud appointment reminders and no-show prevention fail points workaround feature
+    request
+audit:
+  by: keep-gate audit (PR14 + gate-bind-saas G1-G9)
+  result: not pitchable as company; filed as Occupied/file_on
+  keep_gate: fail

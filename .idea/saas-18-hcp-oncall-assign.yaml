@@ -1,7 +1,6 @@
 candidate_seat: On-call rotation auto-assign for after-hours Housecall Pro jobs
-v1_as_shipped: Standalone dispatcher storing on-call rotation/calendar plus
-  after-hours rules, polling Housecall Pro open jobs via API and auto-assigning
-  to on-call tech with write-back to job.
+v1_as_shipped: Standalone dispatcher storing on-call rotation/calendar plus after-hours rules, polling
+  Housecall Pro open jobs via API and auto-assigning to on-call tech with write-back to job.
 entry: generated
 niche:
   icp: home-service operators
@@ -12,51 +11,65 @@ niche:
   hard_nos: []
   source: user
 slices:
-  - on-call rotation table with escalation
-  - auto-assign write-back to Housecall Pro job
+- on-call rotation table with escalation
+- auto-assign write-back to Housecall Pro job
 verdicts:
-  as_company: Sparse 3
+  as_company: Occupied 6
   as_oss: Sparse 3
   as_plugin: Occupied 6
 density_scores:
   problem_density: 5
   exact_mechanics_density: 0
 incumbents:
-  - name: Housecall Pro Scheduling
-    url: https://www.housecallpro.com/features/scheduling-software/
-    quote: "Instantly check availability, assign the right techs, and send notifications when jobs are changed or scheduled."
-    seat_match: adjacent_pain
-    leftover: no rotation table with escalation and holiday cover
-  - name: Housecall Pro Dispatching
-    url: https://www.housecallpro.com/features/dispatching-software/
-    quote: "Drag and drop jobs to reschedule or reassign in seconds."
-    seat_match: adjacent_pain
-    leftover: no after-hours rule engine driving auto-assign
-  - name: Force by Mojio via Housecall Pro Integrations
-    url: https://www.housecallpro.com/integrations/
-    quote: "Track your vehicle anywhere and dispatch the closest tech as new jobs are booked"
-    seat_match: adjacent_pain
-    leftover: no on-call calendar binding with escalation chain
-  - name: ServiceTitan Dispatch Software
-    url: https://www.servicetitan.com/features/dispatch-software
-    quote: "ServiceTitan's powerful dispatch board gives your team unprecedented oversight and flexibility to respond to scheduling curveballs"
-    seat_match: wrong_substrate
-    leftover: no rotation engine with after-hours ownership
-  - name: FieldEdge Scheduling Dispatching
-    url: https://fieldedge.com/field-service-software/scheduling-and-dispatching/
-    quote: "Assign the right tech to every job using skill set, location, and workload."
-    seat_match: wrong_substrate
-    leftover: no on-call list auto-assign with failover
-auto_rejects_fired: []
+- name: Housecall Pro Scheduling
+  url: https://www.housecallpro.com/features/scheduling-software/
+  quote: Instantly check availability, assign the right techs, and send notifications when jobs are changed
+    or scheduled.
+  seat_match: adjacent_pain
+  leftover: no rotation table with escalation and holiday cover
+- name: Housecall Pro Dispatching
+  url: https://www.housecallpro.com/features/dispatching-software/
+  quote: Drag and drop jobs to reschedule or reassign in seconds.
+  seat_match: adjacent_pain
+  leftover: no after-hours rule engine driving auto-assign
+- name: Force by Mojio via Housecall Pro Integrations
+  url: https://www.housecallpro.com/integrations/
+  quote: Track your vehicle anywhere and dispatch the closest tech as new jobs are booked
+  seat_match: adjacent_pain
+  leftover: no on-call calendar binding with escalation chain
+- name: ServiceTitan Dispatch Software
+  url: https://www.servicetitan.com/features/dispatch-software
+  quote: ServiceTitan's powerful dispatch board gives your team unprecedented oversight and flexibility
+    to respond to scheduling curveballs
+  seat_match: wrong_substrate
+  leftover: no rotation engine with after-hours ownership
+- name: FieldEdge Scheduling Dispatching
+  url: https://fieldedge.com/field-service-software/scheduling-and-dispatching/
+  quote: Assign the right tech to every job using skill set, location, and workload.
+  seat_match: wrong_substrate
+  leftover: no on-call list auto-assign with failover
+auto_rejects_fired:
+- 5
+- 7
 falsification:
-  1_vacant_process: pass
-  2_not_a_wrapper: pass
-  3_mechanical_gap: pass
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
 steelman:
   occupancy_ceiling: 6
-  why_build: After-hours misses go to whoever is awake; rotation plus auto-assign
-    owns nights without dispatcher triage.
+  why_build: After-hours misses go to whoever is awake; rotation plus auto-assign owns nights without
+    dispatcher triage.
 claim_hygiene: ok
-file_on: none
-keep_gate: pass
+file_on: https://www.housecallpro.com/features/scheduling-software/
+keep_gate: fail
 deny_catalog: embedded_saas_baseline
+search_classes:
+  sor_primitive: Housecall Pro cloud technician dispatch and GPS tracking native docs
+  dropin_addon: Housecall Pro cloud marketplace app technician dispatch and GPS tracking write path
+  commercial_sku: technician dispatch and GPS tracking automation Housecall Pro cloud
+  tracker_leftover: Housecall Pro cloud technician dispatch and GPS tracking fail points workaround feature
+    request
+audit:
+  by: keep-gate audit (PR14 + gate-bind-saas G1-G9)
+  result: not pitchable as company; filed as Occupied/file_on
+  keep_gate: fail

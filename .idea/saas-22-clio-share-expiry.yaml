@@ -1,6 +1,6 @@
 candidate_seat: Clio cloud portal share auto-expiry on matter close for law firms
-v1_as_shipped: Nightly revoker expiring Clio portal share links by matter
-  status/date via override screen, writing revocation to matter timeline.
+v1_as_shipped: Nightly revoker expiring Clio portal share links by matter status/date via override screen,
+  writing revocation to matter timeline.
 entry: generated
 niche:
   icp: law firms
@@ -11,55 +11,69 @@ niche:
   hard_nos: []
   source: user
 slices:
-  - time/status-driven share expiry
+- time/status-driven share expiry
 verdicts:
-  as_company: Sparse 3
+  as_company: Occupied 6
   as_oss: Sparse 4
   as_plugin: Occupied 5
 density_scores:
   problem_density: 6
   exact_mechanics_density: 0
 incumbents:
-  - name: Clio for Clients
-    url: https://www.clio.com/features/client-portal/
-    quote: "Clio for Clients is a portal designed for legal clients to securely communicate and share information with their lawyer."
-    seat_match: adjacent_pain
-    leftover: no date-driven expiry tied to status change
-  - name: Clio Documents permissions
-    url: https://www.clio.com/features/legal-documents/
-    quote: "Set permissions to authorize specific access within your law firm."
-    seat_match: adjacent_pain
-    leftover: manual access control only, no automatic expiry schedule
-  - name: Clio Matter permissions
-    url: https://www.clio.com/features/legal-documents/
-    quote: "You can use Clio's user permissions to restrict access to specific users at the Matter level."
-    seat_match: adjacent_pain
-    leftover: restriction primitive only, no revocation log on close
-  - name: ShareFile retention
-    url: https://www.sharefile.com/
-    quote: "Enforce permissions, retention policies and audit trails"
-    seat_match: adjacent_pain
-    leftover: generic retention, no matter-close trigger mapping
-  - name: ShareFile revoke gap
-    url: https://www.sharefile.com/product-feature/client-portal
-    quote: "Confidential documents can linger in inboxes without encryption, access controls or a way to revoke permissions."
-    seat_match: adjacent_pain
-    leftover: names the linger problem, ships no status-driven revoker
-  - name: Box access policies
-    url: https://www.box.com/shield
-    quote: "Configure access policies within minutes to keep your data secure while letting people continue their mission-critical work."
-    seat_match: adjacent_pain
-    leftover: policy builder only, no portal link lifecycle by matter date
-auto_rejects_fired: []
+- name: Clio for Clients
+  url: https://www.clio.com/features/client-portal/
+  quote: Clio for Clients is a portal designed for legal clients to securely communicate and share information
+    with their lawyer.
+  seat_match: adjacent_pain
+  leftover: no date-driven expiry tied to status change
+- name: Clio Documents permissions
+  url: https://www.clio.com/features/legal-documents/
+  quote: Set permissions to authorize specific access within your law firm.
+  seat_match: adjacent_pain
+  leftover: manual access control only, no automatic expiry schedule
+- name: Clio Matter permissions
+  url: https://www.clio.com/features/legal-documents/
+  quote: You can use Clio's user permissions to restrict access to specific users at the Matter level.
+  seat_match: adjacent_pain
+  leftover: restriction primitive only, no revocation log on close
+- name: ShareFile retention
+  url: https://www.sharefile.com/
+  quote: Enforce permissions, retention policies and audit trails
+  seat_match: adjacent_pain
+  leftover: generic retention, no matter-close trigger mapping
+- name: ShareFile revoke gap
+  url: https://www.sharefile.com/product-feature/client-portal
+  quote: Confidential documents can linger in inboxes without encryption, access controls or a way to
+    revoke permissions.
+  seat_match: adjacent_pain
+  leftover: names the linger problem, ships no status-driven revoker
+- name: Box access policies
+  url: https://www.box.com/shield
+  quote: Configure access policies within minutes to keep your data secure while letting people continue
+    their mission-critical work.
+  seat_match: adjacent_pain
+  leftover: policy builder only, no portal link lifecycle by matter date
+auto_rejects_fired:
+- 5
+- 7
 falsification:
-  1_vacant_process: pass
-  2_not_a_wrapper: pass
-  3_mechanical_gap: pass
+  1_vacant_process: fail
+  2_not_a_wrapper: fail
+  3_mechanical_gap: fail
 steelman:
   occupancy_ceiling: 4
-  why_build: Stale portal links after close are a breach queue; status-driven
-    revocation with timeline proof is enforcement Clio leaves manual.
+  why_build: Stale portal links after close are a breach queue; status-driven revocation with timeline
+    proof is enforcement Clio leaves manual.
 claim_hygiene: ok
-file_on: none
-keep_gate: pass
+file_on: https://www.clio.com/features/client-portal/
+keep_gate: fail
 deny_catalog: embedded_saas_baseline
+search_classes:
+  sor_primitive: Clio cloud client portal and document sharing native docs
+  dropin_addon: Clio cloud marketplace app client portal and document sharing write path
+  commercial_sku: client portal and document sharing automation Clio cloud
+  tracker_leftover: Clio cloud client portal and document sharing fail points workaround feature request
+audit:
+  by: keep-gate audit (PR14 + gate-bind-saas G1-G9)
+  result: not pitchable as company; filed as Occupied/file_on
+  keep_gate: fail

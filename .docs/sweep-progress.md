@@ -9,8 +9,17 @@ Stop when `keeps >= 3` OR `researched >= 1000`.
 ## Counter (sweep 1 + catch-up + waves 2-5)
 
 - Researched: **294** cards
-- Keeps: **31** (provisional, subagent-scored, spot-verified)
-- Drops: **263** (mostly Occupied / file_on native primitive)
+- Keeps: **0 pitchable** (31 provisional keeps invalidated by keep-gate audit; see audit note)
+- Filed/ drops: **294** (all Occupied / file_on after audit)
+- 7 name-only keeps were never keeps (no emitted card per output-template-saas.md)
+
+> Audit (keep-gate G1-G9): all 24 `.idea/` cards missed `search_classes`
+> (G2 fail), saas-01/02/03 had <5 incumbents with two rows from one SoR URL,
+> and leftovers naming the SoR shipped with `file_on: none` (G3 fail).
+> Corrected to `keep_gate: fail`, `as_company` Occupied 6 (6.5 for the three
+> PR #14-audited seats), auto-rejects [5] (+[7] for sidecars with no
+> write-time consult), falsification 1/2/3 fail, `file_on` set to the SoR
+> primitive. Do not found as companies.
 
 | SoR | cards | keeps |
 | --- | ---: | ---: |
