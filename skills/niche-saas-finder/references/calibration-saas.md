@@ -111,6 +111,30 @@ Labeling the workaround `adjacent_pain` so density can be 0. Stamping
 `keep_gate: pass` with two incumbents. Recording a tracker "keep"
 without emitting a card.
 
+## Sidecar without write-time consult
+
+### Nightly job / standalone ledger outside the SoR
+
+**Claim:** Sparse 3. A nightly diff job, standalone plan/ledger
+builder, or matcher that lives outside the SoR (payroll true-up
+ledger, spiff-version store, draw ledger, payout matcher, photo
+scope-to-estimate draft) is a vacant company seat because the SoR
+has no native version of it.
+
+**Correct:** Auto-reject 7 plus auto-reject 5. No fetched SoR
+write-path page consults the sidecar at save/post/checkout, so the
+wedge is "add this to incumbent X" (SoR report, marketplace sync,
+payroll-provider import), not a company. Skipping the write-path
+fetch attempt fires the reject; it never exempts the seat.
+
+**Disposition:** `file_on` the SoR primitive or the marketplace
+sync SKU. `as_company` Occupied.
+
+**Mistake to avoid:** Scoring "the SoR cannot do this natively" as
+vacancy while the v1 never touches the SoR write path. Counting
+standalone-sidecar mechanics as `exact_mechanics_density` for a
+seat named on the SoR.
+
 ## Labeling notes (do not generalize into new seeds)
 
 These are seat-match reminders, not generation seeds and not extra
